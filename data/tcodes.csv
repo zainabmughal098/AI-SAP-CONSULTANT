@@ -1,0 +1,1001 @@
+tcode,title,module,purpose,description,business_process,related_tables,related_tcodes,common_errors,authorization_objects,keywords
+VA01,Create Sales Order,SD,Create customer sales order,Creates a sales order,Order Management,VBAK;VBAP,VA02;VA03,Sales area missing,V_VBAK_VKO,sales order
+VA02,Change Sales Order,SD,Modify sales order,Changes existing sales order,Order Management,VBAK;VBAP,VA01;VA03,Document locked,V_VBAK_VKO,change order
+VA03,Display Sales Order,SD,Display sales order,Displays sales order,Order Management,VBAK;VBAP,VA01;VA02,Authorization missing,V_VBAK_VKO,display order
+ME21N,Create Purchase Order,MM,Create purchase order,Creates PO,Procurement,EKKO;EKPO,ME22N;ME23N,Vendor missing,M_BEST_BSA,purchase order
+ME22N,Change Purchase Order,MM,Modify purchase order,Changes PO,Procurement,EKKO;EKPO,ME21N;ME23N,Release pending,M_BEST_BSA,change PO
+ME23N,Display Purchase Order,MM,Display purchase order,Displays PO,Procurement,EKKO;EKPO,ME21N;ME22N,Authorization missing,M_BEST_BSA,display PO
+MIGO,Goods Movement,MM,Goods receipt/issues,Posts goods movement,Inventory,MKPF;MSEG,MIRO,Stock issue,M_MSEG_BWA,goods movement
+MIRO,Invoice Verification,MM,Post invoice,Processes vendor invoice,Invoice,RBKP;RSEG,MIGO,GR missing,M_RECH_WRK,invoice
+VL01N,Create Delivery,SD,Create delivery,Creates outbound delivery,Shipping,LIKP;LIPS,VL02N,Shipping point missing,V_LIKP_VST,delivery
+VL02N,Change Delivery,SD,Update delivery,Changes delivery,Shipping,LIKP;LIPS,VL01N,PGI pending,V_LIKP_VST,delivery change
+ZWM0010,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0011,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0012,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0013,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0014,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0015,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0016,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0017,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0018,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0019,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0020,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0021,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0022,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0023,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0024,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0025,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0026,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0027,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0028,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0029,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0030,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0031,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0032,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0033,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0034,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0035,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0036,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0037,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0038,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0039,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0040,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0041,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0042,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0043,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0044,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0045,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0046,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0047,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0048,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0049,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0050,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0051,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0052,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0053,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0054,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0055,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0056,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0057,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0058,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0059,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0060,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0061,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0062,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0063,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0064,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0065,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0066,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0067,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0068,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0069,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0070,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0071,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0072,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0073,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0074,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0075,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0076,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0077,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0078,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0079,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0080,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0081,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0082,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0083,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0084,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0085,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0086,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0087,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0088,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0089,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0090,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0091,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0092,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0093,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0094,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0095,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0096,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0097,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0098,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0099,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0100,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0101,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0102,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0103,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0104,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0105,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0106,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0107,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0108,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0109,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0110,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0111,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0112,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0113,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0114,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0115,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0116,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0117,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0118,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0119,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0120,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0121,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0122,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0123,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0124,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0125,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0126,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0127,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0128,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0129,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0130,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0131,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0132,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0133,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0134,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0135,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0136,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0137,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0138,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0139,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0140,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0141,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0142,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0143,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0144,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0145,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0146,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0147,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0148,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0149,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0150,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0151,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0152,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0153,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0154,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0155,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0156,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0157,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0158,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0159,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0160,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0161,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0162,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0163,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0164,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0165,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0166,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0167,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0168,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0169,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0170,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0171,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0172,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0173,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0174,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0175,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0176,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0177,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0178,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0179,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0180,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0181,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0182,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0183,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0184,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0185,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0186,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0187,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0188,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0189,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0190,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0191,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0192,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0193,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0194,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0195,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0196,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0197,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0198,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0199,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0200,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0201,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0202,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0203,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0204,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0205,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0206,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0207,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0208,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0209,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0210,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0211,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0212,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0213,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0214,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0215,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0216,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0217,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0218,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0219,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0220,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0221,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0222,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0223,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0224,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0225,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0226,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0227,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0228,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0229,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0230,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0231,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0232,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0233,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0234,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0235,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0236,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0237,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0238,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0239,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0240,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0241,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0242,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0243,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0244,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0245,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0246,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0247,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0248,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0249,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0250,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0251,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0252,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0253,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0254,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0255,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0256,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0257,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0258,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0259,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0260,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0261,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0262,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0263,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0264,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0265,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0266,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0267,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0268,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0269,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0270,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0271,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0272,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0273,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0274,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0275,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0276,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0277,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0278,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0279,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0280,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0281,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0282,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0283,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0284,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0285,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0286,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0287,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0288,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0289,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0290,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0291,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0292,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0293,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0294,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0295,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0296,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0297,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0298,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0299,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0300,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0301,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0302,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0303,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0304,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0305,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0306,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0307,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0308,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0309,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0310,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0311,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0312,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0313,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0314,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0315,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0316,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0317,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0318,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0319,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0320,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0321,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0322,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0323,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0324,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0325,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0326,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0327,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0328,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0329,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0330,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0331,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0332,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0333,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0334,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0335,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0336,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0337,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0338,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0339,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0340,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0341,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0342,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0343,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0344,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0345,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0346,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0347,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0348,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0349,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0350,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0351,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0352,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0353,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0354,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0355,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0356,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0357,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0358,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0359,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0360,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0361,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0362,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0363,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0364,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0365,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0366,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0367,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0368,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0369,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0370,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0371,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0372,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0373,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0374,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0375,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0376,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0377,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0378,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0379,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0380,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0381,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0382,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0383,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0384,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0385,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0386,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0387,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0388,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0389,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0390,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0391,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0392,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0393,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0394,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0395,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0396,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0397,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0398,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0399,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0400,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0401,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0402,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0403,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0404,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0405,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0406,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0407,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0408,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0409,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0410,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0411,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0412,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0413,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0414,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0415,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0416,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0417,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0418,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0419,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0420,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0421,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0422,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0423,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0424,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0425,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0426,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0427,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0428,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0429,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0430,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0431,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0432,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0433,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0434,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0435,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0436,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0437,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0438,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0439,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0440,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0441,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0442,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0443,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0444,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0445,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0446,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0447,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0448,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0449,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0450,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0451,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0452,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0453,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0454,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0455,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0456,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0457,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0458,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0459,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0460,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0461,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0462,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0463,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0464,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0465,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0466,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0467,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0468,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0469,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0470,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0471,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0472,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0473,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0474,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0475,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0476,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0477,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0478,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0479,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0480,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0481,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0482,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0483,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0484,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0485,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0486,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0487,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0488,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0489,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0490,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0491,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0492,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0493,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0494,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0495,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0496,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0497,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0498,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0499,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0500,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0501,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0502,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0503,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0504,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0505,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0506,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0507,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0508,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0509,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0510,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0511,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0512,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0513,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0514,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0515,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0516,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0517,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0518,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0519,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0520,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0521,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0522,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0523,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0524,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0525,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0526,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0527,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0528,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0529,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0530,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0531,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0532,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0533,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0534,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0535,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0536,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0537,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0538,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0539,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0540,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0541,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0542,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0543,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0544,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0545,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0546,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0547,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0548,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0549,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0550,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0551,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0552,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0553,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0554,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0555,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0556,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0557,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0558,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0559,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0560,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0561,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0562,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0563,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0564,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0565,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0566,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0567,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0568,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0569,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0570,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0571,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0572,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0573,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0574,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0575,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0576,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0577,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0578,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0579,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0580,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0581,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0582,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0583,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0584,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0585,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0586,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0587,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0588,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0589,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0590,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0591,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0592,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0593,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0594,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0595,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0596,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0597,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0598,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0599,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0600,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0601,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0602,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0603,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0604,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0605,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0606,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0607,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0608,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0609,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0610,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0611,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0612,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0613,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0614,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0615,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0616,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0617,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0618,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0619,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0620,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0621,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0622,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0623,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0624,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0625,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0626,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0627,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0628,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0629,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0630,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0631,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0632,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0633,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0634,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0635,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0636,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0637,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0638,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0639,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0640,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0641,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0642,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0643,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0644,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0645,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0646,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0647,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0648,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0649,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0650,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0651,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0652,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0653,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0654,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0655,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0656,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0657,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0658,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0659,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0660,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0661,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0662,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0663,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0664,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0665,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0666,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0667,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0668,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0669,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0670,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0671,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0672,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0673,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0674,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0675,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0676,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0677,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0678,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0679,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0680,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0681,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0682,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0683,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0684,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0685,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0686,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0687,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0688,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0689,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0690,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0691,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0692,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0693,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0694,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0695,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0696,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0697,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0698,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0699,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0700,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0701,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0702,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0703,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0704,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0705,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0706,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0707,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0708,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0709,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0710,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0711,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0712,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0713,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0714,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0715,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0716,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0717,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0718,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0719,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0720,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0721,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0722,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0723,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0724,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0725,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0726,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0727,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0728,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0729,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0730,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0731,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0732,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0733,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0734,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0735,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0736,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0737,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0738,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0739,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0740,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0741,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0742,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0743,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0744,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0745,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0746,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0747,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0748,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0749,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0750,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0751,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0752,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0753,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0754,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0755,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0756,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0757,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0758,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0759,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0760,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0761,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0762,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0763,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0764,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0765,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0766,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0767,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0768,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0769,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0770,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0771,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0772,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0773,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0774,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0775,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0776,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0777,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0778,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0779,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0780,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0781,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0782,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0783,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0784,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0785,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0786,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0787,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0788,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0789,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0790,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0791,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0792,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0793,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0794,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0795,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0796,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0797,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0798,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0799,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0800,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0801,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0802,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0803,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0804,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0805,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0806,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0807,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0808,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0809,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0810,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0811,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0812,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0813,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0814,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0815,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0816,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0817,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0818,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0819,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0820,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0821,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0822,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0823,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0824,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0825,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0826,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0827,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0828,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0829,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0830,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0831,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0832,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0833,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0834,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0835,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0836,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0837,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0838,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0839,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0840,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0841,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0842,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0843,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0844,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0845,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0846,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0847,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0848,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0849,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0850,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0851,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0852,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0853,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0854,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0855,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0856,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0857,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0858,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0859,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0860,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0861,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0862,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0863,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0864,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0865,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0866,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0867,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0868,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0869,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0870,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0871,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0872,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0873,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0874,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0875,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0876,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0877,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0878,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0879,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0880,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0881,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0882,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0883,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0884,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0885,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0886,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0887,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0888,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0889,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0890,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0891,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0892,Configuration,PP,Execute configuration,Custom configuration transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0893,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0894,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0895,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0896,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0897,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0898,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0899,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0900,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0901,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0902,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0903,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0904,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0905,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0906,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0907,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0908,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0909,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0910,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0911,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZWM0912,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0913,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0914,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0915,Master Data,WM,Execute master data,Custom master data transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0916,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0917,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0918,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0919,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0920,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0921,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZPP0922,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0923,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0924,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZWM0925,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0926,Reporting,FI,Execute reporting,Custom reporting transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZFI0927,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0928,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0929,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZSD0930,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0931,Reporting,SD,Execute reporting,Custom reporting transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZMM0932,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0933,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0934,Business Function,FI,Execute business function,Custom business function transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0935,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0936,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0937,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0938,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0939,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0940,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZPP0941,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0942,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0943,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0944,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0945,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0946,Reporting,MM,Execute reporting,Custom reporting transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0947,Custom Transaction,SD,Execute custom transaction,Custom custom transaction transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0948,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0949,Configuration,QM,Execute configuration,Custom configuration transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0950,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0951,Configuration,WM,Execute configuration,Custom configuration transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZQM0952,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0953,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0954,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0955,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZFI0956,Master Data,FI,Execute master data,Custom master data transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0957,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0958,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0959,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0960,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZFI0961,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZSD0962,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZSD0963,Master Data,SD,Execute master data,Custom master data transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZPP0964,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0965,Business Function,MM,Execute business function,Custom business function transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0966,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZFI0967,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZPP0968,Reporting,PP,Execute reporting,Custom reporting transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZMM0969,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZSD0970,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0971,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0972,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZMM0973,Custom Transaction,MM,Execute custom transaction,Custom custom transaction transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0974,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0975,Business Function,WM,Execute business function,Custom business function transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZWM0976,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZMM0977,Master Data,MM,Execute master data,Custom master data transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZMM0978,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZWM0979,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZFI0980,Configuration,FI,Execute configuration,Custom configuration transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0981,Business Function,QM,Execute business function,Custom business function transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0982,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZFI0983,Custom Transaction,FI,Execute custom transaction,Custom custom transaction transaction for FI.,Business Process,ZTABLE1;ZTABLE2,,,,fi
+ZQM0984,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZSD0985,Business Function,SD,Execute business function,Custom business function transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0986,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0987,Business Function,PP,Execute business function,Custom business function transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0988,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0989,Custom Transaction,WM,Execute custom transaction,Custom custom transaction transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZPP0990,Master Data,PP,Execute master data,Custom master data transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZWM0991,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm
+ZSD0992,Configuration,SD,Execute configuration,Custom configuration transaction for SD.,Business Process,ZTABLE1;ZTABLE2,,,,sd
+ZQM0993,Reporting,QM,Execute reporting,Custom reporting transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZPP0994,Custom Transaction,PP,Execute custom transaction,Custom custom transaction transaction for PP.,Business Process,ZTABLE1;ZTABLE2,,,,pp
+ZQM0995,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZMM0996,Configuration,MM,Execute configuration,Custom configuration transaction for MM.,Business Process,ZTABLE1;ZTABLE2,,,,mm
+ZQM0997,Custom Transaction,QM,Execute custom transaction,Custom custom transaction transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZQM0998,Master Data,QM,Execute master data,Custom master data transaction for QM.,Business Process,ZTABLE1;ZTABLE2,,,,qm
+ZWM0999,Reporting,WM,Execute reporting,Custom reporting transaction for WM.,Business Process,ZTABLE1;ZTABLE2,,,,wm

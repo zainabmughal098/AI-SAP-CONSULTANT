@@ -1,0 +1,9 @@
+term,full_form,description,module
+ATP,Available to Promise,Availability check,SD/MM
+PGI,Post Goods Issue,Goods issue posting,SD
+GR,Goods Receipt,Receipt of goods,MM
+PO,Purchase Order,Procurement document,MM
+PR,Purchase Requisition,Purchase request,MM
+SO,Sales Order,Sales document,SD
+GI,Goods Issue,Stock issue,MM
+BOM,Bill of Materials,Production structure,PP

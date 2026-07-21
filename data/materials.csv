@@ -1,0 +1,61 @@
+material_id,material_name,category,supplier,unit_price
+MAT001,Material 1,Hardware,Global Parts,2131
+MAT002,Material 2,Hardware,Industrial Hub,1210
+MAT003,Material 3,Hardware,Global Parts,4122
+MAT004,Material 4,Electronics,Prime Metals,4038
+MAT005,Material 5,Hardware,Tech Solutions,3586
+MAT006,Material 6,Electronics,Tech Solutions,3241
+MAT007,Material 7,Hardware,Global Parts,4504
+MAT008,Material 8,Packaging,Prime Metals,1129
+MAT009,Material 9,Hardware,Prime Metals,2720
+MAT010,Material 10,Hardware,Tech Solutions,704
+MAT011,Material 11,Raw Material,ABC Suppliers,1818
+MAT012,Material 12,Raw Material,Global Parts,2869
+MAT013,Material 13,Raw Material,Global Parts,4302
+MAT014,Material 14,Raw Material,Industrial Hub,4813
+MAT015,Material 15,Hardware,ABC Suppliers,4832
+MAT016,Material 16,Electronics,Global Parts,506
+MAT017,Material 17,Hardware,Tech Solutions,1611
+MAT018,Material 18,Electronics,ABC Suppliers,522
+MAT019,Material 19,Raw Material,Tech Solutions,1822
+MAT020,Material 20,Packaging,Global Parts,1603
+MAT021,Material 21,Packaging,ABC Suppliers,2379
+MAT022,Material 22,Hardware,ABC Suppliers,1105
+MAT023,Material 23,Packaging,Global Parts,357
+MAT024,Material 24,Raw Material,ABC Suppliers,3126
+MAT025,Material 25,Hardware,Global Parts,320
+MAT026,Material 26,Hardware,Global Parts,3231
+MAT027,Material 27,Hardware,Prime Metals,2340
+MAT028,Material 28,Packaging,Industrial Hub,3487
+MAT029,Material 29,Packaging,Prime Metals,4095
+MAT030,Material 30,Electronics,ABC Suppliers,641
+MAT031,Material 31,Electronics,Global Parts,3331
+MAT032,Material 32,Hardware,Tech Solutions,928
+MAT033,Material 33,Raw Material,ABC Suppliers,4120
+MAT034,Material 34,Electronics,Industrial Hub,162
+MAT035,Material 35,Electronics,Industrial Hub,1173
+MAT036,Material 36,Packaging,Tech Solutions,4676
+MAT037,Material 37,Electronics,Prime Metals,2900
+MAT038,Material 38,Electronics,Global Parts,1467
+MAT039,Material 39,Electronics,Prime Metals,1712
+MAT040,Material 40,Packaging,Tech Solutions,1506
+MAT041,Material 41,Packaging,Prime Metals,4015
+MAT042,Material 42,Electronics,ABC Suppliers,3585
+MAT043,Material 43,Raw Material,Prime Metals,2442
+MAT044,Material 44,Packaging,Global Parts,1956
+MAT045,Material 45,Packaging,Prime Metals,922
+MAT046,Material 46,Raw Material,Global Parts,4379
+MAT047,Material 47,Electronics,Tech Solutions,422
+MAT048,Material 48,Packaging,ABC Suppliers,357
+MAT049,Material 49,Packaging,Industrial Hub,1832
+MAT050,Material 50,Electronics,ABC Suppliers,4708
+MAT051,Material 51,Hardware,Global Parts,567
+MAT052,Material 52,Hardware,Industrial Hub,2669
+MAT053,Material 53,Packaging,Industrial Hub,4465
+MAT054,Material 54,Packaging,Industrial Hub,524
+MAT055,Material 55,Packaging,Tech Solutions,514
+MAT056,Material 56,Packaging,Tech Solutions,4752
+MAT057,Material 57,Electronics,Global Parts,4060
+MAT058,Material 58,Hardware,Industrial Hub,1411
+MAT059,Material 59,Packaging,Global Parts,1128
+MAT060,Material 60,Packaging,Industrial Hub,3244

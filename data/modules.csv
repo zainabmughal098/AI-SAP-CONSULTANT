@@ -1,0 +1,7 @@
+module,name,description,major_tcodes,major_tables
+MM,Materials Management,Procurement and inventory management,ME21N;MIGO;MIRO,EKKO;EKPO;MSEG
+SD,Sales and Distribution,"Sales, delivery and billing",VA01;VL01N;VF01,VBAK;VBAP;LIKP
+WM,Warehouse Management,Warehouse operations,LT01;LT10,LTAK;LTAP
+FI,Financial Accounting,General ledger and accounting,FB50;F-02,BKPF;BSEG
+PP,Production Planning,Manufacturing,CO01;CO02,AFKO;AFPO
+QM,Quality Management,Quality inspection,QA32;QE51N,QALS;QAVE
