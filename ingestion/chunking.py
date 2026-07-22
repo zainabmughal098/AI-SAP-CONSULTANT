@@ -1,6 +1,6 @@
 """Document chunking module."""
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200

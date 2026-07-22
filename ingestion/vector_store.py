@@ -6,6 +6,7 @@ import uuid
 from pinecone import Pinecone, ServerlessSpec
 
 EMBEDDING_DIMENSION = 384
+UPSERT_BATCH_SIZE = 100
 
 
 def get_index():
@@ -40,5 +41,7 @@ def store_chunks(chunks, embeddings):
             }
         )
 
-    index.upsert(vectors=vectors)
+    for i in range(0, len(vectors), UPSERT_BATCH_SIZE):
+        index.upsert(vectors=vectors[i : i + UPSERT_BATCH_SIZE])
+
     return len(vectors)
