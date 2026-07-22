@@ -1,0 +1,7 @@
+langchain
+langchain-community
+pypdf
+docx2txt
+sentence-transformers
+pinecone
+python-dotenv
