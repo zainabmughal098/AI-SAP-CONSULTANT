@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 2 - Semantic Retrieval Engine Report</title>
+  <style>
+    :root {
+      --ink: #10233d;
+      --muted: #5b677a;
+      --line: #d7deea;
+      --bg: #f5f7fb;
+      --accent: #0f5aa6;
+      --accent-soft: #e8f1fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: white;
+      line-height: 1.45;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 44px 56px;
+    }
+    .header {
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .title {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0.2px;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .section { margin-top: 20px; }
+    h2 {
+      font-size: 18px;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+    p, li {
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+      margin-top: 12px;
+    }
+    .field {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .field strong {
+      display: inline-block;
+      min-width: 165px;
+    }
+    .note {
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #edf4fc; }
+    pre {
+      background: #f6f8fb;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 12px;
+    }
+    .signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 44px;
+    }
+    .sig {
+      border-top: 1px solid #000;
+      padding-top: 8px;
+      min-height: 70px;
+      font-size: 13px;
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    @media print {
+      body { background: white; }
+      .page { padding: 32px 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1 class="title">Task 2 Report: Semantic Retrieval Engine</h1>
+      <p class="subtitle">AI-SAP-CONSULTANT Internship Project</p>
+    </div>
+
+    <div class="section">
+      <h2>Internship Details</h2>
+      <div class="grid">
+        <div class="field"><strong>Intern Name:</strong> ____________________</div>
+        <div class="field"><strong>Student ID:</strong> ____________________</div>
+        <div class="field"><strong>Host Organization:</strong> AI-SAP-CONSULTANT Project</div>
+        <div class="field"><strong>Reporting Period (From–To):</strong> ____________________</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Task Objective</h2>
+      <p>
+        The objective of Task 2 was to develop the retrieval stage of the RAG pipeline.
+        This component accepts a natural language SAP query, converts it into an embedding,
+        searches the Pinecone vector database, ranks the best matching records, and builds
+        a combined retrieval context for later use by an LLM.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>What Was Implemented</h2>
+      <ul>
+        <li>Query processing module to clean and validate user input.</li>
+        <li>Embedding generation using the same SentenceTransformer model as Task 1.</li>
+        <li>Pinecone retrieval module for semantic vector search.</li>
+        <li>Metadata filtering support for fields such as Module and Document Type.</li>
+        <li>Result ranking based on similarity score.</li>
+        <li>Context builder to merge retrieved records into a single prompt-ready context.</li>
+        <li>Logging for query, embedding generation, search time, result count, similarity scores, and context size.</li>
+        <li>Error handling for empty queries, missing metadata, and retrieval failures.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Project Structure Created</h2>
+      <pre>rag/
+├── retriever/
+│   ├── query_processor.py
+│   ├── retriever.py
+│   └── context_builder.py
+├── pinecone/
+├── config/
+└── main.py</pre>
+    </div>
+
+    <div class="section">
+      <h2>How the Retrieval Engine Works</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 18%;">Step</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>User Query</td>
+            <td>The user enters a SAP-related question like “Explain ME21N” or “Purchase Order release failed.”</td>
+          </tr>
+          <tr>
+            <td>Query Preprocessing</td>
+            <td>The query is cleaned by trimming extra spaces and validating that it is not empty.</td>
+          </tr>
+          <tr>
+            <td>Embedding Generation</td>
+            <td>The same embedding model used in indexing creates a vector for the query.</td>
+          </tr>
+          <tr>
+            <td>Pinecone Search</td>
+            <td>The query vector is used to search Pinecone with top-k similarity retrieval.</td>
+          </tr>
+          <tr>
+            <td>Ranking and Filtering</td>
+            <td>Returned matches are sorted by similarity score and optionally filtered by metadata such as module or document type.</td>
+          </tr>
+          <tr>
+            <td>Context Builder</td>
+            <td>The best matches are merged into a single retrieved context block that can be given to an LLM later.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Testing and Sample Output</h2>
+      <p>
+        I tested the retrieval engine using commands such as <strong>Explain ME21N</strong> and a filtered query like
+        <strong>Purchase Order release failed</strong> with Module = MM.
+      </p>
+      <p>
+        The output is structured JSON. A successful response includes the query, ranked results, metadata, and built context.
+      </p>
+      <pre>{
+  "query": "Explain ME21N",
+  "filters": null,
+  "top_k": 5,
+  "results": [
+    {
+      "score": 0.3375,
+      "source_file": "tcodes.csv",
+      "document_type": "csv",
+      "module": "MM",
+      "title": "Create Purchase Order",
+      "content": "..."
+    }
+  ],
+  "context": "...",
+  "context_size": 2104,
+  "execution_time_seconds": 13.9741
+}</pre>
+    </div>
+
+    <div class="section">
+      <h2>Key Learnings</h2>
+      <ul>
+        <li>How semantic retrieval works in a RAG pipeline.</li>
+        <li>How to reuse the same embedding model during indexing and query time.</li>
+        <li>How metadata filters improve search relevance.</li>
+        <li>How to combine retrieved documents into a prompt-ready context.</li>
+        <li>How to log retrieval steps for debugging and performance monitoring.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Conclusion</h2>
+      <p>
+        Task 2 completed the retrieval layer of the AI-SAP-CONSULTANT project. The system can now accept SAP queries,
+        search the Pinecone vector store, rank the best matching records, and return structured retrieval context for
+        the next RAG stage.
+      </p>
+    </div>
+
+    <div class="signatures">
+      <div class="sig">
+        Site Supervisor Signature
+        <div class="small">Name: ____________________</div>
+        <div class="small">Date: ____________________</div>
+      </div>
+      <div class="sig">
+        Faculty Supervisor Signature
+        <div class="small">Name: ____________________</div>
+        <div class="small">Date: ____________________</div>
+      </div>
+    </div>
+
+    <div class="note">
+      This report is prepared from the implemented Task 2 retrieval engine in the current workspace.
+    </div>
+  </div>
+</body>
+</html>
