@@ -71,6 +71,22 @@ Chat commands:
 - `reset` clears conversation memory
 - `exit` or `quit` ends the session
 
+## Run the web UI
+
+Start the server and open the Gemini-style chat interface in your browser:
+
+```bash
+uvicorn api.main:app --reload --port 8000
+```
+
+Then visit [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+Features:
+- Dark animated background
+- Streaming grounded responses
+- Multi-turn conversation memory via session id
+- Recent chats stored locally in the browser
+
 ## Run the API server
 
 ```bash
