@@ -10,7 +10,10 @@ _model = None
 def get_model():
     global _model
     if _model is None:
-        _model = SentenceTransformer(MODEL_NAME)
+        try:
+            _model = SentenceTransformer(MODEL_NAME, local_files_only=True)
+        except Exception:
+            _model = SentenceTransformer(MODEL_NAME)
     return _model
 
 

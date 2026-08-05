@@ -47,3 +47,12 @@ class QueryProcessor:
                 normalized[normalized_key] = value
 
         return normalized or None
+
+    def to_pinecone_filter(self, filters: dict[str, Any] | None) -> dict[str, Any] | None:
+        if not filters:
+            return None
+
+        clauses = [{key: {"$eq": value}} for key, value in filters.items()]
+        if len(clauses) == 1:
+            return clauses[0]
+        return {"$and": clauses}

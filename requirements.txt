@@ -1,7 +1,13 @@
 langchain
 langchain-community
+langchain-text-splitters
 pypdf
 docx2txt
 sentence-transformers
 pinecone
 python-dotenv
+groq
+fastapi
+uvicorn
+pytest
+httpx

@@ -103,6 +103,19 @@ class SemanticRetriever:
 
         return True
 
+    def _dedupe_results(self, results: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        seen: set[str] = set()
+        unique: list[dict[str, Any]] = []
+
+        for result in results:
+            dedupe_key = result.get("id") or f"{result.get('source_file')}::{result.get('content')}"
+            if dedupe_key in seen:
+                continue
+            seen.add(dedupe_key)
+            unique.append(result)
+
+        return unique
+
     def retrieve(
         self,
         query: str | None,
@@ -124,6 +137,7 @@ class SemanticRetriever:
             }
 
         normalized_filters = self.query_processor.normalize_filters(filters)
+        pinecone_filter = self.query_processor.to_pinecone_filter(normalized_filters)
         effective_top_k = max(1, top_k or self.settings.top_k)
 
         try:
@@ -135,7 +149,7 @@ class SemanticRetriever:
             response = self.pinecone_client.query(
                 embedding=embedding,
                 top_k=effective_top_k,
-                metadata_filter=normalized_filters,
+                metadata_filter=pinecone_filter,
             )
             search_duration = time.perf_counter() - search_start
 
@@ -146,6 +160,7 @@ class SemanticRetriever:
 
             results = [self._normalize_match(match) for match in raw_matches]
             results.sort(key=lambda item: item["score"], reverse=True)
+            results = self._dedupe_results(results)
 
             if normalized_filters and not results:
                 fallback_start = time.perf_counter()
@@ -162,7 +177,10 @@ class SemanticRetriever:
                 fallback_results = [self._normalize_match(match) for match in fallback_matches]
                 results = [result for result in fallback_results if self._matches_filters(result, normalized_filters)]
                 results.sort(key=lambda item: item["score"], reverse=True)
+                results = self._dedupe_results(results)[:effective_top_k]
                 logger.info("Fallback search execution time: %.3fs", fallback_duration)
+            else:
+                results = results[:effective_top_k]
 
             context = self.context_builder.build(results)
             context_size = len(context)

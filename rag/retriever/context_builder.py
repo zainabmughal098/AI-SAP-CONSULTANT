@@ -17,10 +17,17 @@ class ContextBuilder:
 
         for position, result in enumerate(results, start=1):
             metadata = result.get("metadata") or {}
-            title = metadata.get("title") or metadata.get("tcode") or metadata.get("source_file") or "Unknown"
-            document_type = metadata.get("document_type") or "unknown"
-            module = metadata.get("module") or "unknown"
-            source_file = metadata.get("source_file") or metadata.get("filename") or "unknown"
+            title = (
+                result.get("title")
+                or metadata.get("title")
+                or metadata.get("tcode")
+                or metadata.get("identifier")
+                or metadata.get("source_file")
+                or "Unknown"
+            )
+            document_type = result.get("document_type") or metadata.get("document_type") or "unknown"
+            module = result.get("module") or metadata.get("module") or "unknown"
+            source_file = result.get("source_file") or metadata.get("source_file") or metadata.get("filename") or "unknown"
             content = result.get("content") or metadata.get("text") or ""
             score = result.get("score")
             score_text = f"{score:.4f}" if isinstance(score, (int, float)) else "unknown"
