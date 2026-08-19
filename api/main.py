@@ -39,6 +39,8 @@ class ChatResponse(BaseModel):
     history_length: int = 0
     execution_time_seconds: float | None = None
     error: str | None = None
+    intent: str | None = None
+    phase: str | None = None
 
 
 def get_active_consultant(session_id: str | None) -> SAPConsultant:
@@ -46,7 +48,13 @@ def get_active_consultant(session_id: str | None) -> SAPConsultant:
         session_id=session_id,
         max_turns=settings.max_history_turns,
     )
-    return SAPConsultant(settings=settings, session_store=consultant.session_store, memory=session)
+    return SAPConsultant(
+        settings=settings,
+        session_store=consultant.session_store,
+        diagnosis_store=consultant.diagnosis_store,
+        diagnosis_manager=consultant.diagnosis_manager,
+        memory=session,
+    )
 
 
 @app.get("/health")
@@ -71,7 +79,7 @@ def chat(request: ChatRequest) -> ChatResponse:
     if payload.get("error") and not payload.get("answer"):
         raise HTTPException(status_code=400, detail=payload["error"])
 
-    return ChatResponse(**payload)
+    return ChatResponse(**{k: v for k, v in payload.items() if k in ChatResponse.model_fields})
 
 
 @app.post("/chat/stream")
@@ -99,14 +107,18 @@ def chat_stream(request: ChatRequest) -> StreamingResponse:
 
 @app.post("/sessions/{session_id}/reset")
 def reset_session(session_id: str) -> dict[str, str]:
-    if not consultant.session_store.clear(session_id):
+    cleared = consultant.session_store.clear(session_id)
+    consultant.diagnosis_manager.clear_session(session_id)
+    if not cleared:
         raise HTTPException(status_code=404, detail="Session not found")
     return {"status": "reset", "session_id": session_id}
 
 
 @app.delete("/sessions/{session_id}")
 def delete_session(session_id: str) -> dict[str, str]:
-    if not consultant.session_store.delete(session_id):
+    deleted = consultant.session_store.delete(session_id)
+    consultant.diagnosis_manager.delete_session(session_id)
+    if not deleted:
         raise HTTPException(status_code=404, detail="Session not found")
     return {"status": "deleted", "session_id": session_id}
 

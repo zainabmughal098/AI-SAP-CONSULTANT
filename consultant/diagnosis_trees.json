@@ -1,0 +1,214 @@
+[
+  {
+    "id": "po_release",
+    "intent": "Purchase Order Release",
+    "match_keywords": [
+      "purchase order",
+      "po release",
+      "not releasing",
+      "isn't releasing",
+      "isnt releasing",
+      "me29n",
+      "release strategy",
+      "release group",
+      "release code",
+      "po not release"
+    ],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "release_group",
+      "release_code"
+    ],
+    "questions": {
+      "transaction": "Which transaction are you using?",
+      "error_message": "What is the exact error message?",
+      "po_created": "Is the Purchase Order already created?",
+      "release_group": "Which Release Group is assigned?",
+      "release_code": "Which Release Code is assigned?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "Purchase Order",
+      "Release Strategy",
+      "ME29N"
+    ]
+  },
+  {
+    "id": "goods_receipt",
+    "intent": "Goods Receipt Failed",
+    "match_keywords": [
+      "goods receipt",
+      "gr failed",
+      "cannot post gr",
+      "migo",
+      "deficit of stock",
+      "gr cannot",
+      "post goods receipt"
+    ],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "po_number",
+      "material"
+    ],
+    "questions": {
+      "transaction": "Which transaction are you using (e.g. MIGO)?",
+      "error_message": "What is the exact error message?",
+      "po_number": "What is the Purchase Order number?",
+      "material": "Which material or material number is involved?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "Goods Receipt",
+      "MIGO",
+      "Stock"
+    ]
+  },
+  {
+    "id": "sales_order",
+    "intent": "Sales Order Issues",
+    "match_keywords": [
+      "sales order",
+      "va01",
+      "va02",
+      "va03",
+      "order not visible",
+      "cannot find sales order",
+      "sales area"
+    ],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "sales_area",
+      "order_number"
+    ],
+    "questions": {
+      "transaction": "Which transaction are you using (e.g. VA01, VA03)?",
+      "error_message": "What is the exact error message or symptom?",
+      "sales_area": "Which sales area (Sales Org / Dist. Channel / Division) are you using?",
+      "order_number": "Do you have a sales order number? If yes, what is it?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "Sales Order",
+      "Sales Area",
+      "VA01"
+    ]
+  },
+  {
+    "id": "delivery_creation",
+    "intent": "Delivery Creation Failed",
+    "match_keywords": [
+      "delivery",
+      "vl01n",
+      "delivery not created",
+      "shipping point",
+      "cannot create delivery",
+      "outbound delivery"
+    ],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "shipping_point",
+      "sales_order"
+    ],
+    "questions": {
+      "transaction": "Which transaction are you using (e.g. VL01N)?",
+      "error_message": "What is the exact error message?",
+      "shipping_point": "Is a shipping point determined? Which one?",
+      "sales_order": "What is the related sales order number?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "Delivery Creation",
+      "Shipping Point",
+      "VL01N"
+    ]
+  },
+  {
+    "id": "invoice_posting",
+    "intent": "Invoice Posting Error",
+    "match_keywords": [
+      "invoice",
+      "fb60",
+      "miro",
+      "g/l account",
+      "gl account",
+      "invoice not posted",
+      "posting error",
+      "account determination"
+    ],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "company_code",
+      "account"
+    ],
+    "questions": {
+      "transaction": "Which transaction are you using (e.g. FB60, MIRO)?",
+      "error_message": "What is the exact error message?",
+      "company_code": "Which company code are you posting in?",
+      "account": "Which G/L account or vendor is involved?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "Invoice Posting",
+      "G/L Account",
+      "Account Determination"
+    ]
+  },
+  {
+    "id": "authorization",
+    "intent": "Authorization Issue",
+    "match_keywords": [
+      "authorization",
+      "no authorization",
+      "not authorized",
+      "su53",
+      "missing authorization",
+      "auth object",
+      "access denied"
+    ],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "user_id",
+      "su53_object"
+    ],
+    "questions": {
+      "transaction": "Which transaction or activity were you trying to perform?",
+      "error_message": "What is the exact authorization error message?",
+      "user_id": "What is the SAP user ID experiencing the issue?",
+      "su53_object": "What does SU53 show (authorization object / field)?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "Authorization",
+      "SU53",
+      "PFCG"
+    ]
+  },
+  {
+    "id": "generic_issue",
+    "intent": "General SAP Issue",
+    "match_keywords": [],
+    "required_fields": [
+      "transaction",
+      "error_message",
+      "module",
+      "steps_taken"
+    ],
+    "questions": {
+      "transaction": "Which transaction are you using?",
+      "error_message": "What is the exact error message or unexpected behavior?",
+      "module": "Which SAP module is this related to (MM, SD, FI, etc.)?",
+      "steps_taken": "What steps have you already tried?"
+    },
+    "completion_condition": "all_required_fields",
+    "retrieval_terms": [
+      "SAP Issue",
+      "Troubleshooting"
+    ]
+  }
+]

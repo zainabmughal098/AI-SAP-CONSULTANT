@@ -5,13 +5,45 @@ This repository implements a grounded SAP consultant using a RAG pipeline:
 - Task 1: ingestion and Pinecone indexing
 - Task 2: semantic retrieval
 - Task 3: grounded LLM generation with multi-turn conversational memory
+- Task 4: human-in-the-loop interactive diagnosis for SAP issues
 
 ## What it does
 
 - Accepts natural language SAP questions
-- Retrieves relevant records from Pinecone
-- Generates grounded answers using Groq
+- Classifies intent before retrieval
+- For **Issue Diagnosis**, asks clarifying questions one at a time (like a functional consultant)
+- Retrieves relevant records from Pinecone using an enriched diagnostic query
+- Generates grounded answers using Groq (structured diagnosis when diagnosing)
 - Maintains conversation history across multiple prompts in the same session
+
+## Interactive diagnosis workflow
+
+```text
+User message
+  → Intent classification
+  → Issue Diagnosis? ──No──→ Retrieve → Answer
+                     │
+                     Yes
+                     ▼
+              Ask clarifying questions (one at a time)
+                     ▼
+              Enough information?
+                     │
+                    Yes
+                     ▼
+              Enriched retrieval query → Retrieve → Structured diagnosis
+```
+
+Only **Issue Diagnosis** enters clarification. Lookups such as “Explain ME21N” or “What is VBAK?” go straight to retrieval.
+
+Diagnosis flows are config-driven in [`consultant/diagnosis_trees.json`](consultant/diagnosis_trees.json). Add a new SAP issue flow by editing that JSON—no Python changes required.
+
+Each tree defines:
+
+- `id` / `intent`
+- `match_keywords` (used to select the flow)
+- `required_fields` and `questions`
+- `retrieval_terms` (seed terms for the enriched Pinecone query)
 
 ## Required environment variables
 
@@ -68,7 +100,7 @@ python -m rag.chat --query "Explain ME21N"
 
 Chat commands:
 
-- `reset` clears conversation memory
+- `reset` clears conversation memory and any in-progress diagnosis state
 - `exit` or `quit` ends the session
 
 ## Run the web UI
@@ -84,6 +116,7 @@ Then visit [http://127.0.0.1:8000](http://127.0.0.1:8000)
 Features:
 - Dark animated background
 - Streaming grounded responses
+- Clarifying questions appear as normal assistant messages
 - Multi-turn conversation memory via session id
 - Recent chats stored locally in the browser
 
@@ -109,6 +142,16 @@ curl -X POST http://127.0.0.1:8000/chat ^
   -d "{\"query\":\"What transaction code did you mention?\",\"session_id\":\"YOUR_SESSION_ID\"}"
 ```
 
+Issue diagnosis example (clarification then final answer in the same session):
+
+```bash
+curl -X POST http://127.0.0.1:8000/chat ^
+  -H "Content-Type: application/json" ^
+  -d "{\"query\":\"My Purchase Order is not releasing.\"}"
+```
+
+Responses may include optional `intent` and `phase` fields (`clarifying`, `diagnosing`, `answering`).
+
 ## Run tests
 
 ```bash
@@ -126,7 +169,16 @@ rag/
 ├── consultant.py
 ├── chat.py
 └── main.py
+consultant/
+├── intent_classifier.py
+├── clarification_engine.py
+├── diagnosis_manager.py
+├── diagnosis_tree_loader.py
+├── session_state.py
+├── response_builder.py
+└── diagnosis_trees.json
 api/
+web/
 tests/
 ```
 
@@ -135,3 +187,5 @@ tests/
 - Ingestion uses deterministic vector IDs to prevent duplicate records on re-index.
 - CSV rows are enriched with semantic metadata such as `module`, `title`, and `document_type`.
 - Generation is grounded: the model is instructed to answer only from retrieved context.
+- The retrieval engine is unchanged; diagnosis only builds a richer query before calling it.
+- Final diagnoses use a structured format: Diagnosis, Possible Root Cause, Reasoning, Recommended Resolution, Related T-Codes, Related Tables, Confidence Score.

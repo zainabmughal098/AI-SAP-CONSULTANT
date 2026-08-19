@@ -29,10 +29,13 @@ class ResponseGenerator:
         query: str,
         context: str,
         history: list[dict[str, str]] | None = None,
+        messages: list[dict[str, str]] | None = None,
     ) -> dict[str, Any]:
         return {
             "model": self.settings.llm_model,
-            "messages": build_messages(query=query, context=context, history=history),
+            "messages": messages
+            if messages is not None
+            else build_messages(query=query, context=context, history=history),
             "temperature": self.settings.llm_temperature,
             "max_tokens": self.settings.llm_max_tokens,
         }
@@ -42,10 +45,11 @@ class ResponseGenerator:
         query: str,
         context: str,
         history: list[dict[str, str]] | None = None,
+        messages: list[dict[str, str]] | None = None,
     ) -> dict[str, Any]:
         logger.info("Generating grounded response with model %s", self.settings.llm_model)
         completion = self.client.chat.completions.create(
-            **self._completion_kwargs(query, context, history),
+            **self._completion_kwargs(query, context, history, messages=messages),
         )
 
         answer = completion.choices[0].message.content.strip()
@@ -63,10 +67,11 @@ class ResponseGenerator:
         query: str,
         context: str,
         history: list[dict[str, str]] | None = None,
+        messages: list[dict[str, str]] | None = None,
     ) -> Iterator[str]:
         logger.info("Streaming grounded response with model %s", self.settings.llm_model)
         stream = self.client.chat.completions.create(
-            **self._completion_kwargs(query, context, history),
+            **self._completion_kwargs(query, context, history, messages=messages),
             stream=True,
         )
 

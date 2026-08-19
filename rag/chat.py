@@ -75,7 +75,7 @@ def run_interactive(consultant: SAPConsultant, filters, top_k: int) -> int:
             return 0
         if user_input.lower() == "reset":
             consultant.reset_conversation()
-            print("Conversation memory cleared.\n")
+            print("Conversation memory and diagnosis state cleared.\n")
             continue
 
         payload = consultant.ask(user_input, filters=filters, top_k=top_k)
