@@ -413,6 +413,79 @@ body {
 .typing-indicator span:nth-child(2) { animation-delay: 0.15s; }
 .typing-indicator span:nth-child(3) { animation-delay: 0.3s; }
 
+.inline-reply {
+  width: min(100%, 520px);
+  margin: 14px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inline-reply-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.inline-reply-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 14px;
+  border-radius: 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.inline-reply-row:focus-within {
+  border-color: rgba(138, 180, 248, 0.45);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.inline-reply-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 8px 0;
+}
+
+.inline-reply-input::placeholder {
+  color: var(--text-faint);
+}
+
+.inline-reply-send {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  color: #0e0e11;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.inline-reply-send:hover {
+  transform: scale(1.04);
+}
+
+.inline-reply-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .message-actions {
   display: flex;
   gap: 4px;

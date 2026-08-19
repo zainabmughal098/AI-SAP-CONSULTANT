@@ -148,13 +148,22 @@ function renderConversation() {
 
   if (!chat) return;
 
-  chat.messages.forEach((message) => {
-    el.messagesInner.appendChild(createMessageElement(message));
+  chat.messages.forEach((message, index) => {
+    el.messagesInner.appendChild(createMessageElement(message, index, chat.messages));
   });
   scrollToBottom();
 }
 
-function createMessageElement(message) {
+function isPendingClarification(message, index, messages) {
+  if (message.role !== "assistant" || message.phase !== "clarifying") return false;
+  // Only the latest unanswered clarifying turn shows an inline reply box
+  const later = messages.slice(index + 1);
+  if (later.some((m) => m.role === "user")) return false;
+  const laterClarify = later.some((m) => m.role === "assistant" && m.phase === "clarifying");
+  return !laterClarify;
+}
+
+function createMessageElement(message, index = 0, messages = []) {
   const wrapper = document.createElement("article");
   wrapper.className = `message ${message.role}`;
 
@@ -175,8 +184,55 @@ function createMessageElement(message) {
     wrapper.appendChild(createSourcesPanel(message.sources));
   }
 
+  if (isPendingClarification(message, index, messages)) {
+    wrapper.appendChild(createInlineReplyForm());
+  }
+
   wrapper.appendChild(createActionBar(message.content || ""));
   return wrapper;
+}
+
+function createInlineReplyForm() {
+  const form = document.createElement("form");
+  form.className = "inline-reply";
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const input = form.querySelector("input");
+    const value = input?.value.trim();
+    if (!value || state.isStreaming) return;
+    form.querySelector("button")?.setAttribute("disabled", "true");
+    input.disabled = true;
+    sendMessage(value);
+  });
+
+  const label = document.createElement("label");
+  label.className = "inline-reply-label";
+  label.textContent = "Your answer";
+
+  const row = document.createElement("div");
+  row.className = "inline-reply-row";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "inline-reply-input";
+  input.placeholder = "Type your answer here…";
+  input.autocomplete = "off";
+  input.setAttribute("aria-label", "Answer clarifying question");
+
+  const button = document.createElement("button");
+  button.type = "submit";
+  button.className = "inline-reply-send";
+  button.setAttribute("aria-label", "Send answer");
+  button.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.4 20.6 21 12 3.4 3.4l2.8 7.2L17 12l-10.8 1.4-2.8 7.2z"/></svg>`;
+
+  row.appendChild(input);
+  row.appendChild(button);
+  form.appendChild(label);
+  form.appendChild(row);
+
+  // Focus after paint so the clarifying question feels interactive in-place
+  requestAnimationFrame(() => input.focus());
+  return form;
 }
 
 function createSourcesPanel(sources) {
@@ -236,6 +292,9 @@ function setStreamingState(isStreaming) {
   el.sendBtn.classList.toggle("hidden", isStreaming);
   el.stopBtn.classList.toggle("hidden", !isStreaming);
   el.input.disabled = isStreaming;
+  el.messagesInner.querySelectorAll(".inline-reply-input, .inline-reply-send").forEach((node) => {
+    node.disabled = isStreaming;
+  });
 }
 
 async function streamChat(query, assistantNode) {
@@ -245,6 +304,8 @@ async function streamChat(query, assistantNode) {
   const chat = ensureActiveChat();
   let assistantText = "";
   let sources = [];
+  let phase = "answering";
+  let intent = null;
 
   const response = await fetch("/chat/stream", {
     method: "POST",
@@ -301,6 +362,8 @@ async function streamChat(query, assistantNode) {
         assistantText = event.answer || assistantText;
         state.sessionId = event.session_id;
         chat.sessionId = event.session_id;
+        phase = event.phase || "answering";
+        intent = event.intent || null;
       }
     }
   }
@@ -311,9 +374,22 @@ async function streamChat(query, assistantNode) {
   if (sources.length) {
     assistantNode.wrapper.appendChild(createSourcesPanel(sources));
   }
+
+  const assistantMessage = {
+    role: "assistant",
+    content: assistantText,
+    sources,
+    phase,
+    intent,
+  };
+
+  if (phase === "clarifying") {
+    assistantNode.wrapper.appendChild(createInlineReplyForm());
+  }
+
   assistantNode.wrapper.appendChild(createActionBar(assistantText));
 
-  chat.messages.push({ role: "assistant", content: assistantText, sources });
+  chat.messages.push(assistantMessage);
   if (chat.title === "New chat") {
     chat.title = query.slice(0, 42);
   }
@@ -321,15 +397,16 @@ async function streamChat(query, assistantNode) {
   renderRecent();
 }
 
-async function handleSubmit(event) {
-  event.preventDefault();
-  const query = el.input.value.trim();
+async function sendMessage(query) {
   if (!query || state.isStreaming) return;
 
   const chat = ensureActiveChat();
   el.welcome.hidden = true;
   el.messages.hidden = false;
   el.chatStage.classList.add("has-messages");
+
+  // Drop any open inline reply boxes before appending the next turn
+  el.messagesInner.querySelectorAll(".inline-reply").forEach((node) => node.remove());
 
   chat.messages.push({ role: "user", content: query });
   el.messagesInner.appendChild(createMessageElement({ role: "user", content: query }));
@@ -353,8 +430,19 @@ async function handleSubmit(event) {
   } finally {
     setStreamingState(false);
     state.abortController = null;
-    el.input.focus();
+    const inlineInput = el.messagesInner.querySelector(".inline-reply-input");
+    if (inlineInput) {
+      inlineInput.focus();
+    } else {
+      el.input.focus();
+    }
   }
+}
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  const query = el.input.value.trim();
+  await sendMessage(query);
 }
 
 function autoResizeInput() {
