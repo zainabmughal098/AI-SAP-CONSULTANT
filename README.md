@@ -74,7 +74,7 @@ pip install -r requirements.txt
 For local knowledge-base ingestion, install the additional document and ML dependencies:
 
 ```bash
-pip install -r requirements-ingestion.txt
+pip install -r local-ingestion-dependencies.txt
 ```
 
 ## Rebuild the knowledge base
