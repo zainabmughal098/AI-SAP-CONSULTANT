@@ -15,10 +15,7 @@
   "functions": {
     "api/main.py": {
       "maxDuration": 60,
-      "includeFiles": [
-        "web/**",
-        "consultant/diagnosis_trees.json"
-      ]
+      "includeFiles": "web/**"
     }
   }
 }
