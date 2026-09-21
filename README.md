@@ -74,7 +74,7 @@ pip install -r requirements.txt
 For local knowledge-base ingestion, install the additional document and ML dependencies:
 
 ```bash
-pip install -r local-ingestion-dependencies.txt
+pip install langchain langchain-community langchain-text-splitters pypdf docx2txt sentence-transformers
 ```
 
 ## Rebuild the knowledge base
