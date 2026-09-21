@@ -61,12 +61,20 @@ LLM_MODEL=llama-3.3-70b-versatile
 MAX_HISTORY_TURNS=10
 LLM_TEMPERATURE=0.2
 LLM_MAX_TOKENS=1024
+# Optional: Hugging Face token for remote query embeddings on Vercel
+EMBEDDING_API_KEY=your_huggingface_token
 ```
 
 ## Install dependencies
 
 ```bash
 pip install -r requirements.txt
+```
+
+For local knowledge-base ingestion, install the additional document and ML dependencies:
+
+```bash
+pip install -r requirements-ingestion.txt
 ```
 
 ## Rebuild the knowledge base

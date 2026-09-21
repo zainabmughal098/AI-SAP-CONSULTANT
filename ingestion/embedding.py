@@ -1,6 +1,4 @@
-"""Embedding generation module."""
-
-from sentence_transformers import SentenceTransformer
+"""Embedding generation module used by the local ingestion pipeline."""
 
 MODEL_NAME = "all-MiniLM-L6-v2"
 
@@ -10,6 +8,8 @@ _model = None
 def get_model():
     global _model
     if _model is None:
+        from sentence_transformers import SentenceTransformer
+
         try:
             _model = SentenceTransformer(MODEL_NAME, local_files_only=True)
         except Exception:

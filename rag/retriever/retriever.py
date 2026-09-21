@@ -35,7 +35,10 @@ class SemanticRetriever:
     def __post_init__(self) -> None:
         if self.settings is None:
             self.settings = RetrievalSettings.from_env()
-        self.query_processor = QueryProcessor()
+        self.query_processor = QueryProcessor(
+            embedding_api_url=self.settings.embedding_api_url,
+            embedding_api_key=self.settings.embedding_api_key,
+        )
         self.context_builder = ContextBuilder()
         self.pinecone_client = PineconeRetrievalClient(self.settings)
 

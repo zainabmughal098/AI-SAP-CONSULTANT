@@ -21,6 +21,8 @@ class AppSettings:
     pinecone_namespace: str | None = None
     top_k: int = 5
     embedding_model_name: str = "all-MiniLM-L6-v2"
+    embedding_api_url: str = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+    embedding_api_key: str = ""
     groq_api_key: str = ""
     llm_model: str = "llama-3.3-70b-versatile"
     max_history_turns: int = 10
@@ -34,6 +36,11 @@ class AppSettings:
         namespace = os.environ.get("PINECONE_NAMESPACE", "").strip() or None
         top_k_raw = os.environ.get("RETRIEVAL_TOP_K", "5").strip()
         groq_api_key = os.environ.get("GROQ_API_KEY", "").strip()
+        embedding_api_url = os.environ.get(
+            "EMBEDDING_API_URL",
+            "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2",
+        ).strip()
+        embedding_api_key = os.environ.get("EMBEDDING_API_KEY", "").strip()
         llm_model = os.environ.get("LLM_MODEL", "llama-3.3-70b-versatile").strip()
         max_history_raw = os.environ.get("MAX_HISTORY_TURNS", "10").strip()
         temperature_raw = os.environ.get("LLM_TEMPERATURE", "0.2").strip()
@@ -59,6 +66,8 @@ class AppSettings:
             pinecone_index_name=index_name,
             pinecone_namespace=namespace,
             top_k=top_k,
+            embedding_api_url=embedding_api_url,
+            embedding_api_key=embedding_api_key,
             groq_api_key=groq_api_key,
             llm_model=llm_model,
             max_history_turns=max_history_turns,
