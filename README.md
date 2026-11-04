@@ -54,8 +54,10 @@ Vercel project for the intended environment (Production, and Preview if used):
 SAP_APP_MODE=demo
 ```
 
-The root `app.py` exports the existing offline FastAPI factory before importing
-`api.main` or loading provider settings. No Pinecone, Groq or embedding credentials
+The root `app.py` exports an unconditional `app = create_application()` so
+Vercel's static entrypoint discovery can find it. The factory selects the
+offline application before importing `api.main` or loading provider settings.
+No Pinecone, Groq or embedding credentials
 are required or used in demo mode. Keep the persistent simulation indicator;
 code descriptions retain their explicit SAP release scopes and citations.
 This selects a finite deterministic demonstration, not live RAG or SAP access.
@@ -84,10 +86,15 @@ Deployment checklist, **only after separately approving a push/deployment**:
 2. Confirm the Vercel project uses the repository root and the root FastAPI
    `app.py` entrypoint. Retain runtime access to frontend files and the custom
    `/static/js/app.js` route; do not override it with a static-only rewrite.
+   Check the deployment Build Logs for the resolved Python entrypoint;
+   dashboard overrides pointing to `api/main.py` bypass mode selection.
 3. Set `SAP_APP_MODE` to `demo` for the intended deployment environment and
    verify the new deployment's commit. Do not change provider credentials.
 4. Check the persistent simulation label and `X-SAP-Mode: TEST_ONLY-OFFLINE`
    on function responses. `/health` remains liveness, not provider readiness.
+   A cold start through root `app.py` logs `SAP application mode: demo` at
+   WARNING level for visibility; this diagnostic is not an application error.
+   It logs only the normalized selected mode, never credentials or raw input.
 5. Test both ME21N lookup/comparison, an unknown code, receipt/invoice
    clarification, corrections, source titles, New Chat/history/reset/delete,
    and `/chat/stream` completion. Confirm no outgoing provider requests in logs.
