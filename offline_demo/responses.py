@@ -11,7 +11,12 @@ from consultant.diagnosis_manager import DiagnosisManager, TurnResult
 from consultant.intent_classifier import ISSUE_DIAGNOSIS, IntentClassifier
 from consultant.message_parser import is_unknown
 from offline_demo.fixtures import records
-from offline_demo.tcode_references import lookup_codes, reference_answer
+from offline_demo.tcode_references import (
+    basics_answer,
+    is_basics_question,
+    lookup_codes,
+    reference_answer,
+)
 from rag.evidence import citation_handle, record_digest
 
 UNSUPPORTED = "This offline demo has no supporting fixture for that question. Try invoice status, goods receipt, inspection, or PO release."
@@ -158,7 +163,7 @@ class DemoDiagnosisManager(DiagnosisManager):
         codes = lookup_codes(
             user_message, collecting=bool(state and state.status == "collecting")
         )
-        if codes:
+        if codes or is_basics_question(user_message):
             state = self.session_store.get_or_create(session_id)
             # Explicit lookup is a side question, not a reported transaction or
             # answer to a pending field. Explicit topic switches still clear state.
@@ -204,9 +209,12 @@ def select_response(engine, query, payload, filters=None):
     state = engine.diagnosis_store.get(engine.memory.session_id)
     turn = engine.diagnosis_manager.turns.get(engine.memory.session_id)
     codes = lookup_codes(query) if turn and turn.mode == "direct" else None
-    if codes and not prohibited(query):
+    basics = turn and turn.mode == "direct" and is_basics_question(query)
+    if (codes or basics) and not prohibited(query):
         result = dict(payload)
-        result.update(reference_answer(codes, filters))
+        result.update(
+            basics_answer(filters) if basics else reference_answer(codes, filters)
+        )
         if engine.memory.messages and engine.memory.messages[-1]["role"] == "assistant":
             engine.memory.messages[-1]["content"] = result["answer"]
         return result

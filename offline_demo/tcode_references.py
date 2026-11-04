@@ -73,6 +73,73 @@ REFERENCES["SU53"] = _record(
 )
 REFERENCE_HASHES = {code: record_digest(record) for code, record in REFERENCES.items()}
 
+BASICS_REFERENCE = {
+    "id": "DEMO-REFERENCE-TCODE-BASICS",
+    "content": (
+        "A transaction code (T-code) is a short identifier for an SAP transaction. "
+        "In SAP GUI, it lets you open an application directly using the command field "
+        "instead of navigating through menus."
+    ),
+    "metadata": {
+        "classification": "DEMO reference; introductory explanation only",
+        "title": "SAP Learning: Describing SAP GUI and SAP Logon",
+        "source_url": "https://learning.sap.com/courses/technical-implementation-and-operation-i-of-sap-s-4hana-and-sap-business-suite/describing-sap-gui-and-sap-logon",
+        "section": "Screen Structure / SAP GUI for Windows - Screen Elements",
+        "applicability": "SAP GUI on AS ABAP; introductory navigation, no release-specific procedure",
+        "date_checked": "2026-11-04",
+        "limitations": "No Cloud Public Edition equivalence, execution or troubleshooting procedure asserted.",
+    },
+}
+BASICS_HASH = record_digest(BASICS_REFERENCE)
+
+
+def is_basics_question(query):
+    """Bounded conversational grammar, not fuzzy matching of arbitrary requests."""
+    text = query.casefold().replace("\u2019", "'")
+    text = re.sub(r"[\u2010-\u2014]", "-", text)
+    text = re.sub(r"\b(?:transation|transction|transaciton)\b", "transaction", text)
+    text = re.sub(r"\bt[ -]?codes?\b", "tcode", text)
+    text = re.sub(r"\bu\b", "you", text)
+    text = re.sub(r"\br\b", "are", text)
+    text = re.sub(r"\s+", " ", text).strip().rstrip(".?!")
+    text = re.sub(r"^(?:new question\s*:\s*|now\s+)", "", text)
+    text = re.sub(r"\s+instead$", "", text)
+    text = re.sub(r"^(?:hi|hey|hello)[, ]+", "", text)
+    text = re.sub(r"^(?:can|could|would) you (?:please )?", "", text)
+    text = re.sub(r"^(?:please |pls |plz )", "", text)
+    text = re.sub(r"^tell me about ", "explain ", text)
+    text = re.sub(r"^tell me ", "", text)
+    text = re.sub(r"[, ]+(?:please|pls|plz)$", "", text)
+    subject = r"(?:(?:a|an|the) )?(?:sap )?(?:tcode|transaction codes?)"
+    return any(
+        re.fullmatch(pattern, text)
+        for pattern in (
+            rf"(?:what is|what are|what's|whats|explain|describe) {subject}(?: in sap)?",
+            rf"what does {subject} mean(?: in sap)?",
+            rf"give me (?:some )?examples of {subject}(?: in sap)?",
+        )
+    )
+
+
+def basics_answer(filters=None):
+    examples = reference_answer(("ME21N", "ME23N"), filters)
+    if not examples["sources"]:
+        return examples
+    if record_digest(BASICS_REFERENCE) != BASICS_HASH:
+        return {
+            "answer": "The offline reference failed its integrity check.",
+            "sources": [],
+        }
+    intro = _render_records([BASICS_REFERENCE], None)
+    return {
+        "answer": intro["answer"]
+        + "\n\nExamples:\n"
+        + examples["answer"]
+        + "\n\nThis demo covers a small reference set, not the entire SAP knowledge base.",
+        "sources": intro["sources"] + examples["sources"],
+    }
+
+
 # Deliberately finite question grammar: arbitrary instructions cannot acquire a
 # reference merely by mentioning a known code. Unknown codes never get guessed.
 CODE = r"[A-Z][A-Z0-9_/-]{1,39}"
@@ -116,6 +183,10 @@ def reference_answer(codes, filters=None):
             "answer": "The offline reference failed its integrity check.",
             "sources": [],
         }
+    return _render_records(records, filters)
+
+
+def _render_records(records, filters):
     if filters and any(
         key != "module"
         or any(r["metadata"][key].casefold() != str(value).casefold() for r in records)
@@ -134,11 +205,11 @@ def reference_answer(codes, filters=None):
             {
                 "id": record["id"],
                 "citation_handle": handle,
-                "title": f"{meta['tcode']} — SAP reference",
+                "title": f"{meta.get('tcode', 'T-codes explained')} — SAP reference",
                 "source_file": meta["title"],
                 "source_url": meta["source_url"],
                 "source_kind": "demo_reference",
-                "authority": "Official SAP purpose reference; offline demo only; no production approval",
+                "authority": "Official SAP reference; offline demo only; no production approval",
                 "applicability": meta["applicability"],
                 "metadata": dict(meta),
                 "content_preview": "",

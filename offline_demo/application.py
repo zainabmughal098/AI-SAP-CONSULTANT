@@ -26,7 +26,7 @@ from offline_demo.responses import (  # noqa: E402
     DemoDiagnosisManager,
     select_response,
 )
-from offline_demo.tcode_references import REFERENCES  # noqa: E402
+from offline_demo.tcode_references import BASICS_REFERENCE, REFERENCES  # noqa: E402
 from rag.consultant import SAPConsultant  # noqa: E402
 from rag.evidence import citation_handle  # noqa: E402
 from rag.memory.conversation import ConversationStore  # noqa: E402
@@ -146,6 +146,7 @@ def create_app():
                 for code, record in REFERENCES.items()
             }
         )
+        titles[citation_handle(BASICS_REFERENCE)] = "T-codes explained"
         source = source[:start] + adapter + source[end:]
         source = source.replace(
             "function formatMarkdown(text) {",

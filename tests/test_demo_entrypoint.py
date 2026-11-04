@@ -1,5 +1,6 @@
 """Exact ASGI entrypoint and a minimal, credential-free serverless-style bundle."""
 
+import ast
 import json
 import os
 import runpy
@@ -20,6 +21,81 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_entrypoint():
     return runpy.run_path(str(ROOT / "app.py"))["app"]
+
+
+def test_vercel_style_discovery_selects_root_entrypoint():
+    # Mirror the top-level Assign/AnnAssign/FunctionDef/ImportFrom rules in
+    # vercel_python_analysis/src/entrypoint.rs; do not descend into if branches.
+    def detects_app(path):
+        for node in ast.parse(path.read_text(encoding="utf-8")).body:
+            if isinstance(node, ast.Assign):
+                names = [t.id for t in node.targets if isinstance(t, ast.Name)]
+            elif isinstance(node, ast.AnnAssign):
+                names = [node.target.id] if isinstance(node.target, ast.Name) else []
+            elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                names = [node.name]
+            elif isinstance(node, ast.ImportFrom):
+                names = [alias.asname or alias.name for alias in node.names]
+            else:
+                names = []
+            if {"app", "application"}.intersection(names):
+                return True
+        return False
+
+    candidates = [
+        ROOT / directory / f"{filename}.py"
+        for directory in ("", "src", "app", "api")
+        for filename in ("app", "index", "server", "main", "wsgi", "asgi")
+    ]
+    selected = next(p for p in candidates if p.is_file() and detects_app(p))
+    assert selected == ROOT / "app.py"
+    tree = ast.parse(selected.read_text(encoding="utf-8"))
+    assert any(
+        isinstance(node, ast.Assign)
+        and any(isinstance(t, ast.Name) and t.id == "app" for t in node.targets)
+        and isinstance(node.value, ast.Call)
+        and isinstance(node.value.func, ast.Name)
+        and node.value.func.id == "create_application"
+        for node in tree.body
+    )
+
+
+@pytest.mark.parametrize("mode", [None, "rag", " RAG "])
+def test_fresh_process_production_selection_preserves_export(mode):
+    clean = {
+        k: os.environ[k]
+        for k in ["SystemRoot", "WINDIR", "PATH", "TEMP", "TMP"]
+        if k in os.environ
+    }
+    clean.update(PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1")
+    if mode is not None:
+        clean["SAP_APP_MODE"] = mode
+    script = r"""
+import importlib.abc,sys,types
+class NoDemo(importlib.abc.MetaPathFinder):
+    def find_spec(self,fullname,path=None,target=None):
+        if fullname.startswith('offline_demo'):
+            raise AssertionError('Production mode imported demo')
+sys.meta_path.insert(0,NoDemo())
+production=types.ModuleType('api.main')
+production.app=object()
+sys.modules['api.main']=production
+from app import app,create_application
+assert app is production.app
+assert callable(create_application)
+print('existing production export preserved')
+"""
+    result = subprocess.run(
+        [sys.executable, "-c", script],
+        cwd=ROOT,
+        env=clean,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == "existing production export preserved"
+    assert result.stderr.strip() == "SAP application mode: rag"
 
 
 @pytest.mark.parametrize("mode", [None, "", "rag", " RAG "])
@@ -271,6 +347,7 @@ print(json.dumps({'fixtures':len(records()),'scoped_references':len(REFERENCES),
         timeout=45,
     )
     assert result.returncode == 0, result.stderr
+    assert "SAP application mode: demo" in result.stderr.splitlines()
     assert json.loads(result.stdout) == {
         "fixtures": 6,
         "scoped_references": 9,
