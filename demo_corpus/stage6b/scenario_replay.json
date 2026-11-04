@@ -1,0 +1,1254 @@
+{
+  "scope": "REAL local rules/parser/state only; optional LLM disabled. No retrieval, generation, provider, browser or SAP calls. Fresh session per script; no generation-completion callbacks.",
+  "review_date": "2026-11-03",
+  "runs": [
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S01",
+      "turns": [
+        {
+          "user_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: release decision pending",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {},
+          "pending_field": "release_group",
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I don't know the release group",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {
+            "release_group": "not provided by user"
+          },
+          "pending_field": "release_code",
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "not sure",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {
+            "release_group": "not provided by user",
+            "release_code": "not sure"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": "Purchase Order Release Strategy\nPurchase Order Release\nReported issue: DEMO_PO_001 will not release in ME29N. This is a fictional scenario.\nTransaction: ME29N\nError: SIMULATED: release decision pending"
+        },
+        {
+          "user_message": "Give preliminary guidance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {
+            "release_group": "not provided by user",
+            "release_code": "not sure"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": "Purchase Order Release Strategy\nPurchase Order Release\nReported issue: DEMO_PO_001 will not release in ME29N. This is a fictional scenario.\nTransaction: ME29N\nError: SIMULATED: release decision pending"
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S02",
+      "turns": [
+        {
+          "user_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: document input requires review",
+          "mode": "diagnose",
+          "phase": "diagnosing",
+          "preliminary": false,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002",
+            "error_message": "SIMULATED: document input requires review"
+          },
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": "Goods Receipt Stock\nGoods Receipt Failed\nReported issue: DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.\nTransaction: MIGO\nError: SIMULATED: document input requires review\nPO Number: DEMO_PO_002\nMaterial: DEMO_MAT_BOLT_A"
+        },
+        {
+          "user_message": "There is no real SAP error number",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002"
+          },
+          "unknown_fields": {
+            "error_message": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": "Goods Receipt Stock\nGoods Receipt Failed\nReported issue: DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.\nTransaction: MIGO\nPO Number: DEMO_PO_002\nMaterial: DEMO_MAT_BOLT_A"
+        },
+        {
+          "user_message": "Give preliminary guidance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002"
+          },
+          "unknown_fields": {
+            "error_message": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": "Goods Receipt Stock\nGoods Receipt Failed\nReported issue: DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.\nTransaction: MIGO\nPO Number: DEMO_PO_002\nMaterial: DEMO_MAT_BOLT_A"
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S03",
+      "turns": [
+        {
+          "user_message": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: invoice needs review",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO",
+            "error_message": "SIMULATED: invoice needs review"
+          },
+          "unknown_fields": {},
+          "pending_field": "company_code",
+          "opening_message": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {
+            "error_message": "previous symptom superseded; current exact message unavailable"
+          },
+          "pending_field": "company_code",
+          "opening_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "enriched_query": "Current user-reported issue (unverified)\nReported issue: Actually it posted in the fictional scenario, but payment is blocked\nTransaction: MIRO"
+        },
+        {
+          "user_message": "I don't know the configured tolerance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {
+            "error_message": "previous symptom superseded; current exact message unavailable"
+          },
+          "pending_field": "company_code",
+          "opening_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "enriched_query": "Current user-reported issue (unverified)\nReported issue: Actually it posted in the fictional scenario, but payment is blocked\nTransaction: MIRO"
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S04",
+      "turns": [
+        {
+          "user_message": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA03",
+            "order_number": "DEMO_SO_004"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: document is not shown",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA03",
+            "order_number": "DEMO_SO_004",
+            "error_message": "SIMULATED: document is not shown"
+          },
+          "unknown_fields": {},
+          "pending_field": "sales_area",
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Actually transaction is VA02",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA02",
+            "order_number": "DEMO_SO_004",
+            "error_message": "SIMULATED: document is not shown"
+          },
+          "unknown_fields": {},
+          "pending_field": "sales_area",
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA02.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I do not know the sales area",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA02",
+            "order_number": "DEMO_SO_004",
+            "error_message": "SIMULATED: document is not shown"
+          },
+          "unknown_fields": {
+            "sales_area": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA02.",
+          "enriched_query": "Sales Order Sales Area\nSales Order Issues\nReported issue: DEMO sales order DEMO_SO_004 is not visible in VA02.\nTransaction: VA02\nError: SIMULATED: document is not shown\nOrder Number: DEMO_SO_004"
+        },
+        {
+          "user_message": "Explain VA01 instead",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S05",
+      "turns": [
+        {
+          "user_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: requested activity denied",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied"
+          },
+          "unknown_fields": {},
+          "pending_field": "user_id",
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "DEMO_USER_A (fictional)",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied",
+            "user_id": "DEMO_USER_A (fictional)"
+          },
+          "unknown_fields": {},
+          "pending_field": "su53_object",
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "No authorization trace is available",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied",
+            "user_id": "DEMO_USER_A (fictional)"
+          },
+          "unknown_fields": {
+            "su53_object": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": "Authorization\nAuthorization Issue\nReported issue: In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.\nTransaction: ME22N\nError: SIMULATED: requested activity denied\nUser ID: DEMO_USER_A (fictional)"
+        },
+        {
+          "user_message": "What does SU53 show?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied",
+            "user_id": "DEMO_USER_A (fictional)"
+          },
+          "unknown_fields": {
+            "su53_object": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S06",
+      "turns": [
+        {
+          "user_message": "DEMO_PROD_006 is not ready for processing. What status information would help?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: production status review pending",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Only one fictional operation is reported released",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I don't know the header status",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S07",
+      "turns": [
+        {
+          "user_message": "DEMO_LOT_007 has incomplete quality information. What should I clarify?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: inspection information incomplete",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I don't know the lot origin",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "No usage decision is supplied in this fictional case",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S08",
+      "turns": [
+        {
+          "user_message": "What is the purpose of DEMO_TO_008 in this fictional classic-WM scenario?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: warehouse reference unclear",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I do not know the source document",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "This is classic WM, not an EWM claim",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/scenarios.json",
+      "scenario_id": "DEMO-S09",
+      "turns": [
+        {
+          "user_message": "Which header information belongs in the fictional G/L discussion for DEMO_FI_009?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: header information not supplied",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Company code is DEMO_CC",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "No real balance or posting date is provided",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S01-6B",
+      "turns": [
+        {
+          "user_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: release decision pending",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {},
+          "pending_field": "release_group",
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I don't know the release group",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {
+            "release_group": "not provided by user"
+          },
+          "pending_field": "release_code",
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "not sure",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {
+            "release_group": "not provided by user",
+            "release_code": "not sure"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": "Purchase Order Release Strategy\nPurchase Order Release\nReported issue: DEMO_PO_001 will not release in ME29N. This is a fictional scenario.\nTransaction: ME29N\nError: SIMULATED: release decision pending"
+        },
+        {
+          "user_message": "Give preliminary guidance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "po_release",
+          "answers": {
+            "transaction": "ME29N",
+            "error_message": "SIMULATED: release decision pending"
+          },
+          "unknown_fields": {
+            "release_group": "not provided by user",
+            "release_code": "not sure"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+          "enriched_query": "Purchase Order Release Strategy\nPurchase Order Release\nReported issue: DEMO_PO_001 will not release in ME29N. This is a fictional scenario.\nTransaction: ME29N\nError: SIMULATED: release decision pending"
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S02-6B",
+      "turns": [
+        {
+          "user_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: document input requires review",
+          "mode": "diagnose",
+          "phase": "diagnosing",
+          "preliminary": false,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002",
+            "error_message": "SIMULATED: document input requires review"
+          },
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": "Goods Receipt Stock\nGoods Receipt Failed\nReported issue: DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.\nTransaction: MIGO\nError: SIMULATED: document input requires review\nPO Number: DEMO_PO_002\nMaterial: DEMO_MAT_BOLT_A"
+        },
+        {
+          "user_message": "There is no real SAP error number",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002"
+          },
+          "unknown_fields": {
+            "error_message": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": "Goods Receipt Stock\nGoods Receipt Failed\nReported issue: DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.\nTransaction: MIGO\nPO Number: DEMO_PO_002\nMaterial: DEMO_MAT_BOLT_A"
+        },
+        {
+          "user_message": "Give preliminary guidance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "goods_receipt",
+          "answers": {
+            "material": "DEMO_MAT_BOLT_A",
+            "transaction": "MIGO",
+            "po_number": "DEMO_PO_002"
+          },
+          "unknown_fields": {
+            "error_message": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+          "enriched_query": "Goods Receipt Stock\nGoods Receipt Failed\nReported issue: DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.\nTransaction: MIGO\nPO Number: DEMO_PO_002\nMaterial: DEMO_MAT_BOLT_A"
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S03-6B",
+      "turns": [
+        {
+          "user_message": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: invoice needs review",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO",
+            "error_message": "SIMULATED: invoice needs review"
+          },
+          "unknown_fields": {},
+          "pending_field": "company_code",
+          "opening_message": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {
+            "error_message": "previous symptom superseded; current exact message unavailable"
+          },
+          "pending_field": "company_code",
+          "opening_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "enriched_query": "Current user-reported issue (unverified)\nReported issue: Actually it posted in the fictional scenario, but payment is blocked\nTransaction: MIRO"
+        },
+        {
+          "user_message": "I don't know the configured tolerance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {
+            "error_message": "previous symptom superseded; current exact message unavailable"
+          },
+          "pending_field": "company_code",
+          "opening_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "enriched_query": "Current user-reported issue (unverified)\nReported issue: Actually it posted in the fictional scenario, but payment is blocked\nTransaction: MIRO"
+        },
+        {
+          "user_message": "Give preliminary guidance",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "invoice_posting",
+          "answers": {
+            "transaction": "MIRO"
+          },
+          "unknown_fields": {
+            "error_message": "previous symptom superseded; current exact message unavailable"
+          },
+          "pending_field": "company_code",
+          "opening_message": "Actually it posted in the fictional scenario, but payment is blocked",
+          "enriched_query": "Current user-reported issue (unverified)\nReported issue: Actually it posted in the fictional scenario, but payment is blocked\nTransaction: MIRO"
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S04-6B",
+      "turns": [
+        {
+          "user_message": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA03",
+            "order_number": "DEMO_SO_004"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: document is not shown",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA03",
+            "order_number": "DEMO_SO_004",
+            "error_message": "SIMULATED: document is not shown"
+          },
+          "unknown_fields": {},
+          "pending_field": "sales_area",
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Actually transaction is VA02",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA02",
+            "order_number": "DEMO_SO_004",
+            "error_message": "SIMULATED: document is not shown"
+          },
+          "unknown_fields": {},
+          "pending_field": "sales_area",
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA02.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I do not know the sales area",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "sales_order",
+          "answers": {
+            "transaction": "VA02",
+            "order_number": "DEMO_SO_004",
+            "error_message": "SIMULATED: document is not shown"
+          },
+          "unknown_fields": {
+            "sales_area": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "DEMO sales order DEMO_SO_004 is not visible in VA02.",
+          "enriched_query": "Sales Order Sales Area\nSales Order Issues\nReported issue: DEMO sales order DEMO_SO_004 is not visible in VA02.\nTransaction: VA02\nError: SIMULATED: document is not shown\nOrder Number: DEMO_SO_004"
+        },
+        {
+          "user_message": "Explain VA01 instead",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S05-6B",
+      "turns": [
+        {
+          "user_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N"
+          },
+          "unknown_fields": {},
+          "pending_field": "error_message",
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: requested activity denied",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied"
+          },
+          "unknown_fields": {},
+          "pending_field": "user_id",
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "DEMO_USER_A (fictional)",
+          "mode": "clarify",
+          "phase": "clarifying",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied",
+            "user_id": "DEMO_USER_A (fictional)"
+          },
+          "unknown_fields": {},
+          "pending_field": "su53_object",
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        },
+        {
+          "user_message": "No authorization trace is available",
+          "mode": "diagnose",
+          "phase": "preliminary",
+          "preliminary": true,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied",
+            "user_id": "DEMO_USER_A (fictional)"
+          },
+          "unknown_fields": {
+            "su53_object": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": "Authorization\nAuthorization Issue\nReported issue: In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.\nTransaction: ME22N\nError: SIMULATED: requested activity denied\nUser ID: DEMO_USER_A (fictional)"
+        },
+        {
+          "user_message": "What does SU53 show?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": "authorization",
+          "answers": {
+            "transaction": "ME22N",
+            "error_message": "SIMULATED: requested activity denied",
+            "user_id": "DEMO_USER_A (fictional)"
+          },
+          "unknown_fields": {
+            "su53_object": "not provided by user"
+          },
+          "pending_field": null,
+          "opening_message": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S06-6B",
+      "turns": [
+        {
+          "user_message": "DEMO_PROD_006 is not ready for processing. What status information would help?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: production status review pending",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Only one fictional operation is reported released",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I don't know the header status",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S07-6B",
+      "turns": [
+        {
+          "user_message": "DEMO_LOT_007 has incomplete quality information. What should I clarify?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: inspection information incomplete",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I don't know the lot origin",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "No usage decision is supplied in this fictional case",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S08-6B",
+      "turns": [
+        {
+          "user_message": "What is the purpose of DEMO_TO_008 in this fictional classic-WM scenario?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: warehouse reference unclear",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "I do not know the source document",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "This is classic WM, not an EWM claim",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    },
+    {
+      "input_file": "demo_corpus/stage6b/scenarios.json",
+      "scenario_id": "DEMO-S09-6B",
+      "turns": [
+        {
+          "user_message": "Which header information belongs in the fictional G/L discussion for DEMO_FI_009?",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "SIMULATED: header information not supplied",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "Company code is DEMO_CC",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        },
+        {
+          "user_message": "No real balance or posting date is provided",
+          "mode": "direct",
+          "phase": "answering",
+          "preliminary": false,
+          "tree_id": null,
+          "answers": {},
+          "unknown_fields": {},
+          "pending_field": null,
+          "opening_message": "",
+          "enriched_query": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "network_enabled": false,
+  "endpoint_review_reference": null,
+  "credential_review_reference": null,
+  "production_credential_sha256": [],
+  "credential_sha256": {"pinecone": null, "embedding": null, "groq": null},
+  "pinecone_api_version": "2025-10",
+  "embedding_url": null,
+  "allowed_record_ids": ["SAP6B-MM-INV-001", "SAP6B-QM-LOT-001"],
+  "allowed_probe_hashes": [],
+  "timeout_seconds": 10,
+  "max_response_bytes": 1048576
+}

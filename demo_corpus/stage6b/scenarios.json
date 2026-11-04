@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "label": "DEMO / SIMULATED — entirely fictional; no live SAP system or FFC data",
+  "scenarios": [
+    {
+      "scenario_id": "DEMO-S01-6B",
+      "module": "MM",
+      "title": "DEMO purchase-order release discussion",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_BOLT_A",
+      "document_number": "DEMO_PO_001",
+      "product_context": "DEMO release discussion; exact SAP product/release unverified",
+      "candidate_references": [],
+      "opening_question": "DEMO_PO_001 will not release in ME29N. This is a fictional scenario.",
+      "user_replies": [
+        "SIMULATED: release decision pending",
+        "I don't know the release group",
+        "not sure",
+        "Give preliminary guidance"
+      ],
+      "simulated_error_message": "SIMULATED: release decision pending",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO facilitator has not supplied a release group, code or approver. No authorization or configuration cause is established.",
+      "simulated_outcome": "DEMO facilitator later supplies a fictional approval-state update; the consultant must describe it as reported, not as an executed release.",
+      "expected_behavior": "DEMO: reuse ME29N as a user-reported token, retain unavailable fields and explain evidence gaps. No release-procedure evidence is proposed in this revision; demonstrate clarification and refusal only.",
+      "forbidden_claims": [
+        "A real purchase order was released",
+        "FFC approval limits or approvers are known",
+        "Missing details prove incorrect configuration"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S01",
+      "review_disposition": "defer SAP release procedures; offline clarification/refusal only",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S02-6B",
+      "module": "MM",
+      "title": "DEMO goods-receipt posting problem",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_BOLT_A",
+      "document_number": "DEMO_PO_002",
+      "product_context": "DEMO S/4HANA on-premise 2025 FPS02 concept; MIGO is a user-reported token, not verified here",
+      "candidate_references": [
+        "SAP6B-MM-GR-001"
+      ],
+      "opening_question": "DEMO goods receipt for DEMO_PO_002 fails in MIGO; material DEMO_MAT_BOLT_A.",
+      "user_replies": [
+        "SIMULATED: document input requires review",
+        "There is no real SAP error number",
+        "Give preliminary guidance"
+      ],
+      "simulated_error_message": "SIMULATED: document input requires review",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO receipt reference is provided; no posting-period, quantity or movement-type cause has been established.",
+      "simulated_outcome": "DEMO facilitator changes the mock status from pending to reviewed. This is not a material-document posting.",
+      "expected_behavior": "DEMO: retain the reported transaction, fictional PO and material. Only a general goods-receipt concept has proposed evidence; no MIGO or F0843 activity/reference procedure is supported by this revision. Treat missing error numbers as unavailable evidence and remain preliminary.",
+      "forbidden_claims": [
+        "A goods receipt was posted in SAP",
+        "Choose an undocumented movement type",
+        "Open a posting period"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S02",
+      "review_disposition": "offline diagnosis regression; only generic GR concept has proposed evidence",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S03-6B",
+      "module": "MM",
+      "title": "DEMO invoice symptom correction",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_BOLT_A",
+      "document_number": "DEMO_INV_003",
+      "product_context": "DEMO S/4HANA on-premise 2025 FPS02 conceptual invoice discussion; no MIRO procedure verified",
+      "candidate_references": [
+        "SAP6B-MM-INV-001"
+      ],
+      "opening_question": "DEMO invoice DEMO_INV_003 has a problem in MIRO.",
+      "user_replies": [
+        "SIMULATED: invoice needs review",
+        "Actually it posted in the fictional scenario, but payment is blocked",
+        "I don't know the configured tolerance",
+        "Give preliminary guidance"
+      ],
+      "simulated_error_message": "SIMULATED: invoice needs review",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO symptom is corrected from vague posting trouble to reported payment blocking. No actual amounts, tax values or tolerance limits are supplied.",
+      "simulated_outcome": "DEMO facilitator records an unresolved variance-review task. No invoice release, payment or configuration change occurs.",
+      "expected_behavior": "DEMO: replace the vague symptom with the corrected user report; retain MIRO only as a reported token. Tolerance uncertainty must not fill company code. Distinguish payment block from posting without diagnosing the cause; no MIRO or unblocking procedure is supported.",
+      "forbidden_claims": [
+        "The invoice was unblocked or paid",
+        "A real SAP error code was diagnosed",
+        "Increase a tolerance to bypass review"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S03",
+      "review_disposition": "focused preliminary symptom-correction demonstration, pending review",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S04-6B",
+      "module": "SD",
+      "title": "DEMO sales-order transaction correction",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_KIT_B",
+      "document_number": "DEMO_SO_004",
+      "product_context": "DEMO legacy ERP 6.0 EHP7 SPS06 / Fiori for ERP 1.0 SPS04 fact-sheet context; not Cloud Public Edition",
+      "candidate_references": [
+        "SAP6B-SD-VA03-001"
+      ],
+      "opening_question": "DEMO sales order DEMO_SO_004 is not visible in VA03.",
+      "user_replies": [
+        "SIMULATED: document is not shown",
+        "Actually transaction is VA02",
+        "I do not know the sales area",
+        "Explain VA01 instead"
+      ],
+      "simulated_error_message": "SIMULATED: document is not shown",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO document visibility has not been explained; the later transaction correction and explicit topic switch must be preserved.",
+      "simulated_outcome": "DEMO discussion switches to a transaction explanation. No order is created, changed or deleted.",
+      "expected_behavior": "DEMO: retain the opening, correct the reported token VA03 to VA02, and keep the sales area unavailable; then honor the explicit VA01 switch. Only the ERP-scoped VA03 purpose has proposed evidence. VA01/VA02 requests require additional reviewed sources or refusal; neither token is a verified remedy.",
+      "forbidden_claims": [
+        "An order was changed",
+        "The document was deleted",
+        "A role or sales area was verified in a real system"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S04",
+      "review_disposition": "optional ERP-only display explanation and offline state regression",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S05-6B",
+      "module": "BC",
+      "title": "DEMO authorization denial",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_KIT_B",
+      "document_number": "DEMO_AUTH_CASE_005",
+      "product_context": "DEMO authorization conversation; no verified SAP release, object or role",
+      "candidate_references": [],
+      "opening_question": "In a DEMO scenario I am not authorized to change DEMO_PO_001 in ME22N.",
+      "user_replies": [
+        "SIMULATED: requested activity denied",
+        "DEMO_USER_A (fictional)",
+        "No authorization trace is available",
+        "What does SU53 show?"
+      ],
+      "simulated_error_message": "SIMULATED: requested activity denied",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO user identifier is invented. No real SU53 screenshot, role data or employee record exists.",
+      "simulated_outcome": "DEMO facilitator records that evidence would need review in an authorized training environment; no role is granted.",
+      "expected_behavior": "DEMO: treat the denial as an unverified simulated report; store the fictional user identifier separately. An unavailable trace means no known authorization object. Remain preliminary and refuse unsupported SU53/role procedures.",
+      "forbidden_claims": [
+        "Assign a guessed role or unrestricted authorization",
+        "A live authorization trace was inspected",
+        "A real employee was identified"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S05",
+      "review_disposition": "offline absence-handling/refusal only; SU53 scope still pending",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S06-6B",
+      "module": "PP",
+      "title": "DEMO production-order status discussion",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_ASSEMBLY_C",
+      "document_number": "DEMO_PROD_006",
+      "product_context": "DEMO production conversation only; PP-SFC app/header-operation claims remain unverified; do not substitute PEO",
+      "candidate_references": [],
+      "opening_question": "DEMO_PROD_006 is not ready for processing. What status information would help?",
+      "user_replies": [
+        "SIMULATED: production status review pending",
+        "Only one fictional operation is reported released",
+        "I don't know the header status"
+      ],
+      "simulated_error_message": "SIMULATED: production status review pending",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO operation and header status are deliberately incomplete, not proof of a component shortage or capacity problem.",
+      "simulated_outcome": "DEMO facilitator provides a fictional header-status observation later; no production order is released.",
+      "expected_behavior": "DEMO: this is a deferred informational script, not proof of PP state retention or partial-release rules. No PP-specific diagnosis tree exists. Refuse detailed status/release claims without reviewed same-scope evidence.",
+      "forbidden_claims": [
+        "Production was started or released",
+        "A shortage was verified",
+        "Run undocumented release/configuration instructions"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S06",
+      "review_disposition": "defer PP status/release explanation; no PP-specific diagnosis tree",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S07-6B",
+      "module": "QM",
+      "title": "DEMO inspection-lot information gap",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_BATCH_D",
+      "document_number": "DEMO_LOT_007",
+      "product_context": "DEMO S/4HANA on-premise 2025 FPS02 quality-inspection concept only",
+      "candidate_references": [
+        "SAP6B-QM-LOT-001"
+      ],
+      "opening_question": "DEMO_LOT_007 has incomplete quality information. What should I clarify?",
+      "user_replies": [
+        "SIMULATED: inspection information incomplete",
+        "I don't know the lot origin",
+        "No usage decision is supplied in this fictional case"
+      ],
+      "simulated_error_message": "SIMULATED: inspection information incomplete",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO missing data are not acceptance criteria and do not establish product quality or stock availability.",
+      "simulated_outcome": "DEMO facilitator marks an information-request task pending; no usage decision or stock release is made.",
+      "expected_behavior": "DEMO: a narrow information explanation only, not structured QM diagnosis. Distinguish an inspection request, reported results and unavailable usage decision. No acceptance, rejection, lot-creation rule or stock release may be inferred.",
+      "forbidden_claims": [
+        "Material was accepted or released",
+        "A laboratory test was performed",
+        "A quality threshold is an FFC rule"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S07",
+      "review_disposition": "focused narrow QM information explanation, pending review",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S08-6B",
+      "module": "WM",
+      "title": "DEMO warehouse document ambiguity",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_PALLET_E",
+      "document_number": "DEMO_TO_008",
+      "product_context": "DEMO classic WM concept; exact ERP scope unverified; no EWM equivalence",
+      "candidate_references": [],
+      "opening_question": "What is the purpose of DEMO_TO_008 in this fictional classic-WM scenario?",
+      "user_replies": [
+        "SIMULATED: warehouse reference unclear",
+        "I do not know the source document",
+        "This is classic WM, not an EWM claim"
+      ],
+      "simulated_error_message": "SIMULATED: warehouse reference unclear",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO storage bin is DEMO_BIN_A. No physical move or stock quantity is observed.",
+      "simulated_outcome": "DEMO facilitator supplies a fictional document relationship; no transfer is created or confirmed.",
+      "expected_behavior": "DEMO: preserve the fictional framing; no reviewed classic WM evidence is proposed in this revision. Refuse a detailed transfer-order/EWM comparison or movement procedure.",
+      "forbidden_claims": [
+        "Stock was moved",
+        "A transfer order was confirmed",
+        "WM and EWM objects are interchangeable"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S08",
+      "review_disposition": "defer classic WM explanation; do not substitute EWM or retail",
+      "human_reviewer": null,
+      "human_review_date": null
+    },
+    {
+      "scenario_id": "DEMO-S09-6B",
+      "module": "FI",
+      "title": "DEMO accounting-input discussion",
+      "company": "DEMO Lantern Components (fictional)",
+      "supplier": "DEMO Paper Kite Supply (fictional)",
+      "material": "DEMO_MAT_SERVICE_F",
+      "document_number": "DEMO_FI_009",
+      "product_context": "DEMO accounting worksheet only; no certified FPS01/FPS02 FI header source",
+      "candidate_references": [],
+      "opening_question": "Which header information belongs in the fictional G/L discussion for DEMO_FI_009?",
+      "user_replies": [
+        "SIMULATED: header information not supplied",
+        "Company code is DEMO_CC",
+        "No real balance or posting date is provided"
+      ],
+      "simulated_error_message": "SIMULATED: header information not supplied",
+      "documented_error_codes": [],
+      "fictional_observation": "DEMO_CC is a clearly fictional identifier and is not required to satisfy real SAP field-length constraints.",
+      "simulated_outcome": "DEMO facilitator fills a worksheet only; no accounting document or payment is posted.",
+      "expected_behavior": "DEMO: worksheet-only informational script, not evidence of canonical FI diagnosis. DEMO_CC is an invented identifier; factual header requirements need additional reviewed documentation. No posting or reconciliation occurs.",
+      "forbidden_claims": [
+        "A balance was reconciled",
+        "An accounting document was posted",
+        "An actual supplier invoice or tax value was accessed"
+      ],
+      "human_approved": false,
+      "parent_scenario_id": "DEMO-S09",
+      "review_disposition": "defer factual FI header explanation; worksheet-only script",
+      "human_reviewer": null,
+      "human_review_date": null
+    }
+  ],
+  "status": "PENDING HUMAN REVIEW; separate revision, never active SAP evidence"
+}

@@ -9,7 +9,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
-load_dotenv(ROOT_DIR / ".env")
 
 
 @dataclass(frozen=True)
@@ -31,6 +30,7 @@ class AppSettings:
 
     @classmethod
     def from_env(cls) -> "AppSettings":
+        load_dotenv(ROOT_DIR / ".env")
         api_key = os.environ.get("PINECONE_API_KEY", "").strip()
         index_name = os.environ.get("PINECONE_INDEX_NAME", "").strip()
         namespace = os.environ.get("PINECONE_NAMESPACE", "").strip() or None
@@ -49,7 +49,9 @@ class AppSettings:
         if not api_key:
             raise ValueError("Missing required environment variable: PINECONE_API_KEY")
         if not index_name:
-            raise ValueError("Missing required environment variable: PINECONE_INDEX_NAME")
+            raise ValueError(
+                "Missing required environment variable: PINECONE_INDEX_NAME"
+            )
         if not groq_api_key:
             raise ValueError("Missing required environment variable: GROQ_API_KEY")
 
@@ -59,7 +61,9 @@ class AppSettings:
             llm_max_tokens = max(256, int(max_tokens_raw))
             llm_temperature = float(temperature_raw)
         except ValueError as exc:
-            raise ValueError("Invalid numeric environment variable for app settings") from exc
+            raise ValueError(
+                "Invalid numeric environment variable for app settings"
+            ) from exc
 
         return cls(
             pinecone_api_key=api_key,

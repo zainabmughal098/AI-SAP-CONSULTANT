@@ -1,0 +1,11 @@
+{
+  "sha256": {
+    "demo_corpus/stage6b/candidates.json": "7644cfe75091d5d0848949181b238f214129341d55ea0ca1b33b16b3b28d04dd",
+    "demo_corpus/stage6b/prepared_records.json": "c5febbd0cc1d2da56c780f3fa751de94ffa3f0cffa1af48a3525ec00436f8e50",
+    "demo_corpus/stage6b/preserved_inputs.json": "d12564c22f4dd6dfe4627c8671b32f197cffcbf77c68eea7bb2b8b2dc83d002c",
+    "demo_corpus/stage6b/review_manifest.json": "fc2f1e7965be06a52b3763dfb1d3508831e9f7ad2241e083eb94b39d0125344c",
+    "demo_corpus/stage6b/scenarios.json": "7c54feabd96dbbecea6772d357d5a1a8e3fc5349b5d3e1d96631f4e7f6b77e2f",
+    "demo_corpus/stage6b/scenario_replay.json": "783666e378fc0436e9cb736cd05846e1abd638136f3f75719633e1ed3edd0936",
+    "rag/approved_sources.json": "87cb0dabd8cc400b99b391c617fbf6da91bf9b14b17aa556a096aecdeeeb97b3"
+  }
+}

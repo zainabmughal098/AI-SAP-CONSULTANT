@@ -1,5 +1,50 @@
 # AI SAP Consultant Retrieval Engine
 
+## Offline academic demonstration
+
+This is an internship prototype, not an FFC-approved or implemented SAP system.
+The isolated offline demo uses TEST_ONLY fictional scenarios and a finite set of
+public SAP transaction-purpose summaries with explicit product/release scopes.
+It does not access SAP or external AI providers and needs no API keys.
+The production source-approval registry remains empty; prepared source candidates
+are pending review, not automatically approved knowledge.
+
+From the project root, using Python 3.12 and an activated project virtual environment:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m offline_demo
+```
+
+Dependency installation requires package access; running the installed offline
+demo does not. Open http://127.0.0.1:8765. Try `What is ME21N used for?` or
+`What should I do if a goods receipt fails?`. Use New Chat for a fresh case;
+sidebar history and page refresh retain the selected conversation within the
+running process. Server restarts clear backend diagnostic memory.
+
+Offline verification:
+
+```bash
+python -m pytest tests/ -q -p no:cacheprovider
+node --test tests/frontend_reliability.test.cjs tests/frontend_sources.test.cjs tests/frontend_offline_presentation.test.cjs
+python -m offline_demo.evaluate
+python -m staging --dry-run
+```
+
+Node 24 was used for frontend checks. The staging dry run is intentionally blocked
+(exit 2) while reviews, encoder compatibility and isolated target details are
+missing; it performs no ingestion. Keep the source/manifest/checksum JSON files
+and five Markdown test baselines included by `.gitignore`. Browser/evaluation
+run-result JSON files are disposable and regenerated locally.
+
+The legacy CSV corpus is unverified and is not the offline demo's approved SAP
+knowledge. In particular, publication of the existing material/supplier/price
+file requires provenance and confidentiality clearance. Do not ingest it or
+treat it as fictional by assumption.
+
+The remaining sections describe the provider-backed pipeline; starting that
+pipeline or ingestion is separate from the offline commands above.
+
 This repository implements a grounded SAP consultant using a RAG pipeline:
 
 - Task 1: ingestion and Pinecone indexing

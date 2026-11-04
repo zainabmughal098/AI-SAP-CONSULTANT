@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "status": "PREPARATION ONLY — all candidates pending human and usage review",
+  "research_date": "2026-11-03",
+  "records": [
+    {
+      "candidate_id": "SAP-MM-001", "module": "MM", "topic": "Purchase-order transaction purposes",
+      "transaction_codes": ["ME21N", "ME22N", "ME23N", "ME29N"],
+      "product": "SAP ERP", "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_ERP/967e1c2a6a8c4183b7e07d28e7574445/787db65334e6b54ce10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=6.18.latest",
+      "document_title": "Purchasing Applications in Single-Screen Transactions: Purchase Requisition and Purchase Order",
+      "source_sections": ["Purpose", "transaction table"],
+      "summary": "The purchasing transaction table identifies ME21N for creating, ME22N for changing and ME23N for displaying purchase orders. ME29N is identified for individual purchase-order release.",
+      "troubleshooting_steps": [],
+      "prerequisites": ["Confirm the target product/release and permitted user activity before procedural advice."],
+      "limitations": ["Transaction purpose only; no release-strategy diagnosis, approval limit, or authorization entitlement is established."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-002", "module": "MM", "topic": "Purchase requisition concept",
+      "transaction_codes": [], "product": "SAP ERP", "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_ERP/967e1c2a6a8c4183b7e07d28e7574445/4f7eb65334e6b54ce10000000a174cb4.html",
+      "document_title": "Purchase Requisition", "source_sections": ["Definition", "Structure"],
+      "summary": "A purchase requisition communicates an internal procurement need to Purchasing, including quantity and timing. It is not a document sent outside the enterprise and can be fulfilled through purchase orders or longer-term agreements.",
+      "troubleshooting_steps": [], "prerequisites": ["Use as a conceptual definition, not a company purchasing policy."],
+      "limitations": ["Does not specify conversion steps, organizational approval rules, or a complete procurement lifecycle."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-003", "module": "MM", "topic": "Purchase-order mode switching and permissions",
+      "transaction_codes": ["ME21N", "ME22N", "ME23N"], "product": "SAP ERP", "version": "6.0 EHP6 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_ERP/314543b557664914af50fde2261cea57/8780b65334e6b54ce10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=6.06.latest",
+      "document_title": "Creating, Changing, and Displaying a Purchase Order (ME21N, ME22N, and ME23N)", "source_sections": ["Use", "Prerequisites"],
+      "summary": "The single-screen purchase-order interface supports create, change and display modes. Switching among those modes requires the necessary authorizations; being able to display a document does not establish permission to change it.",
+      "troubleshooting_steps": ["Distinguish display access from the reported attempt to change or create a document."],
+      "prerequisites": ["The cited page is for ERP EHP6; do not silently extrapolate its screen behavior to another edition."],
+      "limitations": ["A permission prerequisite is not a root-cause diagnosis or a prescription to grant a specific authorization."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-004", "module": "MM", "topic": "MIGO and goods-movement app scope",
+      "transaction_codes": ["MIGO"], "product": "SAP S/4HANA on-premise", "version": "2025 FPS01 (Feb 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/de29287f0c0840caacbbc6f79c8d6242.html",
+      "document_title": "Feature Comparison for Goods Movement", "source_sections": ["app comparison table"],
+      "summary": "MIGO identifies Post Goods Movement in the app comparison. Goods-movement support is broader than a single goods-receipt scenario, so a MIGO mention alone does not identify the user's intended activity.",
+      "troubleshooting_steps": [], "prerequisites": ["Identify goods-movement activity and reference document before choosing scenario-specific evidence."],
+      "limitations": ["Not a movement-type selection guide, reversal procedure, or stock-deficit runbook."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-005", "module": "MM", "topic": "Goods receipt with purchasing-document reference",
+      "transaction_codes": [], "app_ids": ["F0843"], "product": "SAP S/4HANA Cloud Public Edition", "version": "2608 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/32da8359c8ee4e8b8e8c5e15cacba5aa/9ddf815494758c4ce10000000a4450e5.html?q=MIGO+badi",
+      "document_title": "Post Goods Receipt for Purchasing Document", "source_sections": ["app introduction"],
+      "summary": "The F0843 app records receipts with reference to purchasing documents, including purchase orders, stock-transfer orders and scheduling agreements. The receipt reference connects the received goods to the document used to order them.",
+      "troubleshooting_steps": [], "prerequisites": ["A purchasing-document reference and an applicable configured app are needed for this scenario."],
+      "limitations": ["Does not prove why any specific receipt failed, which movement type to choose, or that a receipt was posted."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-006", "module": "MM", "topic": "MIRO and direct invoice posting",
+      "transaction_codes": ["MIRO"], "product": "SAP S/4HANA on-premise", "version": "2025 FPS02 (Oct 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7f6fb6531de6b64ce10000000a174cb4.html?q=Sourcing+and+Procurement",
+      "document_title": "Direct Posting", "source_sections": ["Use", "Function Availability"],
+      "summary": "MIRO is listed for Create Supplier Invoice - Advanced / Enter Invoice. Direct invoices without a purchase-order or delivery reference do not receive purchase-order-derived item proposals, so account assignment must be supplied for that direct-posting case.",
+      "troubleshooting_steps": [], "prerequisites": ["Distinguish direct posting from invoice verification with a purchasing reference."],
+      "limitations": ["Not an account-determination repair, tax-code guide or complete invoice-verification procedure."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-007", "module": "MM", "topic": "Invoice payment blocks and variance evidence",
+      "transaction_codes": [], "product": "SAP S/4HANA on-premise", "version": "2025 FPS01 (Feb 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7870b6531de6b64ce10000000a174cb4.html",
+      "document_title": "Blocking Invoices", "source_sections": ["Use", "Features"],
+      "summary": "An invoice can be blocked for payment manually or automatically. A variance beyond an applicable upper tolerance can permit posting while still blocking payment; payment blocking and inability to post are different symptoms.",
+      "troubleshooting_steps": ["For an item variance, clarify the difference with the appropriate purchasing, receiving or supplier contact."],
+      "prerequisites": ["Know whether the reported problem is posting failure or payment blocking; tolerance values depend on configuration."],
+      "limitations": ["No universal tolerance value or instruction to raise limits, remove a block, or bypass approval is supplied."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-008", "module": "MM", "topic": "Flexible purchase-order workflow concept",
+      "transaction_codes": [], "product": "SAP S/4HANA Cloud Public Edition", "version": "2608 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/adbae5bcd5994f159bf2847a11397b61/fbc1a9b4600745c1939276a0d9ce62ec.html",
+      "document_title": "Flexible Workflow for Purchase Orders", "source_sections": ["workflow introduction"],
+      "summary": "Flexible purchase-order workflows can define condition-based automatic, single-step or multi-step approval. Assigned approvers handle the corresponding work items in My Inbox. This concept does not establish any particular company's approvers or approval conditions.",
+      "troubleshooting_steps": [], "prerequisites": ["Confirm that the question concerns this product edition and workflow variant."],
+      "limitations": ["Not a classic-release comparison or an implementation/configuration runbook; no production default should be inferred for a company."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-MM-009", "module": "MM", "topic": "Requisitions versus orders in procurement commitments",
+      "transaction_codes": [], "product": "SAP ERP", "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_ERP/af00d39e5df1457d89e9e619c6b60196/fa7bd0531d8b4208e10000000a174cb4.html",
+      "document_title": "Commitments", "source_sections": ["Integration"],
+      "summary": "In the procurement-commitment discussion, requisitions describe internal requirements, whereas purchase orders request supply from a vendor under agreed conditions. These are different procurement objects, not interchangeable document names.",
+      "troubleshooting_steps": [], "prerequisites": ["Read together with the requisition definition and keep the commitment-accounting context explicit."],
+      "limitations": ["Not a legal interpretation of contracts, full purchase-order definition or complete procure-to-pay guide."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-SD-001", "module": "SD", "topic": "Sales-order app purposes",
+      "transaction_codes": ["VA01", "VA02", "VA03"], "product": "SAP S/4HANA Cloud Public Edition", "version": "2608 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/a376cd9ea00d476b96f18dea1247e6a5/756fbea3c5974da489b8bd41e39cfdac.html",
+      "document_title": "Feature Comparison for Creating, Changing, and Displaying Sales Orders", "source_sections": ["app comparison table"],
+      "summary": "The comparison identifies VA01 for creating, VA02 for changing and VA03 for displaying sales orders. Its scope is standard single-order scenarios; it explicitly distinguishes professional-services and solution-order cases.",
+      "troubleshooting_steps": [], "prerequisites": ["Match the sales-order scenario and product edition before applying the comparison."],
+      "limitations": ["No pricing, credit, document-visibility or authorization root cause is established by this app list."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-SD-002", "module": "SD", "topic": "Outbound delivery with order reference",
+      "transaction_codes": ["VL01N"], "product": "SAP S/4HANA Cloud Public Edition", "version": "2602 Latest; URL version=2602.500 (observed)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/d1e58be39d884a0dbf75a7526a9acbf4/70f7e785318a4adcb5d7307d08c0ba11.html?locale=en-US&state=PRODUCTION&version=2602.500",
+      "document_title": "Create Outbound Delivery – with Order Reference", "source_sections": ["app introduction"],
+      "summary": "VL01N identifies the app for creating a single outbound delivery with sales-order reference. The described delivery includes order items due for shipment, rather than necessarily every item in the order.",
+      "troubleshooting_steps": [], "prerequisites": ["The described scenario requires an order number and items due for shipment."],
+      "limitations": ["No shipping-point determination fix, end-to-end order-to-cash sequence or live delivery creation is demonstrated."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-FI-001", "module": "FI", "topic": "General-ledger posting inputs",
+      "transaction_codes": [], "product": "SAP S/4HANA on-premise", "version": "2025 FPS01 (Feb 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/651d8af3ea974ad1a4d74449122c620e/4050d7531a4d424de10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=2025.001",
+      "document_title": "G/L Account Posting", "source_sections": ["Use"],
+      "summary": "General-ledger account postings use document-header information, such as dates, document type, company code and currency, together with line-item information. A missing-input discussion is different from confirming that an accounting entry was posted.",
+      "troubleshooting_steps": [], "prerequisites": ["A posting scenario and applicable ledger context must be established."],
+      "limitations": ["No account numbers, tax values, posting-period repair or company configuration advice is supplied."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-FI-002", "module": "FI", "topic": "G/L balances and line-item distinction",
+      "transaction_codes": [], "product": "SAP S/4HANA on-premise", "version": "2025 FPS02 (Oct 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/651d8af3ea974ad1a4d74449122c620e/6050d7531a4d424de10000000a174cb4.html?locale=en-us",
+      "document_title": "Account Balances and Line Items", "source_sections": ["Purpose", "Features"],
+      "summary": "Account postings update balances. Line-item views provide a different level of detail, with open/cleared selection depending on the account and app context. The balance and line-item apps should not be treated as identical reports.",
+      "troubleshooting_steps": [], "prerequisites": ["Identify the account/app context and whether open-item or line-item display applies."],
+      "limitations": ["Not a reconciliation runbook or evidence of any real balance."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-PP-001", "module": "PP", "topic": "Production-order release status",
+      "transaction_codes": [], "app_ids": ["CO05N"], "product": "SAP S/4HANA on-premise", "version": "2025 FPS01 (Feb 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/34de0103497c4b80a7c7fbf6952ff971/73653beedd5241ed9ec3b4cee5229faa.html",
+      "document_title": "Release Production Orders", "source_sections": ["app introduction", "Key Features"],
+      "summary": "The release app CO05N distinguishes created orders from released orders. Header-level release releases the order and its operations, while releasing only some operations can leave the order partially released.",
+      "troubleshooting_steps": [], "prerequisites": ["Distinguish order-header status from individual-operation status."],
+      "limitations": ["No component-shortage, capacity, scheduling or release-error repair is established; release is not executed by this prototype."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-QM-001", "module": "QM", "topic": "Inspection-lot information",
+      "transaction_codes": [], "product": "SAP S/4HANA on-premise", "version": "2025 FPS01 (Feb 2026; observed selector)",
+      "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/2bc3ee8d1c83404e8cf62418640004f2/a7e4b65334e6b54ce10000000a174cb4.html",
+      "document_title": "Inspection Lot", "source_sections": ["Definition", "Use"],
+      "summary": "An inspection lot organizes a quality-inspection request and its information, including processing status, specifications, recorded results and usage decision. It may be created manually or through configured events in other application components.",
+      "troubleshooting_steps": [], "prerequisites": ["Identify lot origin/status and the relevant process before assessing missing information."],
+      "limitations": ["No universal acceptance decision, automatic lot-creation guarantee, inspection threshold or stock-release instruction is supplied."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-WM-001", "module": "WM", "topic": "Classic WM transfer-order concept",
+      "transaction_codes": [], "product": "SAP ERP", "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+      "source_url": "https://help.sap.com/docs/SAP_ERP/34fc810a607e4ae5a287b6e233b8566f/e15bbb536b13b44ce10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=6.18.latest",
+      "document_title": "Transfer Order", "source_sections": ["Definition", "Use"],
+      "summary": "A classic Warehouse Management transfer order describes a warehouse movement or stock change and commonly refers to an originating document. Its scope includes movements into or out of a warehouse, or between its storage bins.",
+      "troubleshooting_steps": [], "prerequisites": ["Confirm classic WM applicability; do not substitute an EWM object without separate evidence."],
+      "limitations": ["No confirmation transaction, EWM migration equivalence, picking diagnosis or warehouse configuration procedure is established."],
+      "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    },
+    {
+      "candidate_id": "SAP-BC-001", "module": "BC", "topic": "Authorization error analysis with SU53",
+      "transaction_codes": ["SU53"], "product": "Legacy SAP Help authorization-analysis documentation; exact target product not established", "version": "Not established by readable article; human review required",
+      "source_url": "https://help.sap.com/saphelp_em92/helpdata/en/52/6716b3439b11d1896f0000e8322d00/content.htm?no_cache=true",
+      "document_title": "Analyzing Authorization Checks", "source_sections": ["Authorization error analysis", "Note"],
+      "summary": "The legacy article describes SU53 for examining an access-denied event that just occurred. Its failed-check information is a diagnostic snapshot, not proof that a particular role should be assigned or that an authorization problem has been repaired.",
+      "troubleshooting_steps": ["Relate the SU53 snapshot to the denied action; do not prescribe a role grant."],
+      "prerequisites": ["A recently reported denial and independent confirmation of release-specific behavior; no real user authorization traces are needed here."],
+      "limitations": ["Exact product/release is unresolved. Newer implementations may differ; no PFCG role-maintenance guide or bypass advice is included."],
+      "evidence_access": "direct_article_body_read; exact product/version unresolved",
+      "human_approved": false, "human_reviewer": null, "human_review_date": null, "usage_review": "pending"
+    }
+  ]
+}

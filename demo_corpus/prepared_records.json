@@ -1,0 +1,620 @@
+{
+  "status": "PENDING REVIEW — NOT FOR INGESTION",
+  "records": [
+    {
+      "id": "SAP-MM-001",
+      "content": "Topic: Purchase-order transaction purposes\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: ME21N, ME22N, ME23N, ME29N\nSummary: The purchasing transaction table identifies ME21N for creating, ME22N for changing and ME23N for displaying purchase orders. ME29N is identified for individual purchase-order release.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Confirm the target product/release and permitted user activity before procedural advice.\nLimitations: Transaction purpose only; no release-strategy diagnosis, approval limit, or authorization entitlement is established.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-001",
+        "module": "MM",
+        "title": "Purchase-order transaction purposes",
+        "document_number": "SAP-MM-001",
+        "product": "SAP ERP",
+        "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_ERP/967e1c2a6a8c4183b7e07d28e7574445/787db65334e6b54ce10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=6.18.latest",
+        "source_title": "Purchasing Applications in Single-Screen Transactions: Purchase Requisition and Purchase Order",
+        "source_sections": [
+          "Purpose",
+          "transaction table"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [
+          "ME21N",
+          "ME22N",
+          "ME23N",
+          "ME29N"
+        ],
+        "app_ids": [],
+        "text": "Topic: Purchase-order transaction purposes\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: ME21N, ME22N, ME23N, ME29N\nSummary: The purchasing transaction table identifies ME21N for creating, ME22N for changing and ME23N for displaying purchase orders. ME29N is identified for individual purchase-order release.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Confirm the target product/release and permitted user activity before procedural advice.\nLimitations: Transaction purpose only; no release-strategy diagnosis, approval limit, or authorization entitlement is established."
+      }
+    },
+    {
+      "id": "SAP-MM-002",
+      "content": "Topic: Purchase requisition concept\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: A purchase requisition communicates an internal procurement need to Purchasing, including quantity and timing. It is not a document sent outside the enterprise and can be fulfilled through purchase orders or longer-term agreements.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Use as a conceptual definition, not a company purchasing policy.\nLimitations: Does not specify conversion steps, organizational approval rules, or a complete procurement lifecycle.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-002",
+        "module": "MM",
+        "title": "Purchase requisition concept",
+        "document_number": "SAP-MM-002",
+        "product": "SAP ERP",
+        "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_ERP/967e1c2a6a8c4183b7e07d28e7574445/4f7eb65334e6b54ce10000000a174cb4.html",
+        "source_title": "Purchase Requisition",
+        "source_sections": [
+          "Definition",
+          "Structure"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: Purchase requisition concept\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: A purchase requisition communicates an internal procurement need to Purchasing, including quantity and timing. It is not a document sent outside the enterprise and can be fulfilled through purchase orders or longer-term agreements.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Use as a conceptual definition, not a company purchasing policy.\nLimitations: Does not specify conversion steps, organizational approval rules, or a complete procurement lifecycle."
+      }
+    },
+    {
+      "id": "SAP-MM-003",
+      "content": "Topic: Purchase-order mode switching and permissions\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP6 Latest (documentation selector observed; mutable)\nTransaction codes: ME21N, ME22N, ME23N\nSummary: The single-screen purchase-order interface supports create, change and display modes. Switching among those modes requires the necessary authorizations; being able to display a document does not establish permission to change it.\nSupported diagnostic observations: Distinguish display access from the reported attempt to change or create a document.\nPrerequisites: The cited page is for ERP EHP6; do not silently extrapolate its screen behavior to another edition.\nLimitations: A permission prerequisite is not a root-cause diagnosis or a prescription to grant a specific authorization.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-003",
+        "module": "MM",
+        "title": "Purchase-order mode switching and permissions",
+        "document_number": "SAP-MM-003",
+        "product": "SAP ERP",
+        "version": "6.0 EHP6 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_ERP/314543b557664914af50fde2261cea57/8780b65334e6b54ce10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=6.06.latest",
+        "source_title": "Creating, Changing, and Displaying a Purchase Order (ME21N, ME22N, and ME23N)",
+        "source_sections": [
+          "Use",
+          "Prerequisites"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [
+          "ME21N",
+          "ME22N",
+          "ME23N"
+        ],
+        "app_ids": [],
+        "text": "Topic: Purchase-order mode switching and permissions\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP6 Latest (documentation selector observed; mutable)\nTransaction codes: ME21N, ME22N, ME23N\nSummary: The single-screen purchase-order interface supports create, change and display modes. Switching among those modes requires the necessary authorizations; being able to display a document does not establish permission to change it.\nSupported diagnostic observations: Distinguish display access from the reported attempt to change or create a document.\nPrerequisites: The cited page is for ERP EHP6; do not silently extrapolate its screen behavior to another edition.\nLimitations: A permission prerequisite is not a root-cause diagnosis or a prescription to grant a specific authorization."
+      }
+    },
+    {
+      "id": "SAP-MM-004",
+      "content": "Topic: MIGO and goods-movement app scope\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: MIGO\nSummary: MIGO identifies Post Goods Movement in the app comparison. Goods-movement support is broader than a single goods-receipt scenario, so a MIGO mention alone does not identify the user's intended activity.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Identify goods-movement activity and reference document before choosing scenario-specific evidence.\nLimitations: Not a movement-type selection guide, reversal procedure, or stock-deficit runbook.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-004",
+        "module": "MM",
+        "title": "MIGO and goods-movement app scope",
+        "document_number": "SAP-MM-004",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS01 (Feb 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/91b21005dded4984bcccf4a69ae1300c/de29287f0c0840caacbbc6f79c8d6242.html",
+        "source_title": "Feature Comparison for Goods Movement",
+        "source_sections": [
+          "app comparison table"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [
+          "MIGO"
+        ],
+        "app_ids": [],
+        "tcode": "MIGO",
+        "text": "Topic: MIGO and goods-movement app scope\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: MIGO\nSummary: MIGO identifies Post Goods Movement in the app comparison. Goods-movement support is broader than a single goods-receipt scenario, so a MIGO mention alone does not identify the user's intended activity.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Identify goods-movement activity and reference document before choosing scenario-specific evidence.\nLimitations: Not a movement-type selection guide, reversal procedure, or stock-deficit runbook."
+      }
+    },
+    {
+      "id": "SAP-MM-005",
+      "content": "Topic: Goods receipt with purchasing-document reference\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2608 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: The F0843 app records receipts with reference to purchasing documents, including purchase orders, stock-transfer orders and scheduling agreements. The receipt reference connects the received goods to the document used to order them.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: A purchasing-document reference and an applicable configured app are needed for this scenario.\nLimitations: Does not prove why any specific receipt failed, which movement type to choose, or that a receipt was posted.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-005",
+        "module": "MM",
+        "title": "Goods receipt with purchasing-document reference",
+        "document_number": "SAP-MM-005",
+        "product": "SAP S/4HANA Cloud Public Edition",
+        "version": "2608 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/32da8359c8ee4e8b8e8c5e15cacba5aa/9ddf815494758c4ce10000000a4450e5.html?q=MIGO+badi",
+        "source_title": "Post Goods Receipt for Purchasing Document",
+        "source_sections": [
+          "app introduction"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [
+          "F0843"
+        ],
+        "text": "Topic: Goods receipt with purchasing-document reference\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2608 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: The F0843 app records receipts with reference to purchasing documents, including purchase orders, stock-transfer orders and scheduling agreements. The receipt reference connects the received goods to the document used to order them.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: A purchasing-document reference and an applicable configured app are needed for this scenario.\nLimitations: Does not prove why any specific receipt failed, which movement type to choose, or that a receipt was posted."
+      }
+    },
+    {
+      "id": "SAP-MM-006",
+      "content": "Topic: MIRO and direct invoice posting\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS02 (Oct 2026; observed selector)\nTransaction codes: MIRO\nSummary: MIRO is listed for Create Supplier Invoice - Advanced / Enter Invoice. Direct invoices without a purchase-order or delivery reference do not receive purchase-order-derived item proposals, so account assignment must be supplied for that direct-posting case.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Distinguish direct posting from invoice verification with a purchasing reference.\nLimitations: Not an account-determination repair, tax-code guide or complete invoice-verification procedure.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-006",
+        "module": "MM",
+        "title": "MIRO and direct invoice posting",
+        "document_number": "SAP-MM-006",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02 (Oct 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7f6fb6531de6b64ce10000000a174cb4.html?q=Sourcing+and+Procurement",
+        "source_title": "Direct Posting",
+        "source_sections": [
+          "Use",
+          "Function Availability"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [
+          "MIRO"
+        ],
+        "app_ids": [],
+        "tcode": "MIRO",
+        "text": "Topic: MIRO and direct invoice posting\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS02 (Oct 2026; observed selector)\nTransaction codes: MIRO\nSummary: MIRO is listed for Create Supplier Invoice - Advanced / Enter Invoice. Direct invoices without a purchase-order or delivery reference do not receive purchase-order-derived item proposals, so account assignment must be supplied for that direct-posting case.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Distinguish direct posting from invoice verification with a purchasing reference.\nLimitations: Not an account-determination repair, tax-code guide or complete invoice-verification procedure."
+      }
+    },
+    {
+      "id": "SAP-MM-007",
+      "content": "Topic: Invoice payment blocks and variance evidence\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: An invoice can be blocked for payment manually or automatically. A variance beyond an applicable upper tolerance can permit posting while still blocking payment; payment blocking and inability to post are different symptoms.\nSupported diagnostic observations: For an item variance, clarify the difference with the appropriate purchasing, receiving or supplier contact.\nPrerequisites: Know whether the reported problem is posting failure or payment blocking; tolerance values depend on configuration.\nLimitations: No universal tolerance value or instruction to raise limits, remove a block, or bypass approval is supplied.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-007",
+        "module": "MM",
+        "title": "Invoice payment blocks and variance evidence",
+        "document_number": "SAP-MM-007",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS01 (Feb 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/af9ef57f504840d2b81be8667206d485/7870b6531de6b64ce10000000a174cb4.html",
+        "source_title": "Blocking Invoices",
+        "source_sections": [
+          "Use",
+          "Features"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: Invoice payment blocks and variance evidence\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: An invoice can be blocked for payment manually or automatically. A variance beyond an applicable upper tolerance can permit posting while still blocking payment; payment blocking and inability to post are different symptoms.\nSupported diagnostic observations: For an item variance, clarify the difference with the appropriate purchasing, receiving or supplier contact.\nPrerequisites: Know whether the reported problem is posting failure or payment blocking; tolerance values depend on configuration.\nLimitations: No universal tolerance value or instruction to raise limits, remove a block, or bypass approval is supplied."
+      }
+    },
+    {
+      "id": "SAP-MM-008",
+      "content": "Topic: Flexible purchase-order workflow concept\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2608 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: Flexible purchase-order workflows can define condition-based automatic, single-step or multi-step approval. Assigned approvers handle the corresponding work items in My Inbox. This concept does not establish any particular company's approvers or approval conditions.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Confirm that the question concerns this product edition and workflow variant.\nLimitations: Not a classic-release comparison or an implementation/configuration runbook; no production default should be inferred for a company.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-008",
+        "module": "MM",
+        "title": "Flexible purchase-order workflow concept",
+        "document_number": "SAP-MM-008",
+        "product": "SAP S/4HANA Cloud Public Edition",
+        "version": "2608 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/adbae5bcd5994f159bf2847a11397b61/fbc1a9b4600745c1939276a0d9ce62ec.html",
+        "source_title": "Flexible Workflow for Purchase Orders",
+        "source_sections": [
+          "workflow introduction"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: Flexible purchase-order workflow concept\nModule: MM\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2608 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: Flexible purchase-order workflows can define condition-based automatic, single-step or multi-step approval. Assigned approvers handle the corresponding work items in My Inbox. This concept does not establish any particular company's approvers or approval conditions.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Confirm that the question concerns this product edition and workflow variant.\nLimitations: Not a classic-release comparison or an implementation/configuration runbook; no production default should be inferred for a company."
+      }
+    },
+    {
+      "id": "SAP-MM-009",
+      "content": "Topic: Requisitions versus orders in procurement commitments\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: In the procurement-commitment discussion, requisitions describe internal requirements, whereas purchase orders request supply from a vendor under agreed conditions. These are different procurement objects, not interchangeable document names.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Read together with the requisition definition and keep the commitment-accounting context explicit.\nLimitations: Not a legal interpretation of contracts, full purchase-order definition or complete procure-to-pay guide.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-MM-009",
+        "module": "MM",
+        "title": "Requisitions versus orders in procurement commitments",
+        "document_number": "SAP-MM-009",
+        "product": "SAP ERP",
+        "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_ERP/af00d39e5df1457d89e9e619c6b60196/fa7bd0531d8b4208e10000000a174cb4.html",
+        "source_title": "Commitments",
+        "source_sections": [
+          "Integration"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: Requisitions versus orders in procurement commitments\nModule: MM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: In the procurement-commitment discussion, requisitions describe internal requirements, whereas purchase orders request supply from a vendor under agreed conditions. These are different procurement objects, not interchangeable document names.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Read together with the requisition definition and keep the commitment-accounting context explicit.\nLimitations: Not a legal interpretation of contracts, full purchase-order definition or complete procure-to-pay guide."
+      }
+    },
+    {
+      "id": "SAP-SD-001",
+      "content": "Topic: Sales-order app purposes\nModule: SD\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2608 Latest (documentation selector observed; mutable)\nTransaction codes: VA01, VA02, VA03\nSummary: The comparison identifies VA01 for creating, VA02 for changing and VA03 for displaying sales orders. Its scope is standard single-order scenarios; it explicitly distinguishes professional-services and solution-order cases.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Match the sales-order scenario and product edition before applying the comparison.\nLimitations: No pricing, credit, document-visibility or authorization root cause is established by this app list.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-SD-001",
+        "module": "SD",
+        "title": "Sales-order app purposes",
+        "document_number": "SAP-SD-001",
+        "product": "SAP S/4HANA Cloud Public Edition",
+        "version": "2608 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/a376cd9ea00d476b96f18dea1247e6a5/756fbea3c5974da489b8bd41e39cfdac.html",
+        "source_title": "Feature Comparison for Creating, Changing, and Displaying Sales Orders",
+        "source_sections": [
+          "app comparison table"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [
+          "VA01",
+          "VA02",
+          "VA03"
+        ],
+        "app_ids": [],
+        "text": "Topic: Sales-order app purposes\nModule: SD\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2608 Latest (documentation selector observed; mutable)\nTransaction codes: VA01, VA02, VA03\nSummary: The comparison identifies VA01 for creating, VA02 for changing and VA03 for displaying sales orders. Its scope is standard single-order scenarios; it explicitly distinguishes professional-services and solution-order cases.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Match the sales-order scenario and product edition before applying the comparison.\nLimitations: No pricing, credit, document-visibility or authorization root cause is established by this app list."
+      }
+    },
+    {
+      "id": "SAP-SD-002",
+      "content": "Topic: Outbound delivery with order reference\nModule: SD\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2602 Latest; URL version=2602.500 (observed)\nTransaction codes: VL01N\nSummary: VL01N identifies the app for creating a single outbound delivery with sales-order reference. The described delivery includes order items due for shipment, rather than necessarily every item in the order.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: The described scenario requires an order number and items due for shipment.\nLimitations: No shipping-point determination fix, end-to-end order-to-cash sequence or live delivery creation is demonstrated.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-SD-002",
+        "module": "SD",
+        "title": "Outbound delivery with order reference",
+        "document_number": "SAP-SD-002",
+        "product": "SAP S/4HANA Cloud Public Edition",
+        "version": "2602 Latest; URL version=2602.500 (observed)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_CLOUD/d1e58be39d884a0dbf75a7526a9acbf4/70f7e785318a4adcb5d7307d08c0ba11.html?locale=en-US&state=PRODUCTION&version=2602.500",
+        "source_title": "Create Outbound Delivery – with Order Reference",
+        "source_sections": [
+          "app introduction"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [
+          "VL01N"
+        ],
+        "app_ids": [],
+        "tcode": "VL01N",
+        "text": "Topic: Outbound delivery with order reference\nModule: SD\nProduct applicability (pending human review): SAP S/4HANA Cloud Public Edition | 2602 Latest; URL version=2602.500 (observed)\nTransaction codes: VL01N\nSummary: VL01N identifies the app for creating a single outbound delivery with sales-order reference. The described delivery includes order items due for shipment, rather than necessarily every item in the order.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: The described scenario requires an order number and items due for shipment.\nLimitations: No shipping-point determination fix, end-to-end order-to-cash sequence or live delivery creation is demonstrated."
+      }
+    },
+    {
+      "id": "SAP-FI-001",
+      "content": "Topic: General-ledger posting inputs\nModule: FI\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: General-ledger account postings use document-header information, such as dates, document type, company code and currency, together with line-item information. A missing-input discussion is different from confirming that an accounting entry was posted.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: A posting scenario and applicable ledger context must be established.\nLimitations: No account numbers, tax values, posting-period repair or company configuration advice is supplied.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-FI-001",
+        "module": "FI",
+        "title": "General-ledger posting inputs",
+        "document_number": "SAP-FI-001",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS01 (Feb 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/651d8af3ea974ad1a4d74449122c620e/4050d7531a4d424de10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=2025.001",
+        "source_title": "G/L Account Posting",
+        "source_sections": [
+          "Use"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: General-ledger posting inputs\nModule: FI\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: General-ledger account postings use document-header information, such as dates, document type, company code and currency, together with line-item information. A missing-input discussion is different from confirming that an accounting entry was posted.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: A posting scenario and applicable ledger context must be established.\nLimitations: No account numbers, tax values, posting-period repair or company configuration advice is supplied."
+      }
+    },
+    {
+      "id": "SAP-FI-002",
+      "content": "Topic: G/L balances and line-item distinction\nModule: FI\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS02 (Oct 2026; observed selector)\nTransaction codes: none established\nSummary: Account postings update balances. Line-item views provide a different level of detail, with open/cleared selection depending on the account and app context. The balance and line-item apps should not be treated as identical reports.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Identify the account/app context and whether open-item or line-item display applies.\nLimitations: Not a reconciliation runbook or evidence of any real balance.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-FI-002",
+        "module": "FI",
+        "title": "G/L balances and line-item distinction",
+        "document_number": "SAP-FI-002",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02 (Oct 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/651d8af3ea974ad1a4d74449122c620e/6050d7531a4d424de10000000a174cb4.html?locale=en-us",
+        "source_title": "Account Balances and Line Items",
+        "source_sections": [
+          "Purpose",
+          "Features"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: G/L balances and line-item distinction\nModule: FI\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS02 (Oct 2026; observed selector)\nTransaction codes: none established\nSummary: Account postings update balances. Line-item views provide a different level of detail, with open/cleared selection depending on the account and app context. The balance and line-item apps should not be treated as identical reports.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Identify the account/app context and whether open-item or line-item display applies.\nLimitations: Not a reconciliation runbook or evidence of any real balance."
+      }
+    },
+    {
+      "id": "SAP-PP-001",
+      "content": "Topic: Production-order release status\nModule: PP\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: The release app CO05N distinguishes created orders from released orders. Header-level release releases the order and its operations, while releasing only some operations can leave the order partially released.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Distinguish order-header status from individual-operation status.\nLimitations: No component-shortage, capacity, scheduling or release-error repair is established; release is not executed by this prototype.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-PP-001",
+        "module": "PP",
+        "title": "Production-order release status",
+        "document_number": "SAP-PP-001",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS01 (Feb 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/34de0103497c4b80a7c7fbf6952ff971/73653beedd5241ed9ec3b4cee5229faa.html",
+        "source_title": "Release Production Orders",
+        "source_sections": [
+          "app introduction",
+          "Key Features"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [
+          "CO05N"
+        ],
+        "text": "Topic: Production-order release status\nModule: PP\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: The release app CO05N distinguishes created orders from released orders. Header-level release releases the order and its operations, while releasing only some operations can leave the order partially released.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Distinguish order-header status from individual-operation status.\nLimitations: No component-shortage, capacity, scheduling or release-error repair is established; release is not executed by this prototype."
+      }
+    },
+    {
+      "id": "SAP-QM-001",
+      "content": "Topic: Inspection-lot information\nModule: QM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: An inspection lot organizes a quality-inspection request and its information, including processing status, specifications, recorded results and usage decision. It may be created manually or through configured events in other application components.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Identify lot origin/status and the relevant process before assessing missing information.\nLimitations: No universal acceptance decision, automatic lot-creation guarantee, inspection threshold or stock-release instruction is supplied.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-QM-001",
+        "module": "QM",
+        "title": "Inspection-lot information",
+        "document_number": "SAP-QM-001",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS01 (Feb 2026; observed selector)",
+        "source_url": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/2bc3ee8d1c83404e8cf62418640004f2/a7e4b65334e6b54ce10000000a174cb4.html",
+        "source_title": "Inspection Lot",
+        "source_sections": [
+          "Definition",
+          "Use"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: Inspection-lot information\nModule: QM\nProduct applicability (pending human review): SAP S/4HANA on-premise | 2025 FPS01 (Feb 2026; observed selector)\nTransaction codes: none established\nSummary: An inspection lot organizes a quality-inspection request and its information, including processing status, specifications, recorded results and usage decision. It may be created manually or through configured events in other application components.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Identify lot origin/status and the relevant process before assessing missing information.\nLimitations: No universal acceptance decision, automatic lot-creation guarantee, inspection threshold or stock-release instruction is supplied."
+      }
+    },
+    {
+      "id": "SAP-WM-001",
+      "content": "Topic: Classic WM transfer-order concept\nModule: WM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: A classic Warehouse Management transfer order describes a warehouse movement or stock change and commonly refers to an originating document. Its scope includes movements into or out of a warehouse, or between its storage bins.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Confirm classic WM applicability; do not substitute an EWM object without separate evidence.\nLimitations: No confirmation transaction, EWM migration equivalence, picking diagnosis or warehouse configuration procedure is established.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-WM-001",
+        "module": "WM",
+        "title": "Classic WM transfer-order concept",
+        "document_number": "SAP-WM-001",
+        "product": "SAP ERP",
+        "version": "6.0 EHP8 Latest (documentation selector observed; mutable)",
+        "source_url": "https://help.sap.com/docs/SAP_ERP/34fc810a607e4ae5a287b6e233b8566f/e15bbb536b13b44ce10000000a174cb4.html?locale=en-US&state=PRODUCTION&version=6.18.latest",
+        "source_title": "Transfer Order",
+        "source_sections": [
+          "Definition",
+          "Use"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "indexed_article_extract_only; direct open returned no readable body",
+        "transaction_codes": [],
+        "app_ids": [],
+        "text": "Topic: Classic WM transfer-order concept\nModule: WM\nProduct applicability (pending human review): SAP ERP | 6.0 EHP8 Latest (documentation selector observed; mutable)\nTransaction codes: none established\nSummary: A classic Warehouse Management transfer order describes a warehouse movement or stock change and commonly refers to an originating document. Its scope includes movements into or out of a warehouse, or between its storage bins.\nSupported diagnostic observations: No procedural runbook established\nPrerequisites: Confirm classic WM applicability; do not substitute an EWM object without separate evidence.\nLimitations: No confirmation transaction, EWM migration equivalence, picking diagnosis or warehouse configuration procedure is established."
+      }
+    },
+    {
+      "id": "SAP-BC-001",
+      "content": "Topic: Authorization error analysis with SU53\nModule: BC\nProduct applicability (pending human review): Legacy SAP Help authorization-analysis documentation; exact target product not established | Not established by readable article; human review required\nTransaction codes: SU53\nSummary: The legacy article describes SU53 for examining an access-denied event that just occurred. Its failed-check information is a diagnostic snapshot, not proof that a particular role should be assigned or that an authorization problem has been repaired.\nSupported diagnostic observations: Relate the SU53 snapshot to the denied action; do not prescribe a role grant.\nPrerequisites: A recently reported denial and independent confirmation of release-specific behavior; no real user authorization traces are needed here.\nLimitations: Exact product/release is unresolved. Newer implementations may differ; no PFCG role-maintenance guide or bypass advice is included.",
+      "metadata": {
+        "source_file": "demo_corpus/candidates.json",
+        "document_type": "public_sap_summary",
+        "identifier": "SAP-BC-001",
+        "module": "BC",
+        "title": "Authorization error analysis with SU53",
+        "document_number": "SAP-BC-001",
+        "product": "Legacy SAP Help authorization-analysis documentation; exact target product not established",
+        "version": "Not established by readable article; human review required",
+        "source_url": "https://help.sap.com/saphelp_em92/helpdata/en/52/6716b3439b11d1896f0000e8322d00/content.htm?no_cache=true",
+        "source_title": "Analyzing Authorization Checks",
+        "source_sections": [
+          "Authorization error analysis",
+          "Note"
+        ],
+        "research_date": "2026-11-03",
+        "evidence_access": "direct_article_body_read; exact product/version unresolved",
+        "transaction_codes": [
+          "SU53"
+        ],
+        "app_ids": [],
+        "tcode": "SU53",
+        "text": "Topic: Authorization error analysis with SU53\nModule: BC\nProduct applicability (pending human review): Legacy SAP Help authorization-analysis documentation; exact target product not established | Not established by readable article; human review required\nTransaction codes: SU53\nSummary: The legacy article describes SU53 for examining an access-denied event that just occurred. Its failed-check information is a diagnostic snapshot, not proof that a particular role should be assigned or that an authorization problem has been repaired.\nSupported diagnostic observations: Relate the SU53 snapshot to the denied action; do not prescribe a role grant.\nPrerequisites: A recently reported denial and independent confirmation of release-specific behavior; no real user authorization traces are needed here.\nLimitations: Exact product/release is unresolved. Newer implementations may differ; no PFCG role-maintenance guide or bypass advice is included."
+      }
+    },
+    {
+      "id": "DEMO-S01",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO purchase-order release discussion\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BOLT_A\ndocument_number: DEMO_PO_001\nproduct_context: DEMO discussion of ERP classic release; exact system release not selected\nsimulated_error_message: SIMULATED: release decision pending\nfictional_observation: DEMO facilitator has not supplied a release group, code or approver. No authorization or configuration cause is established.\nsimulated_outcome: DEMO facilitator later supplies a fictional approval-state update; the consultant must describe it as reported, not as an executed release.\nexpected_behavior: Reuse ME29N, retain unavailable fields, request relevant details, and explain evidence gaps. Pending references cannot support procedural advice.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S01",
+        "module": "MM",
+        "title": "DEMO purchase-order release discussion",
+        "document_number": "DEMO_PO_001",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-MM-001",
+          "SAP-MM-003"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO purchase-order release discussion\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BOLT_A\ndocument_number: DEMO_PO_001\nproduct_context: DEMO discussion of ERP classic release; exact system release not selected\nsimulated_error_message: SIMULATED: release decision pending\nfictional_observation: DEMO facilitator has not supplied a release group, code or approver. No authorization or configuration cause is established.\nsimulated_outcome: DEMO facilitator later supplies a fictional approval-state update; the consultant must describe it as reported, not as an executed release.\nexpected_behavior: Reuse ME29N, retain unavailable fields, request relevant details, and explain evidence gaps. Pending references cannot support procedural advice."
+      }
+    },
+    {
+      "id": "DEMO-S02",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO goods-receipt posting problem\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BOLT_A\ndocument_number: DEMO_PO_002\nproduct_context: DEMO S/4HANA on-premise goods-movement discussion; release to be selected\nsimulated_error_message: SIMULATED: document input requires review\nfictional_observation: DEMO receipt reference is provided; no posting-period, quantity or movement-type cause has been established.\nsimulated_outcome: DEMO facilitator changes the mock status from pending to reviewed. This is not a material-document posting.\nexpected_behavior: Keep the provided transaction, PO and material. Explain the difference between a movement activity and a receipt reference only after relevant public evidence is approved; do not mix Cloud F0843 and on-premise MIGO procedures.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S02",
+        "module": "MM",
+        "title": "DEMO goods-receipt posting problem",
+        "document_number": "DEMO_PO_002",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-MM-004",
+          "SAP-MM-005"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO goods-receipt posting problem\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BOLT_A\ndocument_number: DEMO_PO_002\nproduct_context: DEMO S/4HANA on-premise goods-movement discussion; release to be selected\nsimulated_error_message: SIMULATED: document input requires review\nfictional_observation: DEMO receipt reference is provided; no posting-period, quantity or movement-type cause has been established.\nsimulated_outcome: DEMO facilitator changes the mock status from pending to reviewed. This is not a material-document posting.\nexpected_behavior: Keep the provided transaction, PO and material. Explain the difference between a movement activity and a receipt reference only after relevant public evidence is approved; do not mix Cloud F0843 and on-premise MIGO procedures."
+      }
+    },
+    {
+      "id": "DEMO-S03",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO invoice symptom correction\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BOLT_A\ndocument_number: DEMO_INV_003\nproduct_context: DEMO S/4HANA on-premise invoice discussion; exact release must be clarified\nsimulated_error_message: SIMULATED: invoice needs review\nfictional_observation: DEMO symptom is corrected from vague posting trouble to reported payment blocking. No actual amounts, tax values or tolerance limits are supplied.\nsimulated_outcome: DEMO facilitator records an unresolved variance-review task. No invoice release, payment or configuration change occurs.\nexpected_behavior: Honor the correction; distinguish posting from payment blocking; never supply a universal tolerance or assume the cause of the simulated block.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S03",
+        "module": "MM",
+        "title": "DEMO invoice symptom correction",
+        "document_number": "DEMO_INV_003",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-MM-006",
+          "SAP-MM-007"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO invoice symptom correction\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BOLT_A\ndocument_number: DEMO_INV_003\nproduct_context: DEMO S/4HANA on-premise invoice discussion; exact release must be clarified\nsimulated_error_message: SIMULATED: invoice needs review\nfictional_observation: DEMO symptom is corrected from vague posting trouble to reported payment blocking. No actual amounts, tax values or tolerance limits are supplied.\nsimulated_outcome: DEMO facilitator records an unresolved variance-review task. No invoice release, payment or configuration change occurs.\nexpected_behavior: Honor the correction; distinguish posting from payment blocking; never supply a universal tolerance or assume the cause of the simulated block."
+      }
+    },
+    {
+      "id": "DEMO-S04",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO sales-order transaction correction\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_KIT_B\ndocument_number: DEMO_SO_004\nproduct_context: DEMO S/4HANA Cloud Public Edition standard sales-order scenario; 2608 evidence candidate\nsimulated_error_message: SIMULATED: document is not shown\nfictional_observation: DEMO document visibility has not been explained; the later transaction correction and explicit topic switch must be preserved.\nsimulated_outcome: DEMO discussion switches to a transaction explanation. No order is created, changed or deleted.\nexpected_behavior: Apply the correction without inventing a visibility cause, then honor the explicit topic switch. Creation/change/display definitions need approved evidence.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S04",
+        "module": "SD",
+        "title": "DEMO sales-order transaction correction",
+        "document_number": "DEMO_SO_004",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-SD-001",
+          "SAP-SD-002"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO sales-order transaction correction\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_KIT_B\ndocument_number: DEMO_SO_004\nproduct_context: DEMO S/4HANA Cloud Public Edition standard sales-order scenario; 2608 evidence candidate\nsimulated_error_message: SIMULATED: document is not shown\nfictional_observation: DEMO document visibility has not been explained; the later transaction correction and explicit topic switch must be preserved.\nsimulated_outcome: DEMO discussion switches to a transaction explanation. No order is created, changed or deleted.\nexpected_behavior: Apply the correction without inventing a visibility cause, then honor the explicit topic switch. Creation/change/display definitions need approved evidence."
+      }
+    },
+    {
+      "id": "DEMO-S05",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO authorization denial\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_KIT_B\ndocument_number: DEMO_AUTH_CASE_005\nproduct_context: DEMO authorization discussion; exact ABAP product/release unresolved\nsimulated_error_message: SIMULATED: requested activity denied\nfictional_observation: DEMO user identifier is invented. No real SU53 screenshot, role data or employee record exists.\nsimulated_outcome: DEMO facilitator records that evidence would need review in an authorized training environment; no role is granted.\nexpected_behavior: Keep denial as a user report; explain only reviewed release-applicable diagnostics. Exact product applicability for the legacy source remains a blocker.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S05",
+        "module": "BC",
+        "title": "DEMO authorization denial",
+        "document_number": "DEMO_AUTH_CASE_005",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-BC-001",
+          "SAP-MM-003"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO authorization denial\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_KIT_B\ndocument_number: DEMO_AUTH_CASE_005\nproduct_context: DEMO authorization discussion; exact ABAP product/release unresolved\nsimulated_error_message: SIMULATED: requested activity denied\nfictional_observation: DEMO user identifier is invented. No real SU53 screenshot, role data or employee record exists.\nsimulated_outcome: DEMO facilitator records that evidence would need review in an authorized training environment; no role is granted.\nexpected_behavior: Keep denial as a user report; explain only reviewed release-applicable diagnostics. Exact product applicability for the legacy source remains a blocker."
+      }
+    },
+    {
+      "id": "DEMO-S06",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO production-order status discussion\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_ASSEMBLY_C\ndocument_number: DEMO_PROD_006\nproduct_context: DEMO S/4HANA on-premise 2025 FPS01 conceptual scenario\nsimulated_error_message: SIMULATED: production status review pending\nfictional_observation: DEMO operation and header status are deliberately incomplete, not proof of a component shortage or capacity problem.\nsimulated_outcome: DEMO facilitator provides a fictional header-status observation later; no production order is released.\nexpected_behavior: Use the generic clarification engine without pretending a PP-specific decision tree exists; after approval explain the documented order/operation status distinction conditionally.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S06",
+        "module": "PP",
+        "title": "DEMO production-order status discussion",
+        "document_number": "DEMO_PROD_006",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-PP-001"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO production-order status discussion\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_ASSEMBLY_C\ndocument_number: DEMO_PROD_006\nproduct_context: DEMO S/4HANA on-premise 2025 FPS01 conceptual scenario\nsimulated_error_message: SIMULATED: production status review pending\nfictional_observation: DEMO operation and header status are deliberately incomplete, not proof of a component shortage or capacity problem.\nsimulated_outcome: DEMO facilitator provides a fictional header-status observation later; no production order is released.\nexpected_behavior: Use the generic clarification engine without pretending a PP-specific decision tree exists; after approval explain the documented order/operation status distinction conditionally."
+      }
+    },
+    {
+      "id": "DEMO-S07",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO inspection-lot information gap\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BATCH_D\ndocument_number: DEMO_LOT_007\nproduct_context: DEMO S/4HANA on-premise 2025 FPS01 conceptual scenario\nsimulated_error_message: SIMULATED: inspection information incomplete\nfictional_observation: DEMO missing data are not acceptance criteria and do not establish product quality or stock availability.\nsimulated_outcome: DEMO facilitator marks an information-request task pending; no usage decision or stock release is made.\nexpected_behavior: Separate inspection information from a quality judgment, request relevant missing details, and avoid automatic acceptance or configuration advice.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S07",
+        "module": "QM",
+        "title": "DEMO inspection-lot information gap",
+        "document_number": "DEMO_LOT_007",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-QM-001"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO inspection-lot information gap\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_BATCH_D\ndocument_number: DEMO_LOT_007\nproduct_context: DEMO S/4HANA on-premise 2025 FPS01 conceptual scenario\nsimulated_error_message: SIMULATED: inspection information incomplete\nfictional_observation: DEMO missing data are not acceptance criteria and do not establish product quality or stock availability.\nsimulated_outcome: DEMO facilitator marks an information-request task pending; no usage decision or stock release is made.\nexpected_behavior: Separate inspection information from a quality judgment, request relevant missing details, and avoid automatic acceptance or configuration advice."
+      }
+    },
+    {
+      "id": "DEMO-S08",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO warehouse document ambiguity\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_PALLET_E\ndocument_number: DEMO_TO_008\nproduct_context: DEMO classic WM / ERP discussion; no EWM equivalence assumed\nsimulated_error_message: SIMULATED: warehouse reference unclear\nfictional_observation: DEMO storage bin is DEMO_BIN_A. No physical move or stock quantity is observed.\nsimulated_outcome: DEMO facilitator supplies a fictional document relationship; no transfer is created or confirmed.\nexpected_behavior: After approval explain the classic transfer-order concept, preserve unknown reference, and do not substitute an EWM warehouse task.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S08",
+        "module": "WM",
+        "title": "DEMO warehouse document ambiguity",
+        "document_number": "DEMO_TO_008",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-WM-001"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO warehouse document ambiguity\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_PALLET_E\ndocument_number: DEMO_TO_008\nproduct_context: DEMO classic WM / ERP discussion; no EWM equivalence assumed\nsimulated_error_message: SIMULATED: warehouse reference unclear\nfictional_observation: DEMO storage bin is DEMO_BIN_A. No physical move or stock quantity is observed.\nsimulated_outcome: DEMO facilitator supplies a fictional document relationship; no transfer is created or confirmed.\nexpected_behavior: After approval explain the classic transfer-order concept, preserve unknown reference, and do not substitute an EWM warehouse task."
+      }
+    },
+    {
+      "id": "DEMO-S09",
+      "content": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO accounting-input discussion\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_SERVICE_F\ndocument_number: DEMO_FI_009\nproduct_context: DEMO S/4HANA on-premise discussion; FPS01/FPS02 sources must not be merged without review\nsimulated_error_message: SIMULATED: header information not supplied\nfictional_observation: DEMO_CC is a clearly fictional identifier and is not required to satisfy real SAP field-length constraints.\nsimulated_outcome: DEMO facilitator fills a worksheet only; no accounting document or payment is posted.\nexpected_behavior: Explain only reviewed input concepts; distinguish a fictional worksheet from a valid executable SAP transaction payload.",
+      "metadata": {
+        "source_file": "demo_corpus/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S09",
+        "module": "FI",
+        "title": "DEMO accounting-input discussion",
+        "document_number": "DEMO_FI_009",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP-FI-001",
+          "SAP-FI-002"
+        ],
+        "research_date": "2026-11-03",
+        "text": "DEMO / SIMULATED — entirely fictional; no live SAP operation.\ntitle: DEMO accounting-input discussion\ncompany: DEMO Lantern Components (fictional)\nsupplier: DEMO Paper Kite Supply (fictional)\nmaterial: DEMO_MAT_SERVICE_F\ndocument_number: DEMO_FI_009\nproduct_context: DEMO S/4HANA on-premise discussion; FPS01/FPS02 sources must not be merged without review\nsimulated_error_message: SIMULATED: header information not supplied\nfictional_observation: DEMO_CC is a clearly fictional identifier and is not required to satisfy real SAP field-length constraints.\nsimulated_outcome: DEMO facilitator fills a worksheet only; no accounting document or payment is posted.\nexpected_behavior: Explain only reviewed input concepts; distinguish a fictional worksheet from a valid executable SAP transaction payload."
+      }
+    }
+  ]
+}

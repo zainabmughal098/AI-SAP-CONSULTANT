@@ -1,0 +1,223 @@
+{
+  "mode": "offline-only",
+  "structurally_valid": true,
+  "record_count": 13,
+  "records": [
+    {
+      "id": "SAP6B-MM-GR-001",
+      "hash": "48dc7f0e23afcf64ff71263c6a35fc9a1684f94362a85852771aa5b7810ca11a",
+      "citation_handle": "SRC-48dc7f0e23afcf64ff71",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "SAP6B-MM-INV-001",
+      "hash": "724f4b9e818265aeefa6dbaf9257024252774fc14ed0c09bfb1b5b583a18ed26",
+      "citation_handle": "SRC-724f4b9e818265aeefa6",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "SAP6B-QM-LOT-001",
+      "hash": "880f5d2a2c12fdb77d896008a488c33915686fdcf8cc334d3b3a5a7a88a39561",
+      "citation_handle": "SRC-880f5d2a2c12fdb77d89",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "SAP6B-SD-VA03-001",
+      "hash": "59afb5f8bfaf602c89a9ac1af5b6a919b67df362ddc316d831f50826aea01c86",
+      "citation_handle": "SRC-59afb5f8bfaf602c89a9",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S01-6B",
+      "hash": "83396ade975d06bb4b9da334b651a9a6a9305bb2c75091a989003222aad3394b",
+      "citation_handle": "SRC-83396ade975d06bb4b9d",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S02-6B",
+      "hash": "be439c2421c8750bb50a016a373b52b62e8a24dffbff157609cfe12b7575d8fe",
+      "citation_handle": "SRC-be439c2421c8750bb50a",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S03-6B",
+      "hash": "b1a6b248c1f40e72eb01d38d02601e90a94d3ae911fda965b512a627a48ac553",
+      "citation_handle": "SRC-b1a6b248c1f40e72eb01",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S04-6B",
+      "hash": "b8c909ec16b26b211604dc9c8d9fc41d0e3583b1ec132f9bc1f65f1c7114ed68",
+      "citation_handle": "SRC-b8c909ec16b26b211604",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S05-6B",
+      "hash": "5b2bb4218ccd8c2475c570cf8b6a13fd949b75d8e399792cab79f7d7a4b2e83c",
+      "citation_handle": "SRC-5b2bb4218ccd8c2475c5",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S06-6B",
+      "hash": "4670f800ab2fcf0c2fa468db70e34769f1b2ebc226f6a83d021d574eeb984f05",
+      "citation_handle": "SRC-4670f800ab2fcf0c2fa4",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S07-6B",
+      "hash": "ec7a45b9bf7c6c05a7c27fbed10ea2fc3050c4f3d8be6f3170663191a02add77",
+      "citation_handle": "SRC-ec7a45b9bf7c6c05a7c2",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S08-6B",
+      "hash": "c9842b234735c29ce8475387efe715043e1f7d788a7f46a6b266641a4c1a3e37",
+      "citation_handle": "SRC-c9842b234735c29ce847",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    },
+    {
+      "id": "DEMO-S09-6B",
+      "hash": "c0514f37f8f6c41b79b7e51054dab4e1f19ee36c4b09691ad176e6547d4c6fbe",
+      "citation_handle": "SRC-c0514f37f8f6c41b79b7",
+      "blockers": [
+        "pending_human_review",
+        "factual_review_not_approved",
+        "applicability_review_not_approved",
+        "safety_review_not_approved",
+        "usage_review_not_approved",
+        "human_reviewer_missing",
+        "review_reference_missing",
+        "review_date_missing_or_invalid"
+      ]
+    }
+  ],
+  "target_blockers": [
+    "staging_target_unconfigured"
+  ],
+  "embedding_blockers": [
+    "encoder_details_unverified",
+    "encoder_equivalence_unverified",
+    "index_dimension_metric_unverified_or_mismatched",
+    "record_token_count_unverified"
+  ],
+  "eligible_for_payload": false,
+  "package_hash": "227c906cdf65c59cb1938c92135799e402541ad78c07daddf13b9b1ce5d9a9f1",
+  "provider_calls": 0,
+  "writes": 0,
+  "rollback_preparation": {
+    "failed_candidate_package_hash": "227c906cdf65c59cb1938c92135799e402541ad78c07daddf13b9b1ce5d9a9f1",
+    "action": "stop_staging_and_return_to_empty_registry",
+    "previous_release": null,
+    "runtime_registry_sha256": "87cb0dabd8cc400b99b391c617fbf6da91bf9b14b17aa556a096aecdeeeb97b3",
+    "cleanup_authorized": false,
+    "executed": false
+  }
+}

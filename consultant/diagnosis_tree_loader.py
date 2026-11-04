@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
@@ -45,7 +46,9 @@ class DiagnosisTree:
         if not tree_id:
             raise ValueError("Diagnosis tree id cannot be empty")
 
-        required_fields = tuple(str(f).strip() for f in data["required_fields"] if str(f).strip())
+        required_fields = tuple(
+            str(f).strip() for f in data["required_fields"] if str(f).strip()
+        )
         questions = {str(k): str(v) for k, v in dict(data["questions"]).items()}
 
         for field_name in required_fields:
@@ -57,11 +60,17 @@ class DiagnosisTree:
         return cls(
             id=tree_id,
             intent=str(data["intent"]).strip(),
-            match_keywords=tuple(str(k).lower().strip() for k in data["match_keywords"] if str(k).strip()),
+            match_keywords=tuple(
+                str(k).lower().strip() for k in data["match_keywords"] if str(k).strip()
+            ),
             required_fields=required_fields,
             questions=questions,
-            completion_condition=str(data.get("completion_condition") or "all_required_fields"),
-            retrieval_terms=tuple(str(t).strip() for t in data["retrieval_terms"] if str(t).strip()),
+            completion_condition=str(
+                data.get("completion_condition") or "all_required_fields"
+            ),
+            retrieval_terms=tuple(
+                str(t).strip() for t in data["retrieval_terms"] if str(t).strip()
+            ),
         )
 
 
@@ -70,7 +79,9 @@ class DiagnosisTreeLoader:
     """Loads diagnosis trees and matches user queries to a flow."""
 
     trees_path: Path = field(default_factory=lambda: DEFAULT_TREES_PATH)
-    _trees: dict[str, DiagnosisTree] = field(default_factory=dict, init=False, repr=False)
+    _trees: dict[str, DiagnosisTree] = field(
+        default_factory=dict, init=False, repr=False
+    )
 
     def __post_init__(self) -> None:
         self.reload()
@@ -94,7 +105,9 @@ class DiagnosisTreeLoader:
             trees[tree.id] = tree
 
         if GENERIC_TREE_ID not in trees:
-            raise ValueError(f"diagnosis_trees.json must include a '{GENERIC_TREE_ID}' fallback tree")
+            raise ValueError(
+                f"diagnosis_trees.json must include a '{GENERIC_TREE_ID}' fallback tree"
+            )
 
         self._trees = trees
         logger.info("Loaded %s diagnosis trees from %s", len(self._trees), path)
@@ -108,13 +121,28 @@ class DiagnosisTreeLoader:
     def match_tree(self, query: str) -> DiagnosisTree:
         """Score trees by keyword hits; fall back to generic_issue."""
         normalized = (query or "").lower()
+        release_issue = bool(re.search(r"\breleas\w*\b|\bme29n\b", normalized))
         best: DiagnosisTree | None = None
         best_score = 0
 
         for tree in self._trees.values():
             if tree.id == GENERIC_TREE_ID:
                 continue
-            score = sum(1 for keyword in tree.match_keywords if keyword in normalized)
+            if tree.id == "po_release" and not release_issue:
+                continue
+            if tree.id == "goods_receipt" and not re.search(
+                r"\bgoods receipt\b|\bgr\b", normalized
+            ):
+                continue
+            score = sum(
+                1
+                for keyword in tree.match_keywords
+                if re.search(rf"(?<!\w){re.escape(keyword)}(?!\w)", normalized)
+            )
+            if tree.id == "authorization" and re.search(
+                r"\b(?:no authorization|not authorized|access denied)\b", normalized
+            ):
+                score += 10
             if score > best_score:
                 best_score = score
                 best = tree

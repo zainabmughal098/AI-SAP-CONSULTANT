@@ -3,3 +3,42 @@
 __pycache__/
 *.pyc
 venv/
+offline_demo/browser_temp/
+# Local development and evaluation reports
+/*_REPORT.md
+/*_PLAN.md
+/*_WORKSHEET.md
+/PROJECT_AUDIT.md
+/TEST_PLAN.md
+/RAG_AUDIT.md
+/RAG_EVALUATION.md
+/SAP_FACT_VERIFICATION.md
+/SAP_SOURCE_REVIEW.md
+/SCENARIO_REVIEW.md
+/SYNTHETIC_SCENARIOS.md
+/STAGING_TEST_CHECKLIST.md
+/STAGING_INTEGRATION_PLAN.md
+
+# These five documents are required test inputs (including frozen checksums).
+!/DEMO_CORPUS_PLAN.md
+!/DEMO_EVALUATION_PLAN.md
+!/SAP_SOURCE_REVIEW.md
+!/SYNTHETIC_SCENARIOS.md
+!/RAG_EVALUATION.md
+
+# Disposable local run outputs; retain frozen fixtures/checkpoints/manifests.
+/offline_demo/browser_results.json
+/offline_demo/evaluation_results.json
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local credentials and private-key containers. Templates remain publishable.
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx

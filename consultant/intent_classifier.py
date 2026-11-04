@@ -10,6 +10,7 @@ from typing import Any
 
 from groq import Groq
 
+from consultant.message_parser import transaction_codes
 from rag.config.settings import AppSettings
 
 logger = logging.getLogger(__name__)
@@ -46,7 +47,7 @@ _EXPLAIN_PREFIX = re.compile(
 _ISSUE_HINTS = re.compile(
     r"\b("
     r"not\s+work(?:ing)?|isn'?t\s+work(?:ing)?|doesn'?t\s+work|"
-    r"not\s+releas(?:e|ing)|isn'?t\s+releas(?:e|ing)|failed|failing|error|"
+    r"not\s+releas(?:e|ing)|isn'?t\s+releas(?:e|ing)|not\s+visible|fails?|failed|failing|error|"
     r"cannot|can'?t|unable|issue|problem|stuck|blocked|missing|"
     r"no\s+authorization|not\s+authorized|access\s+denied|"
     r"dump|dumping|abap\s+runtime"
@@ -55,7 +56,7 @@ _ISSUE_HINTS = re.compile(
 )
 
 _PROCESS_HINTS = re.compile(
-    r"\b(how\s+(do|to|can)\s+i|process\s+flow|business\s+process|steps\s+to|"
+    r"\b(how\s+(?:(?:do|can)\s+i|to)|process\s+flow|business\s+process|steps\s+to|"
     r"workflow|end[\s-]?to[\s-]?end)\b",
     re.IGNORECASE,
 )
@@ -69,6 +70,44 @@ _AUTH_LOOKUP_HINTS = re.compile(
     r"\b(what\s+is\s+(pfcg|su53|su01|authorization\s+object)|explain\s+(pfcg|su53))\b",
     re.IGNORECASE,
 )
+
+_INFO_QUESTION = re.compile(
+    r"^\s*(?:explain|what\b|what'?s\b|describe|tell\s+me\b|show\s+me\b|define|meaning\s+of|"
+    r"how\b|why\b|which\b|does\b|is\b|are\b|can\b|could\b|write\b|translate\b|summari[sz]e\b)",
+    re.I,
+)
+_PERSONAL_INCIDENT = re.compile(
+    r"\b(?:i|we|my|our)\b.{0,100}\b(?:cannot|can'?t|unable|error|failed|failing|stuck|"
+    r"blocked|problem|not\s+(?:authorized|releasing|working|visible|posted|created)|"
+    r"no\s+authorization|access\s+denied)\b|\b(?:can'?t|cannot)\s+(?:i|we)\b|\bwhy\s+(?:is|does)\s+my\b",
+    re.I,
+)
+_REPAIR_REQUEST = re.compile(
+    r"\b(?:fix|troubleshoot|diagnose|resolve|help\s+me\s+with)\b", re.I
+)
+
+
+def is_information_request(query: str) -> bool:
+    return bool(_INFO_QUESTION.search(query)) and not (
+        _PERSONAL_INCIDENT.search(query) or _REPAIR_REQUEST.search(query)
+    )
+
+
+def reports_problem(query: str) -> bool:
+    if is_information_request(query):
+        return False
+    cleaned = re.sub(
+        r"\b(?:goods\s+issue|issue\s+resolution|no\s+error\s+message)\b",
+        "",
+        query,
+        flags=re.I,
+    )
+    return bool(
+        _ISSUE_HINTS.search(cleaned)
+        or _PERSONAL_INCIDENT.search(cleaned)
+        or _REPAIR_REQUEST.search(cleaned)
+    )
+
 
 CLASSIFIER_SYSTEM_PROMPT = """You are an intent classifier for an SAP functional consultant chatbot.
 Classify the user message into exactly one intent from this list:
@@ -105,7 +144,9 @@ class IntentClassifier:
         if self.settings is None and self.use_llm:
             try:
                 self.settings = AppSettings.from_env()
-            except Exception as exc:  # pragma: no cover - env may be incomplete in unit tests
+            except (
+                Exception
+            ) as exc:  # pragma: no cover - env may be incomplete in unit tests
                 logger.warning("Intent classifier LLM disabled: %s", exc)
                 self.use_llm = False
 
@@ -124,46 +165,55 @@ class IntentClassifier:
                 return llm_result
 
         # Conservative fallback: issue-like wording → diagnosis, else general
-        if _ISSUE_HINTS.search(cleaned):
+        if reports_problem(cleaned):
             return {"intent": ISSUE_DIAGNOSIS, "confidence": 0.55, "source": "fallback"}
         return {"intent": "General SAP Query", "confidence": 0.5, "source": "fallback"}
 
     def _classify_with_rules(self, query: str) -> dict[str, Any] | None:
-        # Explicit problem reports take priority over "what is" phrasing
-        if _ISSUE_HINTS.search(query) and not _AUTH_LOOKUP_HINTS.search(query):
-            # Exception: pure "what is error X" style knowledge lookups without failure wording
-            # already covered; if issue hints present → diagnosis
-            if not (_EXPLAIN_PREFIX.search(query) and not re.search(
-                r"\b(not|isn'?t|can'?t|cannot|fail|error|problem|issue)\b",
-                query,
-                re.IGNORECASE,
-            )):
-                return {"intent": ISSUE_DIAGNOSIS, "confidence": 0.9, "source": "rules"}
+        if reports_problem(query):
+            return {"intent": ISSUE_DIAGNOSIS, "confidence": 0.9, "source": "rules"}
 
         if _AUTH_LOOKUP_HINTS.search(query) or (
-            _EXPLAIN_PREFIX.search(query) and re.search(r"\b(pfcg|su53|su01|role)\b", query, re.IGNORECASE)
+            _EXPLAIN_PREFIX.search(query)
+            and re.search(r"\b(pfcg|su53|su01|role)\b", query, re.IGNORECASE)
         ):
             return {"intent": "Authorization", "confidence": 0.88, "source": "rules"}
 
-        if _EXPLAIN_PREFIX.search(query):
+        if is_information_request(query) and not _PROCESS_HINTS.search(query):
             if _TABLE_PATTERN.search(query):
-                return {"intent": "SAP Table Explanation", "confidence": 0.95, "source": "rules"}
-            if _TCODE_PATTERN.search(query):
-                return {"intent": "T-Code Explanation", "confidence": 0.92, "source": "rules"}
+                return {
+                    "intent": "SAP Table Explanation",
+                    "confidence": 0.95,
+                    "source": "rules",
+                }
+            if transaction_codes(query):
+                return {
+                    "intent": "T-Code Explanation",
+                    "confidence": 0.92,
+                    "source": "rules",
+                }
             return {"intent": "Knowledge Lookup", "confidence": 0.85, "source": "rules"}
 
         # Bare tcode / table queries ("ME21N", "VBAK")
         tokens = query.strip().split()
         if len(tokens) == 1:
             if _TABLE_PATTERN.fullmatch(tokens[0]):
-                return {"intent": "SAP Table Explanation", "confidence": 0.93, "source": "rules"}
-            if _TCODE_PATTERN.fullmatch(tokens[0]) and any(ch.isdigit() for ch in tokens[0]):
-                return {"intent": "T-Code Explanation", "confidence": 0.9, "source": "rules"}
+                return {
+                    "intent": "SAP Table Explanation",
+                    "confidence": 0.93,
+                    "source": "rules",
+                }
+            if transaction_codes(tokens[0]):
+                return {
+                    "intent": "T-Code Explanation",
+                    "confidence": 0.9,
+                    "source": "rules",
+                }
 
-        if _PROCESS_HINTS.search(query) and not _ISSUE_HINTS.search(query):
+        if _PROCESS_HINTS.search(query):
             return {"intent": "Business Process", "confidence": 0.82, "source": "rules"}
 
-        if _CONFIG_HINTS.search(query) and not _ISSUE_HINTS.search(query):
+        if _CONFIG_HINTS.search(query):
             return {"intent": "Configuration", "confidence": 0.8, "source": "rules"}
 
         return None
@@ -172,15 +222,16 @@ class IntentClassifier:
         if not self.use_llm or self.settings is None:
             return None
         if self._client is None:
-            self._client = Groq(api_key=self.settings.groq_api_key)
+            self._client = Groq(
+                api_key=self.settings.groq_api_key, timeout=10.0, max_retries=0
+            )
         return self._client
 
     def _classify_with_llm(self, query: str) -> dict[str, Any] | None:
-        client = self._get_client()
-        if client is None or self.settings is None:
-            return None
-
         try:
+            client = self._get_client()
+            if client is None or self.settings is None:
+                return None
             completion = client.chat.completions.create(
                 model=self.settings.llm_model,
                 messages=[
@@ -190,6 +241,8 @@ class IntentClassifier:
                 temperature=0.0,
                 max_tokens=80,
             )
+            if completion.choices[0].finish_reason != "stop":
+                return None
             raw = (completion.choices[0].message.content or "").strip()
             payload = _parse_json_object(raw)
             intent = str(payload.get("intent", "")).strip()
@@ -202,7 +255,7 @@ class IntentClassifier:
                 "source": "llm",
             }
         except Exception as exc:
-            logger.warning("Intent LLM classification failed: %s", exc)
+            logger.warning("Intent LLM classification failed (%s)", type(exc).__name__)
             return None
 
 

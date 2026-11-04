@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from consultant.diagnosis_tree_loader import DiagnosisTree
+from consultant.message_parser import is_unknown, unknown_applies_to, valid_field_reply
 from consultant.session_state import DiagnosisState
 
 INTRO_MESSAGE = "I need some additional information before diagnosing the issue."
@@ -18,16 +19,16 @@ class ClarificationEngine:
             state.pending_field
             and state.pending_field in tree.required_fields
             and state.pending_field not in state.answers
+            and state.pending_field not in state.unknown_fields
             and state.pending_field in tree.questions
         ):
             return state.pending_field
 
         for field_name in tree.required_fields:
-            if field_name in state.answers:
+            if field_name in state.answers or field_name in state.unknown_fields:
                 continue
-            # Never advance to a new field that was already asked and answered path
-            if field_name in state.asked_fields:
-                continue
+            # A conflict/side question may interrupt an unanswered field. Known and
+            # unavailable fields are skipped above; an interrupted field still needs a reply.
             if field_name not in tree.questions:
                 continue
             return field_name
@@ -37,7 +38,10 @@ class ClarificationEngine:
         if tree.completion_condition != "all_required_fields":
             # Unknown conditions default to requiring all required fields
             pass
-        return all(field in state.answers and state.answers[field].strip() for field in tree.required_fields)
+        return all(
+            field in state.answers and state.answers[field].strip()
+            for field in tree.required_fields
+        )
 
     def format_question(
         self,
@@ -59,7 +63,11 @@ class ClarificationEngine:
         cleaned = (user_message or "").strip()
         if not cleaned:
             return
-        state.record_answer(state.pending_field, cleaned)
+        if is_unknown(cleaned):
+            if unknown_applies_to(cleaned, state.pending_field):
+                state.mark_unknown(state.pending_field, cleaned)
+        elif valid_field_reply(state.pending_field, cleaned):
+            state.record_answer(state.pending_field, cleaned)
 
     def ask_next(self, tree: DiagnosisTree, state: DiagnosisState) -> str | None:
         """Mark and return the next clarifying question, or None if complete."""
@@ -71,7 +79,9 @@ class ClarificationEngine:
             return None
 
         is_new_field = field_name not in state.asked_fields
-        question = self.format_question(tree, state, field_name, is_new_field=is_new_field)
+        question = self.format_question(
+            tree, state, field_name, is_new_field=is_new_field
+        )
         if is_new_field:
             state.mark_asked(field_name)
         else:

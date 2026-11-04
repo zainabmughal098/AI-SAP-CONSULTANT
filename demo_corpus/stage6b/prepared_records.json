@@ -1,0 +1,254 @@
+{
+  "status": "PENDING HUMAN REVIEW; NOT FOR INGESTION",
+  "records": [
+    {
+      "id": "SAP6B-MM-GR-001",
+      "content": "Topic: Goods receipt: narrow inventory concept\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: A goods receipt records incoming goods from a supplier or production and increases warehouse stock.\nReview boundaries: Review boundary: conceptual explanation only; no execution prerequisites established.\nLimitations: No MIGO or F0843 identifier verified by this record. No movement, reversal, period or stock-deficit repair procedure.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/candidates.json",
+        "document_type": "public_sap_summary",
+        "module": "MM",
+        "identifier": "SAP6B-MM-GR-001",
+        "document_number": "SAP6B-MM-GR-001",
+        "title": "Goods receipt: narrow inventory concept",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "source_title": "SAP S/4HANA 2025 Feature Scope Description",
+        "source_sections": [
+          "Document History, printed p.7",
+          "2.12.1.1 Goods Movement, printed p.174"
+        ],
+        "transaction_codes": [],
+        "app_ids": [],
+        "research_date": "2026-11-03",
+        "evidence_access": "readable_official_pdf_body; p.174 screenshot; version history p.7",
+        "text": "Topic: Goods receipt: narrow inventory concept\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: A goods receipt records incoming goods from a supplier or production and increases warehouse stock.\nReview boundaries: Review boundary: conceptual explanation only; no execution prerequisites established.\nLimitations: No MIGO or F0843 identifier verified by this record. No movement, reversal, period or stock-deficit repair procedure.",
+        "page": "174"
+      }
+    },
+    {
+      "id": "SAP6B-MM-INV-001",
+      "content": "Topic: Posted invoice and payment block are different observations\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: Posted supplier invoices can remain blocked for payment. Posting and payment blocking are distinct reported states.\nReview boundaries: Review boundary: ask whether posting failed or payment is blocked; this is a proposed clarification, not a complete SAP checklist.\nLimitations: No MIRO identifier, tolerance amount, blocking cause or unblocking procedure established. No universal workflow configuration implied.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/candidates.json",
+        "document_type": "public_sap_summary",
+        "module": "MM",
+        "identifier": "SAP6B-MM-INV-001",
+        "document_number": "SAP6B-MM-INV-001",
+        "title": "Posted invoice and payment block are different observations",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "source_title": "SAP S/4HANA 2025 Feature Scope Description",
+        "source_sections": [
+          "Document History, printed p.7",
+          "2.11.5.1 Invoice Processing, Approving supplier invoices, printed p.169"
+        ],
+        "transaction_codes": [],
+        "app_ids": [],
+        "research_date": "2026-11-03",
+        "evidence_access": "readable_official_pdf_body; p.169 screenshot; version history p.7",
+        "text": "Topic: Posted invoice and payment block are different observations\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: Posted supplier invoices can remain blocked for payment. Posting and payment blocking are distinct reported states.\nReview boundaries: Review boundary: ask whether posting failed or payment is blocked; this is a proposed clarification, not a complete SAP checklist.\nLimitations: No MIRO identifier, tolerance amount, blocking cause or unblocking procedure established. No universal workflow configuration implied.",
+        "page": "169"
+      }
+    },
+    {
+      "id": "SAP6B-QM-LOT-001",
+      "content": "Topic: Inspection lot: request, results and usage decision\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: An inspection lot represents an inspection request; results are recorded and completion uses a usage decision.\nReview boundaries: Review boundary: conceptual only; missing results do not establish acceptance or rejection.\nLimitations: No inspection-type activation, automatic creation, stock release, quality thresholds or decision transaction verified.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/candidates.json",
+        "document_type": "public_sap_summary",
+        "module": "QM",
+        "identifier": "SAP6B-QM-LOT-001",
+        "document_number": "SAP6B-QM-LOT-001",
+        "title": "Inspection lot: request, results and usage decision",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "source_title": "SAP S/4HANA 2025 Feature Scope Description",
+        "source_sections": [
+          "Document History, printed p.7",
+          "2.7.5.2 Quality Inspection, printed p.95"
+        ],
+        "transaction_codes": [],
+        "app_ids": [],
+        "research_date": "2026-11-03",
+        "evidence_access": "readable_official_pdf_body; p.95 screenshot timed out twice; table text readable; version history p.7",
+        "text": "Topic: Inspection lot: request, results and usage decision\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: An inspection lot represents an inspection request; results are recorded and completion uses a usage decision.\nReview boundaries: Review boundary: conceptual only; missing results do not establish acceptance or rejection.\nLimitations: No inspection-type activation, automatic creation, stock release, quality thresholds or decision transaction verified.",
+        "page": "95"
+      }
+    },
+    {
+      "id": "SAP6B-SD-VA03-001",
+      "content": "Topic: VA03 display purpose in a legacy ERP fact-sheet context\nScope (pending human review): SAP ERP 6.0 with SAP Fiori for SAP ERP | Backend EHP7 SPS06; frontend Fiori for SAP ERP 1.0 SPS04\nSummary: This legacy Sales Order fact sheet links to the VA03 display transaction in the ABAP back end.\nReview boundaries: For that fact sheet: SAP Fiori-enabled landscape with separately delivered frontend/backend components; not a universal VA03 installation checklist.\nLimitations: Not evidence for S/4HANA Cloud Public Edition 2608, VA01/VA02, visibility repairs or role grants. Stated versions are source landscape requirements, not this prototype's installed system.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/candidates.json",
+        "document_type": "public_sap_summary",
+        "module": "SD",
+        "identifier": "SAP6B-SD-VA03-001",
+        "document_number": "SAP6B-SD-VA03-001",
+        "title": "VA03 display purpose in a legacy ERP fact-sheet context",
+        "product": "SAP ERP 6.0 with SAP Fiori for SAP ERP",
+        "version": "Backend EHP7 SPS06; frontend Fiori for SAP ERP 1.0 SPS04",
+        "source_url": "https://help.sap.com/saphelp_ssb/helpdata/en/b4/a64552bda1d171e10000000a44176d/content.htm?no_cache=true",
+        "source_title": "Sales Order - SAP Documentation",
+        "source_sections": [
+          "Transactions in the ABAP Back End",
+          "System Landscape Requirements"
+        ],
+        "transaction_codes": [
+          "VA03"
+        ],
+        "app_ids": [],
+        "research_date": "2026-11-03",
+        "evidence_access": "direct_article_body_read; exact landscape requirements readable",
+        "text": "Topic: VA03 display purpose in a legacy ERP fact-sheet context\nScope (pending human review): SAP ERP 6.0 with SAP Fiori for SAP ERP | Backend EHP7 SPS06; frontend Fiori for SAP ERP 1.0 SPS04\nSummary: This legacy Sales Order fact sheet links to the VA03 display transaction in the ABAP back end.\nReview boundaries: For that fact sheet: SAP Fiori-enabled landscape with separately delivered frontend/backend components; not a universal VA03 installation checklist.\nLimitations: Not evidence for S/4HANA Cloud Public Edition 2608, VA01/VA02, visibility repairs or role grants. Stated versions are source landscape requirements, not this prototype's installed system.",
+        "tcode": "VA03"
+      }
+    },
+    {
+      "id": "DEMO-S01-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO purchase-order release discussion\nDEMO release discussion; exact SAP product/release unverified\nDEMO facilitator has not supplied a release group, code or approver. No authorization or configuration cause is established.\nSimulated outcome: DEMO facilitator later supplies a fictional approval-state update; the consultant must describe it as reported, not as an executed release.\nLimits: DEMO: reuse ME29N as a user-reported token, retain unavailable fields and explain evidence gaps. No release-procedure evidence is proposed in this revision; demonstrate clarification and refusal only.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S01-6B",
+        "module": "MM",
+        "title": "DEMO purchase-order release discussion",
+        "document_number": "DEMO_PO_001",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO purchase-order release discussion\nDEMO release discussion; exact SAP product/release unverified\nDEMO facilitator has not supplied a release group, code or approver. No authorization or configuration cause is established.\nSimulated outcome: DEMO facilitator later supplies a fictional approval-state update; the consultant must describe it as reported, not as an executed release.\nLimits: DEMO: reuse ME29N as a user-reported token, retain unavailable fields and explain evidence gaps. No release-procedure evidence is proposed in this revision; demonstrate clarification and refusal only."
+      }
+    },
+    {
+      "id": "DEMO-S02-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO goods-receipt posting problem\nDEMO S/4HANA on-premise 2025 FPS02 concept; MIGO is a user-reported token, not verified here\nDEMO receipt reference is provided; no posting-period, quantity or movement-type cause has been established.\nSimulated outcome: DEMO facilitator changes the mock status from pending to reviewed. This is not a material-document posting.\nLimits: DEMO: retain the reported transaction, fictional PO and material. Only a general goods-receipt concept has proposed evidence; no MIGO or F0843 activity/reference procedure is supported by this revision. Treat missing error numbers as unavailable evidence and remain preliminary.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S02-6B",
+        "module": "MM",
+        "title": "DEMO goods-receipt posting problem",
+        "document_number": "DEMO_PO_002",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP6B-MM-GR-001"
+        ],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO goods-receipt posting problem\nDEMO S/4HANA on-premise 2025 FPS02 concept; MIGO is a user-reported token, not verified here\nDEMO receipt reference is provided; no posting-period, quantity or movement-type cause has been established.\nSimulated outcome: DEMO facilitator changes the mock status from pending to reviewed. This is not a material-document posting.\nLimits: DEMO: retain the reported transaction, fictional PO and material. Only a general goods-receipt concept has proposed evidence; no MIGO or F0843 activity/reference procedure is supported by this revision. Treat missing error numbers as unavailable evidence and remain preliminary."
+      }
+    },
+    {
+      "id": "DEMO-S03-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO invoice symptom correction\nDEMO S/4HANA on-premise 2025 FPS02 conceptual invoice discussion; no MIRO procedure verified\nDEMO symptom is corrected from vague posting trouble to reported payment blocking. No actual amounts, tax values or tolerance limits are supplied.\nSimulated outcome: DEMO facilitator records an unresolved variance-review task. No invoice release, payment or configuration change occurs.\nLimits: DEMO: replace the vague symptom with the corrected user report; retain MIRO only as a reported token. Tolerance uncertainty must not fill company code. Distinguish payment block from posting without diagnosing the cause; no MIRO or unblocking procedure is supported.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S03-6B",
+        "module": "MM",
+        "title": "DEMO invoice symptom correction",
+        "document_number": "DEMO_INV_003",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP6B-MM-INV-001"
+        ],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO invoice symptom correction\nDEMO S/4HANA on-premise 2025 FPS02 conceptual invoice discussion; no MIRO procedure verified\nDEMO symptom is corrected from vague posting trouble to reported payment blocking. No actual amounts, tax values or tolerance limits are supplied.\nSimulated outcome: DEMO facilitator records an unresolved variance-review task. No invoice release, payment or configuration change occurs.\nLimits: DEMO: replace the vague symptom with the corrected user report; retain MIRO only as a reported token. Tolerance uncertainty must not fill company code. Distinguish payment block from posting without diagnosing the cause; no MIRO or unblocking procedure is supported."
+      }
+    },
+    {
+      "id": "DEMO-S04-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO sales-order transaction correction\nDEMO legacy ERP 6.0 EHP7 SPS06 / Fiori for ERP 1.0 SPS04 fact-sheet context; not Cloud Public Edition\nDEMO document visibility has not been explained; the later transaction correction and explicit topic switch must be preserved.\nSimulated outcome: DEMO discussion switches to a transaction explanation. No order is created, changed or deleted.\nLimits: DEMO: retain the opening, correct the reported token VA03 to VA02, and keep the sales area unavailable; then honor the explicit VA01 switch. Only the ERP-scoped VA03 purpose has proposed evidence. VA01/VA02 requests require additional reviewed sources or refusal; neither token is a verified remedy.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S04-6B",
+        "module": "SD",
+        "title": "DEMO sales-order transaction correction",
+        "document_number": "DEMO_SO_004",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP6B-SD-VA03-001"
+        ],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO sales-order transaction correction\nDEMO legacy ERP 6.0 EHP7 SPS06 / Fiori for ERP 1.0 SPS04 fact-sheet context; not Cloud Public Edition\nDEMO document visibility has not been explained; the later transaction correction and explicit topic switch must be preserved.\nSimulated outcome: DEMO discussion switches to a transaction explanation. No order is created, changed or deleted.\nLimits: DEMO: retain the opening, correct the reported token VA03 to VA02, and keep the sales area unavailable; then honor the explicit VA01 switch. Only the ERP-scoped VA03 purpose has proposed evidence. VA01/VA02 requests require additional reviewed sources or refusal; neither token is a verified remedy."
+      }
+    },
+    {
+      "id": "DEMO-S05-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO authorization denial\nDEMO authorization conversation; no verified SAP release, object or role\nDEMO user identifier is invented. No real SU53 screenshot, role data or employee record exists.\nSimulated outcome: DEMO facilitator records that evidence would need review in an authorized training environment; no role is granted.\nLimits: DEMO: treat the denial as an unverified simulated report; store the fictional user identifier separately. An unavailable trace means no known authorization object. Remain preliminary and refuse unsupported SU53/role procedures.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S05-6B",
+        "module": "BC",
+        "title": "DEMO authorization denial",
+        "document_number": "DEMO_AUTH_CASE_005",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO authorization denial\nDEMO authorization conversation; no verified SAP release, object or role\nDEMO user identifier is invented. No real SU53 screenshot, role data or employee record exists.\nSimulated outcome: DEMO facilitator records that evidence would need review in an authorized training environment; no role is granted.\nLimits: DEMO: treat the denial as an unverified simulated report; store the fictional user identifier separately. An unavailable trace means no known authorization object. Remain preliminary and refuse unsupported SU53/role procedures."
+      }
+    },
+    {
+      "id": "DEMO-S06-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO production-order status discussion\nDEMO production conversation only; PP-SFC app/header-operation claims remain unverified; do not substitute PEO\nDEMO operation and header status are deliberately incomplete, not proof of a component shortage or capacity problem.\nSimulated outcome: DEMO facilitator provides a fictional header-status observation later; no production order is released.\nLimits: DEMO: this is a deferred informational script, not proof of PP state retention or partial-release rules. No PP-specific diagnosis tree exists. Refuse detailed status/release claims without reviewed same-scope evidence.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S06-6B",
+        "module": "PP",
+        "title": "DEMO production-order status discussion",
+        "document_number": "DEMO_PROD_006",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO production-order status discussion\nDEMO production conversation only; PP-SFC app/header-operation claims remain unverified; do not substitute PEO\nDEMO operation and header status are deliberately incomplete, not proof of a component shortage or capacity problem.\nSimulated outcome: DEMO facilitator provides a fictional header-status observation later; no production order is released.\nLimits: DEMO: this is a deferred informational script, not proof of PP state retention or partial-release rules. No PP-specific diagnosis tree exists. Refuse detailed status/release claims without reviewed same-scope evidence."
+      }
+    },
+    {
+      "id": "DEMO-S07-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO inspection-lot information gap\nDEMO S/4HANA on-premise 2025 FPS02 quality-inspection concept only\nDEMO missing data are not acceptance criteria and do not establish product quality or stock availability.\nSimulated outcome: DEMO facilitator marks an information-request task pending; no usage decision or stock release is made.\nLimits: DEMO: a narrow information explanation only, not structured QM diagnosis. Distinguish an inspection request, reported results and unavailable usage decision. No acceptance, rejection, lot-creation rule or stock release may be inferred.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S07-6B",
+        "module": "QM",
+        "title": "DEMO inspection-lot information gap",
+        "document_number": "DEMO_LOT_007",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [
+          "SAP6B-QM-LOT-001"
+        ],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO inspection-lot information gap\nDEMO S/4HANA on-premise 2025 FPS02 quality-inspection concept only\nDEMO missing data are not acceptance criteria and do not establish product quality or stock availability.\nSimulated outcome: DEMO facilitator marks an information-request task pending; no usage decision or stock release is made.\nLimits: DEMO: a narrow information explanation only, not structured QM diagnosis. Distinguish an inspection request, reported results and unavailable usage decision. No acceptance, rejection, lot-creation rule or stock release may be inferred."
+      }
+    },
+    {
+      "id": "DEMO-S08-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO warehouse document ambiguity\nDEMO classic WM concept; exact ERP scope unverified; no EWM equivalence\nDEMO storage bin is DEMO_BIN_A. No physical move or stock quantity is observed.\nSimulated outcome: DEMO facilitator supplies a fictional document relationship; no transfer is created or confirmed.\nLimits: DEMO: preserve the fictional framing; no reviewed classic WM evidence is proposed in this revision. Refuse a detailed transfer-order/EWM comparison or movement procedure.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S08-6B",
+        "module": "WM",
+        "title": "DEMO warehouse document ambiguity",
+        "document_number": "DEMO_TO_008",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO warehouse document ambiguity\nDEMO classic WM concept; exact ERP scope unverified; no EWM equivalence\nDEMO storage bin is DEMO_BIN_A. No physical move or stock quantity is observed.\nSimulated outcome: DEMO facilitator supplies a fictional document relationship; no transfer is created or confirmed.\nLimits: DEMO: preserve the fictional framing; no reviewed classic WM evidence is proposed in this revision. Refuse a detailed transfer-order/EWM comparison or movement procedure."
+      }
+    },
+    {
+      "id": "DEMO-S09-6B",
+      "content": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO accounting-input discussion\nDEMO accounting worksheet only; no certified FPS01/FPS02 FI header source\nDEMO_CC is a clearly fictional identifier and is not required to satisfy real SAP field-length constraints.\nSimulated outcome: DEMO facilitator fills a worksheet only; no accounting document or payment is posted.\nLimits: DEMO: worksheet-only informational script, not evidence of canonical FI diagnosis. DEMO_CC is an invented identifier; factual header requirements need additional reviewed documentation. No posting or reconciliation occurs.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/scenarios.json",
+        "document_type": "synthetic_scenario",
+        "identifier": "DEMO-S09-6B",
+        "module": "FI",
+        "title": "DEMO accounting-input discussion",
+        "document_number": "DEMO_FI_009",
+        "data_classification": "DEMO / SIMULATED",
+        "candidate_references": [],
+        "text": "DEMO / SIMULATED: fictional facilitator script; no live SAP operation.\nDEMO accounting-input discussion\nDEMO accounting worksheet only; no certified FPS01/FPS02 FI header source\nDEMO_CC is a clearly fictional identifier and is not required to satisfy real SAP field-length constraints.\nSimulated outcome: DEMO facilitator fills a worksheet only; no accounting document or payment is posted.\nLimits: DEMO: worksheet-only informational script, not evidence of canonical FI diagnosis. DEMO_CC is an invented identifier; factual header requirements need additional reviewed documentation. No posting or reconciliation occurs."
+      }
+    }
+  ]
+}

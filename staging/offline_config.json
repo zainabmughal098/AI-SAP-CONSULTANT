@@ -1,0 +1,17 @@
+{
+  "mode": "offline-only",
+  "target": {"project": null, "index": null, "host": null, "namespace": null},
+  "target_review_reference": null,
+  "staging_allowlist": [],
+  "production_inventory": {"reviewed": false, "reference": null, "projects": [], "indexes": [], "hosts": []},
+  "embedding": {
+    "expected_model": "all-MiniLM-L6-v2",
+    "expected_dimension": 384,
+    "proposed_metric": "cosine",
+    "query": {"model": "all-MiniLM-L6-v2", "dimension": 384, "revision": null, "pooling": null, "normalize": null, "tokenizer_revision": null, "max_tokens": null, "preprocessing": null},
+    "document": {"model": "all-MiniLM-L6-v2", "dimension": 384, "revision": null, "pooling": null, "normalize": null, "tokenizer_revision": null, "max_tokens": null, "preprocessing": null},
+    "verification_reference": null,
+    "index_observation": {"dimension": null, "metric": null, "reference": null, "target": null},
+    "token_counts": {}
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "Legacy files preserved; no records approved",
+  "files": {
+    "data/business_processes.csv": {
+      "sha256": "ee4a8f9ebd3afd2aa6fe6c98bb1a96bcdb596a6709837aaedb27f1a9f027b226",
+      "rows": 5,
+      "disposition": "preserve; exclude from demo approval"
+    },
+    "data/common_errors.csv": {
+      "sha256": "43cb973d6157404a8df6149da161a9362c35880e6f7974248613ae883e269405",
+      "rows": 1000,
+      "disposition": "preserve; exclude from demo approval",
+      "largest_repeated_action_tuple": 995
+    },
+    "data/issue_resolution.csv": {
+      "sha256": "eb84c72bff1a8c7d8fab52e2290257b7105c752e8b2ad0b630b7d2bfc1a468c5",
+      "rows": 1000,
+      "disposition": "preserve; exclude from demo approval",
+      "largest_repeated_action_tuple": 995
+    },
+    "data/materials.csv": {
+      "sha256": "3f47c654213cdcce8a94ca21d057f86741da6f0d658265d3d1ebaf3cc3ebced9",
+      "rows": 60,
+      "disposition": "preserve; exclude from demo approval"
+    },
+    "data/modules.csv": {
+      "sha256": "d1b219749b32fc89d65d1a8c2cfdfb652340b493926fdcf730f9afdde6449122",
+      "rows": 6,
+      "disposition": "preserve; exclude from demo approval"
+    },
+    "data/sap_glossary.csv": {
+      "sha256": "6dab724b07c8962cbce32419eeb06504a2d30dbc49b8cc4e865de932483d63f9",
+      "rows": 8,
+      "disposition": "preserve; exclude from demo approval"
+    },
+    "data/tcodes.csv": {
+      "sha256": "77dee97725b3c4e970cec3dc0257af15cccae08cf8d99bcc1a324fb257c53109",
+      "rows": 1000,
+      "disposition": "preserve; exclude from demo approval",
+      "unique_payloads_without_transaction_code": 40
+    }
+  }
+}

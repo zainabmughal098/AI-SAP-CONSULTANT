@@ -1,0 +1,23 @@
+{
+  "description": "Unchanged Stage 5 drafts, original CSVs, runtime registry and Stage 5 reports at Stage 6B review checkpoint",
+  "sha256": {
+    "demo_corpus/candidates.json": "2cc712fb5ccbac52d225e4c2fad372fac1393ea07d7c3cc3fbfa3a687782c809",
+    "demo_corpus/evaluation_mapping.json": "7e9f34f2e1af9c537cdb912cbb3e0f90aeed51e836aa6c3679df22d322ef061a",
+    "demo_corpus/legacy_inventory.json": "c5f3bdd10e804242430b4ece303213fe06966cfd9cf9dafc4f44cd6609e15e4e",
+    "demo_corpus/prepared_records.json": "25e9e0ff10b17478c162d8aa20c6e76e2b6ae27095c6fbfaf79122c51c61e847",
+    "demo_corpus/review_manifest.json": "73b43f4db136026840727e80682ffdf21bcf285956ada96d807c31b4d5a63980",
+    "demo_corpus/scenarios.json": "f68aa11116a7c2ae67fe2715e125cf49e08fd81279c7acca08dd37c6d281f338",
+    "rag/approved_sources.json": "87cb0dabd8cc400b99b391c617fbf6da91bf9b14b17aa556a096aecdeeeb97b3",
+    "data/business_processes.csv": "ee4a8f9ebd3afd2aa6fe6c98bb1a96bcdb596a6709837aaedb27f1a9f027b226",
+    "data/common_errors.csv": "43cb973d6157404a8df6149da161a9362c35880e6f7974248613ae883e269405",
+    "data/issue_resolution.csv": "eb84c72bff1a8c7d8fab52e2290257b7105c752e8b2ad0b630b7d2bfc1a468c5",
+    "data/materials.csv": "3f47c654213cdcce8a94ca21d057f86741da6f0d658265d3d1ebaf3cc3ebced9",
+    "data/modules.csv": "d1b219749b32fc89d65d1a8c2cfdfb652340b493926fdcf730f9afdde6449122",
+    "data/sap_glossary.csv": "6dab724b07c8962cbce32419eeb06504a2d30dbc49b8cc4e865de932483d63f9",
+    "data/tcodes.csv": "77dee97725b3c4e970cec3dc0257af15cccae08cf8d99bcc1a324fb257c53109",
+    "DEMO_CORPUS_PLAN.md": "4ca422fb49b37878297e6e3e50f308ec76c44eacae4d50f56c8b6678dd8ec49c",
+    "SAP_SOURCE_REVIEW.md": "39cf428bc75c5235d6d12344d97d39c123b2e8b46b225b4ac7d9dca16c4ae87c",
+    "SYNTHETIC_SCENARIOS.md": "2b90370d210899eb1cb78140822c4dad41fc26ee2d7a67df488248f205dcd623",
+    "DEMO_EVALUATION_PLAN.md": "aa01ebe50dd81a12a64531ab08a116af68ca8bd0160b27a2e32c0eb04d1e03ec"
+  }
+}

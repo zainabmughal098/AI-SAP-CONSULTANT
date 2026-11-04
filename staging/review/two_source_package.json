@@ -1,0 +1,94 @@
+{
+  "status": "PENDING HUMAN REVIEW; NO APPROVAL OR OPERATION AUTHORIZED",
+  "records": [
+    {
+      "id": "SAP6B-MM-INV-001",
+      "content": "Topic: Posted invoice and payment block are different observations\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: Posted supplier invoices can remain blocked for payment. Posting and payment blocking are distinct reported states.\nReview boundaries: Review boundary: ask whether posting failed or payment is blocked; this is a proposed clarification, not a complete SAP checklist.\nLimitations: No MIRO identifier, tolerance amount, blocking cause or unblocking procedure established. No universal workflow configuration implied.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/candidates.json",
+        "document_type": "public_sap_summary",
+        "module": "MM",
+        "identifier": "SAP6B-MM-INV-001",
+        "document_number": "SAP6B-MM-INV-001",
+        "title": "Posted invoice and payment block are different observations",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "source_title": "SAP S/4HANA 2025 Feature Scope Description",
+        "source_sections": [
+          "Document History, printed p.7",
+          "2.11.5.1 Invoice Processing, Approving supplier invoices, printed p.169"
+        ],
+        "transaction_codes": [],
+        "app_ids": [],
+        "research_date": "2026-11-03",
+        "evidence_access": "readable_official_pdf_body; p.169 screenshot; version history p.7",
+        "text": "Topic: Posted invoice and payment block are different observations\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: Posted supplier invoices can remain blocked for payment. Posting and payment blocking are distinct reported states.\nReview boundaries: Review boundary: ask whether posting failed or payment is blocked; this is a proposed clarification, not a complete SAP checklist.\nLimitations: No MIRO identifier, tolerance amount, blocking cause or unblocking procedure established. No universal workflow configuration implied.",
+        "page": "169"
+      }
+    },
+    {
+      "id": "SAP6B-QM-LOT-001",
+      "content": "Topic: Inspection lot: request, results and usage decision\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: An inspection lot represents an inspection request; results are recorded and completion uses a usage decision.\nReview boundaries: Review boundary: conceptual only; missing results do not establish acceptance or rejection.\nLimitations: No inspection-type activation, automatic creation, stock release, quality thresholds or decision transaction verified.",
+      "metadata": {
+        "source_file": "demo_corpus/stage6b/candidates.json",
+        "document_type": "public_sap_summary",
+        "module": "QM",
+        "identifier": "SAP6B-QM-LOT-001",
+        "document_number": "SAP6B-QM-LOT-001",
+        "title": "Inspection lot: request, results and usage decision",
+        "product": "SAP S/4HANA on-premise",
+        "version": "2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "source_title": "SAP S/4HANA 2025 Feature Scope Description",
+        "source_sections": [
+          "Document History, printed p.7",
+          "2.7.5.2 Quality Inspection, printed p.95"
+        ],
+        "transaction_codes": [],
+        "app_ids": [],
+        "research_date": "2026-11-03",
+        "evidence_access": "readable_official_pdf_body; p.95 screenshot timed out twice; table text readable; version history p.7",
+        "text": "Topic: Inspection lot: request, results and usage decision\nScope (pending human review): SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)\nSummary: An inspection lot represents an inspection request; results are recorded and completion uses a usage decision.\nReview boundaries: Review boundary: conceptual only; missing results do not establish acceptance or rejection.\nLimitations: No inspection-type activation, automatic creation, stock release, quality thresholds or decision transaction verified.",
+        "page": "95"
+      }
+    }
+  ],
+  "manifest": {
+    "records": {
+      "724f4b9e818265aeefa6dbaf9257024252774fc14ed0c09bfb1b5b583a18ed26": {
+        "reviewed": false,
+        "kind": "public_sap",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "original_summary": true,
+        "usage_review": "",
+        "scope": "SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "human_reviewer": null,
+        "human_review_date": null,
+        "review_status": "pending human factual/applicability/usage approval; machine verification is not approval",
+        "candidate_id": "SAP6B-MM-INV-001",
+        "citation_handle": "SRC-724f4b9e818265aeefa6",
+        "parent_draft_hashes": [
+          "08dabf83cbd8ff74a7c39a66fd17bdac5334917760c5a96cf00270b453cf8db4",
+          "1c8f42e582268b2b9b8db92751df83185574a7b18892bfcd829bbf3d832791e8"
+        ]
+      },
+      "880f5d2a2c12fdb77d896008a488c33915686fdcf8cc334d3b3a5a7a88a39561": {
+        "reviewed": false,
+        "kind": "public_sap",
+        "source_url": "https://help.sap.com/doc/e2048712f0ab45e791e6d15ba5e20c68",
+        "original_summary": true,
+        "usage_review": "",
+        "scope": "SAP S/4HANA on-premise | 2025 FPS02; Feature Scope Description v3.0 (2026-10-07)",
+        "human_reviewer": null,
+        "human_review_date": null,
+        "review_status": "pending human factual/applicability/usage approval; machine verification is not approval",
+        "candidate_id": "SAP6B-QM-LOT-001",
+        "citation_handle": "SRC-880f5d2a2c12fdb77d89",
+        "parent_draft_hashes": [
+          "f84bcba7442e43f03d2a465367c2723af7abf243574070d814622656a915fc34"
+        ]
+      }
+    }
+  }
+}
