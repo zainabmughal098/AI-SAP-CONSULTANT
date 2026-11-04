@@ -1,0 +1,6 @@
+{
+  "file": "app.py",
+  "previous_sha256": "d7481b5998f960ba4d4486d0d9dd9db51477698e272e70eb41e287a1c9ad1ba6",
+  "current_sha256": "57edbfc2c292f6d4235e58def09eb83d101762836d54e94411db86973c7b5a02",
+  "scope": "Explicitly authorized SAP_APP_MODE=demo entrypoint selection before production bootstrap; default RAG branch and source approval policy unchanged."
+}

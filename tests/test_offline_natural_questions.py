@@ -168,9 +168,16 @@ def test_production_files_and_registry_are_byte_identical():
     )
     assert revision["file"] == "web/js/app.js"
     assert revision["previous_sha256"] == snapshot["web/js/app.js"]
+    entrypoint = json.loads(
+        (root / "offline_demo/entrypoint_revision.json").read_text()
+    )
+    assert entrypoint["file"] == "app.py"
+    assert entrypoint["previous_sha256"] == snapshot["app.py"]
     for filename, expected in snapshot.items():
         if filename == revision["file"]:
             expected = revision["current_sha256"]
+        if filename == entrypoint["file"]:
+            expected = entrypoint["current_sha256"]
         assert hashlib.sha256((root / filename).read_bytes()).hexdigest() == expected, (
             filename
         )

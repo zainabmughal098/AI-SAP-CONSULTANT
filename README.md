@@ -45,6 +45,61 @@ treat it as fictional by assumption.
 The remaining sections describe the provider-backed pipeline; starting that
 pipeline or ingestion is separate from the offline commands above.
 
+## Explicit Vercel demo mode
+
+For the academic demo deployment, configure this environment variable in the
+Vercel project for the intended environment (Production, and Preview if used):
+
+```text
+SAP_APP_MODE=demo
+```
+
+The root `app.py` exports the existing offline FastAPI factory before importing
+`api.main` or loading provider settings. No Pinecone, Groq or embedding credentials
+are required or used in demo mode. Keep the persistent simulation indicator;
+code descriptions retain their explicit SAP release scopes and citations.
+This selects a finite deterministic demonstration, not live RAG or SAP access.
+
+Leaving the variable unset/blank, or setting `SAP_APP_MODE=rag`, retains the
+existing provider-backed bootstrap and its required settings/approval checks.
+Other values fail startup clearly. The variable is read at process startup;
+changing it requires a fresh deployment/restart, not a hot mode switch. A local
+`.env` entry alone does not select this mode: set it in the process environment.
+
+Local check of the exact deployment entrypoint (PowerShell):
+
+```powershell
+$env:SAP_APP_MODE = 'demo'
+python -m uvicorn app:app --host 127.0.0.1 --port 8767
+```
+
+Deployment checklist, **only after separately approving a push/deployment**:
+
+1. Include root `app.py`, `offline_demo/` source files and `presentation.js`,
+   `api/routes.py`, the imported `consultant/` and `rag/` modules,
+   `consultant/diagnosis_trees.json`, `web/` assets and `requirements.txt`.
+   Fictional fixtures and scoped references live in Python source. No legacy
+   CSVs, preparation packages, saved test results or provider keys are needed
+   by this demo runtime. This does not remove already tracked data or history.
+2. Confirm the Vercel project uses the repository root and the root FastAPI
+   `app.py` entrypoint. Retain runtime access to frontend files and the custom
+   `/static/js/app.js` route; do not override it with a static-only rewrite.
+3. Set `SAP_APP_MODE` to `demo` for the intended deployment environment and
+   verify the new deployment's commit. Do not change provider credentials.
+4. Check the persistent simulation label and `X-SAP-Mode: TEST_ONLY-OFFLINE`
+   on function responses. `/health` remains liveness, not provider readiness.
+5. Test both ME21N lookup/comparison, an unknown code, receipt/invoice
+   clarification, corrections, source titles, New Chat/history/reset/delete,
+   and `/chat/stream` completion. Confirm no outgoing provider requests in logs.
+
+Local ASGI and package tests cannot certify the live Vercel build/router.
+Conversation memory, diagnosis and deletion tombstones remain process-local:
+warm requests in one instance retain context; cold starts or another instance
+can lose it even though browser history remains. Start a new case when context
+is lost. Durable multi-instance sessions were not added. The process-level
+offline network guard is not an OS firewall. No paid inference is used; hosting
+usage remains subject to the existing Vercel plan.
+
 This repository implements a grounded SAP consultant using a RAG pipeline:
 
 - Task 1: ingestion and Pinecone indexing
