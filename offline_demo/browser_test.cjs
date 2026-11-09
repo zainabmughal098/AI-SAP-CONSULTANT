@@ -80,6 +80,61 @@ async function main() {
     assert.match(await evaluate('document.title'), /TEST_ONLY/);
     assert.equal(await evaluate("document.querySelectorAll('script[src]').length"), 2);
   });
+  await check('only bottom composer answers clarifications, including after refresh', async () => {
+    await fresh(); let m = await send('What should I do if a goods receipt fails?');
+    assert.equal(m.phase, 'clarifying');
+    const sid = await evaluate('state.sessionId');
+    const checkComposer = async () => {
+      assert.equal(await evaluate("document.querySelectorAll('textarea, input:not([type=hidden])').length"), 1);
+      assert.equal(await evaluate("document.querySelectorAll('.inline-reply, .inline-reply-send').length"), 0);
+      assert.equal(await evaluate("document.activeElement.id"), 'query-input');
+      assert.equal(await evaluate("document.querySelectorAll('#composer-form').length"), 1);
+    };
+    await checkComposer();
+    m = await send('not sure'); assert.equal(m.phase, 'clarifying');
+    assert.equal(await evaluate('state.sessionId'), sid);
+    await checkComposer();
+    await command('Page.reload');
+    await waitFor("typeof sendMessage === 'function' && !state.isStreaming");
+    await checkComposer();
+    m = await send('no error message'); assert.equal(m.phase, 'preliminary');
+    assert.equal(await evaluate('state.sessionId'), sid);
+    assert.ok(m.content.includes('Inventory / SAP MM'));
+    await checkComposer();
+  });
+  for (const [query, area] of [
+    ['My purchase order is not releasing.', 'Procurement / SAP MM'],
+    ['My supplier invoice is not processing.', 'Finance / SAP FI'],
+    ['What should I do if a goods receipt fails?', 'Inventory / SAP MM'],
+    ['My sales order is not visible.', 'Sales / SAP SD'],
+  ]) {
+    await check('simulated support-area display: '+area, async () => {
+      await fresh(); const m = await send(query);
+      assert.ok(m.content.includes('Suggested support area:** '+area));
+      const visible = await evaluate("[...document.querySelectorAll('.assistant-content')].at(-1).textContent");
+      assert.ok(visible.includes('Suggested support area: '+area));
+      assert.ok(visible.includes('Status: SIMULATED — No ticket created or forwarded.'));
+      assert.ok(visible.includes('Actual department assignment requires organizational verification.'));
+      assert.equal(m.sources[0].source_kind, 'synthetic');
+    });
+  }
+  await check('support suggestion survives unknowns but not side questions or topic switches', async () => {
+    await fresh(); await send('What should I do if a goods receipt fails?');
+    const sid = await evaluate('state.sessionId');
+    let m = await send('not sure'); assert.ok(m.content.includes('Inventory / SAP MM'));
+    m = await send('What are SAP T-codes?'); assert.doesNotMatch(m.content, /Suggested support area:/);
+    assert.equal(await evaluate('state.sessionId'), sid);
+    m = await send('no error message'); assert.ok(m.content.includes('Inventory / SAP MM'));
+    m = await send('New question: My sales order is not visible.');
+    assert.ok(m.content.includes('Sales / SAP SD')); assert.doesNotMatch(m.content, /Inventory \/ SAP MM/);
+    m = await send('Explain VA01 instead'); assert.doesNotMatch(m.content, /Suggested support area:/);
+  });
+  await check('ambiguous and mixed incidents have no support suggestion', async () => {
+    for (const query of ['My order is blocked.', 'My invoice and sales order both fail.']) {
+      await fresh(); const m = await send(query);
+      assert.doesNotMatch(m.content, /Suggested support area:/);
+    }
+  });
   for (const [code, expected] of [
     ['ME21N','create a purchase order'], ['ME22N','change an existing purchase order'],
     ['ME23N','display a purchase order'], ['MIGO','Goods Movement'],

@@ -11,6 +11,7 @@ from consultant.diagnosis_manager import DiagnosisManager, TurnResult
 from consultant.intent_classifier import ISSUE_DIAGNOSIS, IntentClassifier
 from consultant.message_parser import is_unknown
 from offline_demo.fixtures import records
+from offline_demo.support_areas import recommendation
 from offline_demo.tcode_references import (
     basics_answer,
     is_basics_question,
@@ -330,6 +331,7 @@ def select_response(engine, query, payload, filters=None):
                     )
                 else:
                     answer = f"{reported}{SCRIPTS[topic]} [{handle}]"
+            answer += recommendation(state, turn, topic)
             result.update(
                 answer=answer,
                 sources=[

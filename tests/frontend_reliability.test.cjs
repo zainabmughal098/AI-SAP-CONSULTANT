@@ -38,7 +38,7 @@ function setup(fetch) {
         if (!elements.has(id)) elements.set(id, new Element());
         return elements.get(id);
       },
-      createElement: () => new Element(),
+      createElement: (tag) => Object.assign(new Element(), {tagName: tag.toUpperCase()}),
     },
     sessionStorage: {setItem:(k,v)=>selected.set(k,v), getItem:k=>selected.get(k) ?? null},
     localStorage: {
@@ -53,10 +53,10 @@ function setup(fetch) {
     state.chats = [{id:'demo', title:'New chat', sessionId:null, messages:[]}];
     state.activeChatId = 'demo';
     createStreamingAssistantMessage = () => node;
+    const renderMessageForTest = createMessageElement;
     createMessageElement = () => new Element();
     createActionBar = () => new Element();
     createSourcesPanel = () => new Element();
-    createInlineReplyForm = () => new Element();
     scrollToBottom = () => {};
     autoResizeInput = () => {};
     renderRecent = () => {};
@@ -82,6 +82,40 @@ function response(events, options = {}) {
     }),
   };
 }
+
+test("main composer submits clarification answers with the same session", async () => {
+  const calls = [];
+  const app = setup(async (url, options) => {
+    calls.push({url, body: JSON.parse(options.body)});
+    const answer = calls.length === 1 ? "Which screen were you using?" : "Do you remember a message?";
+    return response([
+      {type:"session", session_id:"TEST_ONLY-clarification"},
+      {type:"done", answer, session_id:"TEST_ONLY-clarification", complete:true, phase:"clarifying"},
+    ]);
+  });
+  app.elements.get("query-input").value = "My goods receipt fails";
+  await app.run("handleSubmit({preventDefault(){}})");
+  assert.equal(app.messages().at(-1).phase, "clarifying");
+  assert.equal(app.elements.get("query-input").disabled, false);
+  assert.equal(app.node.wrapper.children.some(n => ["INPUT", "FORM", "TEXTAREA"].includes(n.tagName)), false);
+  app.elements.get("query-input").value = "not sure";
+  await app.run("handleSubmit({preventDefault(){}})");
+  assert.equal(calls[1].url, "/chat/stream");
+  assert.equal(calls[1].body.query, "not sure");
+  assert.equal(calls[1].body.session_id, "TEST_ONLY-clarification");
+  assert.equal(app.messages().at(-2).content, "not sure");
+  assert.equal(app.messages().at(-1).content, "Do you remember a message?");
+});
+
+test("restored clarifying messages render questions without inline inputs or forms", () => {
+  const app = setup(async () => response([]));
+  const message = app.run("renderMessageForTest({role:'assistant',content:'Which screen were you using?',phase:'clarifying'})");
+  const tags = [];
+  function walk(node) { tags.push(node.tagName); node.children.forEach(walk); }
+  walk(message);
+  assert.equal(tags.some(tag => ["INPUT", "TEXTAREA", "FORM"].includes(tag)), false);
+  assert.match(message.children[0].innerHTML, /Which screen were you using/);
+});
 
 test("blocked browser storage does not break sending or control recovery", async () => {
   const app = setup(async () => response([

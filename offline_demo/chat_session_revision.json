@@ -1,6 +1,7 @@
 {
   "file": "web/js/app.js",
   "previous_sha256": "11f5bb9fca22c2660e92016519ac0f7a045cf33c6dabd3c85c3ea6c274f80e11",
-  "current_sha256": "b7a84a48d2fd974f5b20b68e5831977dc04fed3b902c53462a4ad6882b01cb69",
-  "scope": "Authorized New Chat, sidebar history, deletion and stream ownership fix; no production configuration or source approval changes."
+  "current_sha256": "a5cf34c70758736db558367605cc1e252e876b2532953ff3129a171d5db3cafa",
+  "scope": "Authorized single bottom composer for all messages, including clarification answers; preserves prior session/history fixes. Backend, providers, deployment settings and source approvals unchanged.",
+  "prior_composer_sha256": "b7a84a48d2fd974f5b20b68e5831977dc04fed3b902c53462a4ad6882b01cb69"
 }

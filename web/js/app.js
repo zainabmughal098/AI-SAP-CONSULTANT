@@ -224,22 +224,13 @@ function renderConversation() {
 
   if (!chat) return;
 
-  chat.messages.forEach((message, index) => {
-    el.messagesInner.appendChild(createMessageElement(message, index, chat.messages));
+  chat.messages.forEach((message) => {
+    el.messagesInner.appendChild(createMessageElement(message));
   });
   scrollToBottom();
 }
 
-function isPendingClarification(message, index, messages) {
-  if (message.role !== "assistant" || message.phase !== "clarifying") return false;
-  // Only the latest unanswered clarifying turn shows an inline reply box
-  const later = messages.slice(index + 1);
-  if (later.some((m) => m.role === "user")) return false;
-  const laterClarify = later.some((m) => m.role === "assistant" && m.phase === "clarifying");
-  return !laterClarify;
-}
-
-function createMessageElement(message, index = 0, messages = []) {
+function createMessageElement(message) {
   const wrapper = document.createElement("article");
   wrapper.className = `message ${message.role}`;
 
@@ -260,55 +251,8 @@ function createMessageElement(message, index = 0, messages = []) {
     wrapper.appendChild(createSourcesPanel(message.sources));
   }
 
-  if (isPendingClarification(message, index, messages)) {
-    wrapper.appendChild(createInlineReplyForm());
-  }
-
   wrapper.appendChild(createActionBar(message.content || ""));
   return wrapper;
-}
-
-function createInlineReplyForm() {
-  const form = document.createElement("form");
-  form.className = "inline-reply";
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const input = form.querySelector("input");
-    const value = input?.value.trim();
-    if (!value || state.isStreaming) return;
-    form.querySelector("button")?.setAttribute("disabled", "true");
-    input.disabled = true;
-    sendMessage(value);
-  });
-
-  const label = document.createElement("label");
-  label.className = "inline-reply-label";
-  label.textContent = "Your answer";
-
-  const row = document.createElement("div");
-  row.className = "inline-reply-row";
-
-  const input = document.createElement("input");
-  input.type = "text";
-  input.className = "inline-reply-input";
-  input.placeholder = "Type your answer here…";
-  input.autocomplete = "off";
-  input.setAttribute("aria-label", "Answer clarifying question");
-
-  const button = document.createElement("button");
-  button.type = "submit";
-  button.className = "inline-reply-send";
-  button.setAttribute("aria-label", "Send answer");
-  button.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.4 20.6 21 12 3.4 3.4l2.8 7.2L17 12l-10.8 1.4-2.8 7.2z"/></svg>`;
-
-  row.appendChild(input);
-  row.appendChild(button);
-  form.appendChild(label);
-  form.appendChild(row);
-
-  // Focus after paint so the clarifying question feels interactive in-place
-  requestAnimationFrame(() => input.focus());
-  return form;
 }
 
 function createSourcesPanel(sources) {
@@ -376,9 +320,6 @@ function setStreamingState(isStreaming) {
   el.newChatBtn.disabled = state.isResetting;
   el.composerNew.disabled = state.isResetting;
   el.clearChatBtn.disabled = isStreaming;
-  el.messagesInner.querySelectorAll(".inline-reply-input, .inline-reply-send").forEach((node) => {
-    node.disabled = isStreaming;
-  });
   renderRecent();
 }
 
@@ -517,10 +458,6 @@ async function streamChat(query, assistantNode, request = null) {
     intent,
   };
 
-  if (phase === "clarifying") {
-    assistantNode.wrapper.appendChild(createInlineReplyForm());
-  }
-
   assistantNode.wrapper.appendChild(createActionBar(assistantText));
 
   chat.messages.push(assistantMessage);
@@ -538,9 +475,6 @@ async function sendMessage(query) {
   el.welcome.hidden = true;
   el.messages.hidden = false;
   el.chatStage.classList.add("has-messages");
-
-  // Drop any open inline reply boxes before appending the next turn
-  el.messagesInner.querySelectorAll(".inline-reply").forEach((node) => node.remove());
 
   chat.messages.push({ role: "user", content: query });
   if (chat.title === "New chat") chat.title = query.slice(0, 42);
@@ -575,9 +509,7 @@ async function sendMessage(query) {
       state.activeRequest = null;
       setStreamingState(false);
       state.abortController = null;
-      const inlineInput = el.messagesInner.querySelector(".inline-reply-input");
-      if (inlineInput) inlineInput.focus();
-      else el.input.focus();
+      el.input.focus();
     }
   }
 }
